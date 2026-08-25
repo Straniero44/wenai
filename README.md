@@ -55,3 +55,7 @@ wenai/
 ---
 
 *愿你和 TA 谈一场不散场的恋爱。*
+
+## 致谢 / Acknowledgements
+
+本项目获 [LINUX DO](https://linux.do) 开源推广支持

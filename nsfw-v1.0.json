@@ -1,0 +1,254 @@
+{
+  "4": {
+    "inputs": {
+      "ckpt_name": "ponyDiffusionV6XL_v6StartWithThisOne.safetensors"
+    },
+    "class_type": "CheckpointLoaderSimple",
+    "_meta": {
+      "title": "Checkpoint加载器（简易）"
+    }
+  },
+  "5": {
+    "inputs": {
+      "width": 1280,
+      "height": 1024,
+      "batch_size": 1
+    },
+    "class_type": "EmptyLatentImage",
+    "_meta": {
+      "title": "空Latent图像"
+    }
+  },
+  "6": {
+    "inputs": {
+      "text": [
+        "74",
+        0
+      ],
+      "clip": [
+        "27",
+        1
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP文本编码"
+    }
+  },
+  "7": {
+    "inputs": {
+      "text": "3d, realistic, photorealistic, photo, photograph, cgi, unreal engine, octane render, 3d render, hyperrealistic, realism, real skin, detailed skin texture, pores, skin imperfections, real face, monochrome, grayscale, black and white, bad anatomy, bad hands, missing fingers, extra digits, extra limbs, bad proportions, deformed, disfigured, malformed, mutated, mutation, extra arms, extra legs, fused fingers, too many fingers, cloned face, long neck, mutilated, robotic, cyborg, mechanical parts, text, watermark, signature, logo, cropped, out of frame, low quality, worst quality, jpeg artifacts, blurry, error, duplicate, morbid, ugly, blurry eyes, asymmetrical eyes, poorly drawn face, poorly drawn hands, fusion, oversaturated\n\n\n",
+      "clip": [
+        "27",
+        1
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP文本编码"
+    }
+  },
+  "8": {
+    "inputs": {
+      "samples": [
+        "92",
+        0
+      ],
+      "vae": [
+        "87",
+        0
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "VAE解码"
+    }
+  },
+  "15": {
+    "inputs": {
+      "filename_prefix": "nsfw/nsfw",
+      "images": [
+        "8",
+        0
+      ]
+    },
+    "class_type": "SaveImage",
+    "_meta": {
+      "title": "保存图像"
+    }
+  },
+  "24": {
+    "inputs": {
+      "lora_name": "[Artist] Asanagi_Geekpower [PDXL].safetensors",
+      "strength_model": 1,
+      "strength_clip": 1,
+      "model": [
+        "4",
+        0
+      ],
+      "clip": [
+        "4",
+        1
+      ]
+    },
+    "class_type": "LoraLoader",
+    "_meta": {
+      "title": "加载LoRA"
+    }
+  },
+  "27": {
+    "inputs": {
+      "lora_name": "cinematic expression style pony v1.1.safetensors",
+      "strength_model": 0.6,
+      "strength_clip": 0.6,
+      "model": [
+        "24",
+        0
+      ],
+      "clip": [
+        "24",
+        1
+      ]
+    },
+    "class_type": "LoraLoader",
+    "_meta": {
+      "title": "加载LoRA"
+    }
+  },
+  "74": {
+    "inputs": {
+      "string_a": [
+        "80",
+        0
+      ],
+      "string_b": "",
+      "delimiter": ", "
+    },
+    "class_type": "StringConcatenate",
+    "_meta": {
+      "title": "连接"
+    }
+  },
+  "80": {
+    "inputs": {
+      "value": "zPDXL3, Asanagi"
+    },
+    "class_type": "PrimitiveString",
+    "_meta": {
+      "title": "字符串"
+    }
+  },
+  "87": {
+    "inputs": {
+      "vae_name": "sdxl_vae.safetensors"
+    },
+    "class_type": "VAELoader",
+    "_meta": {
+      "title": "加载VAE"
+    }
+  },
+  "89": {
+    "inputs": {
+      "pixels": [
+        "110",
+        0
+      ],
+      "vae": [
+        "87",
+        0
+      ]
+    },
+    "class_type": "VAEEncode",
+    "_meta": {
+      "title": "VAE编码"
+    }
+  },
+  "92": {
+    "inputs": {
+      "seed": 37033937280209,
+      "steps": 45,
+      "cfg": 6,
+      "sampler_name": "dpmpp_2m_sde",
+      "scheduler": "karras",
+      "denoise": 1,
+      "model": [
+        "27",
+        0
+      ],
+      "positive": [
+        "6",
+        0
+      ],
+      "negative": [
+        "7",
+        0
+      ],
+      "latent_image": [
+        "109",
+        0
+      ]
+    },
+    "class_type": "KSampler",
+    "_meta": {
+      "title": "K采样器"
+    }
+  },
+  "109": {
+    "inputs": {
+      "boolean": [
+        "125",
+        0
+      ],
+      "on_true": [
+        "89",
+        0
+      ],
+      "on_false": [
+        "5",
+        0
+      ]
+    },
+    "class_type": "easy ifElse",
+    "_meta": {
+      "title": "是否判断"
+    }
+  },
+  "110": {
+    "inputs": {
+      "image": "Hbybs.png"
+    },
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "加载图像"
+    }
+  },
+  "123": {
+    "inputs": {
+      "empty_color": "0, 0, 0",
+      "empty_threshold": 0,
+      "images": [
+        "110",
+        0
+      ]
+    },
+    "class_type": "ImageBatchFilter",
+    "_meta": {
+      "title": "Image Batch Filter"
+    }
+  },
+  "125": {
+    "inputs": {
+      "a": [
+        "123",
+        1
+      ],
+      "b": "",
+      "operation": "a == b",
+      "case_sensitive": true
+    },
+    "class_type": "easy mathString",
+    "_meta": {
+      "title": "字符串比较"
+    }
+  }
+}

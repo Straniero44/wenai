@@ -51,7 +51,7 @@
   "3": {
     "inputs": {
       "filename_prefix": "audio/voice",
-      "format": "mp3",
+      "format": "opus",
       "format.quality": "128k",
       "audio": [
         "2",

@@ -43,7 +43,7 @@
 
 ---
 
-# 语音工作流（voice-qwen.json，voice 分支）
+# 语音工作流（voice-qwen.json）
 
 适配模型：**Qwen3-TTS-12Hz-1.7B-CustomVoice**（本地部署的 Qwen3 TTS，含 instruct 情感指令控制）
 
@@ -53,7 +53,7 @@
 |---|---|---|
 | 1 | Qwen3TTSEngineNode | TTS 引擎：加载 Qwen3-TTS 模型，voice_preset=Serena，中文，**instruct 情感指令**（默认：连声浪叫、鼻音哭腔破音） |
 | 2 | UnifiedTTSTextNode | **台词输入口（text）**：含分块（400字/块）、缓存、seed |
-| 3 | SaveAudioAdvanced | 输出 mp3（128k，前缀 audio/voice） |
+| 3 | SaveAudioAdvanced | 输出 opus（128k，前缀 audio/voice） |
 | 4 | PreviewAny | 预览 |
 
 ## 使用方法
@@ -62,7 +62,7 @@
 2. 台词写入节点 **2 的 text**（对应 SKILL 语音流程中的"纯台词，<300字符"）
 3. 情感风格在节点 **1 的 instruct** 调整（如：撒娇/哭腔/喘息等自然语言描述）
 4. 语色在节点 1 的 voice_preset 切换（默认 Serena）
-5. 输出 mp3 位于 ComfyUI output/audio/voice 目录，供 Agent 以语音消息发送
+5. 输出 opus 位于 ComfyUI output/audio/voice 目录，供 Agent 以语音消息发送
 
 ## 与生图工作流的区别
 
@@ -71,7 +71,7 @@
 | 用途 | 场景配图 | 场景配音 |
 | 模型 | Pony V6 XL（SDXL） | Qwen3-TTS-12Hz-1.7B |
 | 输入 | 节点74 string_b（Danbooru标签） | 节点2 text（第一人称台词） |
-| 输出 | PNG 图片 | mp3 音频 |
+| 输出 | PNG 图片 | opus 音频 |
 
 ## 注意
 

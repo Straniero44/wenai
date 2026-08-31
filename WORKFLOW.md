@@ -1,4 +1,10 @@
-# ComfyUI Workflow 说明（nsfw-v1.0.json）
+# ComfyUI Workflow 说明
+
+本目录包含两份工作流：生图（nsfw-v1.0.json，main/voice 分支均有）与语音（voice-qwen.json，仅 voice 分支）。
+
+---
+
+# 生图工作流（nsfw-v1.0.json）
 
 适配模型：**Pony Diffusion V6 XL**（`ponyDiffusionV6XL_v6StartWithThisOne.safetensors`）
 
@@ -34,3 +40,41 @@
 - LoRA 与主模型文件名需与本机 models 目录一致，缺哪个就在对应节点替换
 - 两个 LoRA 可按喜好更换/删除（删除后需把 4→92 的 model/clip 连线直连）
 - 分辨率在节点 5 调整；Pony XL 推荐 1024~1536 区间
+
+---
+
+# 语音工作流（voice-qwen.json，voice 分支）
+
+适配模型：**Qwen3-TTS-12Hz-1.7B-CustomVoice**（本地部署的 Qwen3 TTS，含 instruct 情感指令控制）
+
+## 节点结构
+
+| 节点 | 类型 | 作用 |
+|---|---|---|
+| 1 | Qwen3TTSEngineNode | TTS 引擎：加载 Qwen3-TTS 模型，voice_preset=Serena，中文，**instruct 情感指令**（默认：连声浪叫、鼻音哭腔破音） |
+| 2 | UnifiedTTSTextNode | **台词输入口（text）**：含分块（400字/块）、缓存、seed |
+| 3 | SaveAudioAdvanced | 输出 mp3（128k，前缀 audio/voice） |
+| 4 | PreviewAny | 预览 |
+
+## 使用方法
+
+1. ComfyUI 安装 Qwen3-TTS 自定义节点，下载模型 `Qwen3-TTS-12Hz-1.7B-CustomVoice`
+2. 台词写入节点 **2 的 text**（对应 SKILL 语音流程中的"纯台词，<300字符"）
+3. 情感风格在节点 **1 的 instruct** 调整（如：撒娇/哭腔/喘息等自然语言描述）
+4. 语色在节点 1 的 voice_preset 切换（默认 Serena）
+5. 输出 mp3 位于 ComfyUI output/audio/voice 目录，供 Agent 以语音消息发送
+
+## 与生图工作流的区别
+
+| | nsfw-v1.0.json | voice-qwen.json |
+|---|---|---|
+| 用途 | 场景配图 | 场景配音 |
+| 模型 | Pony V6 XL（SDXL） | Qwen3-TTS-12Hz-1.7B |
+| 输入 | 节点74 string_b（Danbooru标签） | 节点2 text（第一人称台词） |
+| 输出 | PNG 图片 | mp3 音频 |
+
+## 注意
+
+- `runtime_mode` 默认 Shared Runtime（⚠️ 开头为正常显示，非错误）
+- 分块参数 max_chars_per_chunk=400，台词较长时自动切分并 100ms 静音衔接
+- enable_audio_cache=true：相同台词+参数命中缓存，重复生成零耗时

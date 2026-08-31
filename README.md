@@ -36,11 +36,17 @@ AI 女友的性格、语气、人设（傲娇/温柔/病娇……），请依据
 
 ### 4. 语音环境
 
-本 skill 的语音流程依赖 Agent 的 TTS 能力（voice 分支特有）：
+本 skill 的语音流程支持两种方式：
 
+**方式一：Agent 内置 TTS**（默认）
 - 每轮生图后默认生成配套语音：第一人称呻吟式台词，与旁白同风格，少于 300 字符
 - 语音用 `message` 工具 `asVoice` 发送，不依赖自动投递
-- 请确保你的 Agent 框架已配置可用的 TTS 引擎（如 OpenClaw 的 tts 工具）
+- 确保你的 Agent 框架已配置可用的 TTS 引擎（如 OpenClaw 的 tts 工具）
+
+**方式二：ComfyUI 本地 TTS**（可选）
+- 本分支提供一份 ComfyUI 语音工作流示例（`voice-qwen.json`，适配 Qwen3-TTS）
+- 台词写入节点 2，instruct 情感指令控制呻吟风格，输出 mp3 后由 Agent 发送
+- 详见 WORKFLOW.md 的语音工作流说明
 
 ## 📁 目录结构
 

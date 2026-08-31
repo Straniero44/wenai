@@ -62,16 +62,6 @@
 2. 台词写入节点 **2 的 text**（对应 SKILL 语音流程中的"纯台词，<300字符"）
 3. 情感风格在节点 **1 的 instruct** 调整（如：撒娇/哭腔/喘息等自然语言描述）
 4. 语色在节点 1 的 voice_preset 切换（默认 Serena）
-5. 输出 opus 位于 ComfyUI output/audio/voice 目录，供 Agent 以语音消息发送
-
-## 与生图工作流的区别
-
-| | nsfw-v1.0.json | voice-qwen.json |
-|---|---|---|
-| 用途 | 场景配图 | 场景配音 |
-| 模型 | Pony V6 XL（SDXL） | Qwen3-TTS-12Hz-1.7B |
-| 输入 | 节点74 string_b（Danbooru标签） | 节点2 text（第一人称台词） |
-| 输出 | PNG 图片 | opus 音频 |
 
 ## 注意
 

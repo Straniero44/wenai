@@ -1,0 +1,78 @@
+{
+  "1": {
+    "inputs": {
+      "model_variant": "local:Qwen3-TTS-12Hz-1.7B-CustomVoice",
+      "device": "auto",
+      "voice_preset": "Serena",
+      "language": "Chinese",
+      "instruct": "连声浪叫，又爽又受不住，鼻音、哭腔、破音都有",
+      "top_k": 50,
+      "top_p": 1,
+      "temperature": 0.9,
+      "repetition_penalty": 1.05,
+      "max_new_tokens": 2048,
+      "dtype": "auto",
+      "attn_implementation": "auto",
+      "x_vector_only_mode": false,
+      "use_torch_compile": false,
+      "use_cuda_graphs": false,
+      "compile_mode": "default",
+      "asr_use_forced_aligner": true,
+      "asr_translate_target_language": "Chinese",
+      "asr_translate_instruction_override": "Translate the speech from {source_language} into {target_language} text. Return only the translated text.",
+      "runtime_mode": "⚠️ Shared Runtime"
+    },
+    "class_type": "Qwen3TTSEngineNode",
+    "_meta": {
+      "title": "⚙️ Qwen3-TTS Engine"
+    }
+  },
+  "2": {
+    "inputs": {
+      "text": "等、等一下……啊——不行了……嗯唔……又顶到了……哈啊……好爽……要坏掉了……啊啊、啊……射、射进来……",
+      "narrator_voice": "none",
+      "seed": 314285638,
+      "enable_chunking": true,
+      "max_chars_per_chunk": 400,
+      "chunk_combination_method": "auto",
+      "silence_between_chunks_ms": 100,
+      "enable_audio_cache": true,
+      "batch_size": 0,
+      "TTS_engine": [
+        "1",
+        0
+      ]
+    },
+    "class_type": "UnifiedTTSTextNode",
+    "_meta": {
+      "title": "🎤 TTS Text"
+    }
+  },
+  "3": {
+    "inputs": {
+      "filename_prefix": "audio/voice",
+      "format": "mp3",
+      "format.quality": "128k",
+      "audio": [
+        "2",
+        0
+      ]
+    },
+    "class_type": "SaveAudioAdvanced",
+    "_meta": {
+      "title": "保存音频（高级）"
+    }
+  },
+  "4": {
+    "inputs": {
+      "source": [
+        "2",
+        1
+      ]
+    },
+    "class_type": "PreviewAny",
+    "_meta": {
+      "title": "预览任意"
+    }
+  }
+}

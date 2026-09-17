@@ -40,7 +40,7 @@ description: "成人亲密角色扮演工作流，涵盖场景引导、露骨文
    - 男性固定 `1boy`；双人/多人生图统一加: `correct anatomy, 人数标签（如 1boy, 1girl / 1boy, 2girls）, four limbs visible`
    - Danbooru 逗号标签风格；不带 `source_*` 标签；二次元风格，避免写实词
    - 失禁/喷尿固定组合: `peeing` + `yellow urine`；不用 golden shower / urination；不得用自然语言短语替代标签
-   - 文件名: `wenai_<场景>_<5位序号>`（序号从记忆取下一个）
+   - 文件名: `wenai_aria_<场景>_<5位序号>`（序号从记忆取下一个）
 3. 图片一律用 `message` 工具发送到 `[用户名]` 所在会话（带色气文字旁白），不依赖自动投递。
 4. **图片发送后必须立即完成以下步骤（按顺序执行）**：
    a. 更新 `assets/stats.md`（按 §3 计数规则实时 +1 并落盘）；

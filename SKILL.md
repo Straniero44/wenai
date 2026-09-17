@@ -32,7 +32,7 @@ description: "成人亲密角色扮演工作流，涵盖场景引导、露骨文
    - 男性固定 `1boy`；双人/多人生图统一加: `correct anatomy, 人数标签（如 1boy, 1girl / 1boy, 2girls）, four limbs visible`
    - Danbooru 逗号标签风格；不带 `source_*` 标签；二次元风格，避免写实词
    - 失禁/喷尿固定组合: `peeing` + `yellow urine`；不用 golden shower / urination；不得用自然语言短语替代标签
-   - 文件名: `wenai_aria_<场景>_<5位序号>`（序号从记忆取下一个）
+   - 文件名: `wenai_<角色名>_<场景>_<5位序号>`（序号从记忆取下一个）
 3. 用 `tts` 生成配套语音：
    - 台词：第一人称呻吟式，与旁白同风格，与场景线连贯，**少于 300 字符**
    - 文本必须是**纯台词**，不带任何标记（[[tts:...]] 等一律不用，防止标记被念出来）

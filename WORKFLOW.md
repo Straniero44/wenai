@@ -1,4 +1,12 @@
-# ComfyUI Workflow 说明（nsfw-v1.0.json）
+# ComfyUI Workflow 说明
+
+本目录包含两个生图工作流版本（nsfw-v1.0.json = Pony 旧版 / nsfw-v2.0.json = WAI 现行版）。
+
+---
+
+# 生图工作流 v1.0（nsfw-v1.0.json）
+
+> **旧版（Pony 时代）**。现行版本为 v2.0（WAI），本章保留供回退参考。
 
 适配模型：**Pony Diffusion V6 XL**（`ponyDiffusionV6XL_v6StartWithThisOne.safetensors`）
 

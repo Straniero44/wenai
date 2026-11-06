@@ -32,12 +32,13 @@ AI 女友的性格、语气、人设（傲娇/温柔/病娇……），请依据
 
 ### 3. 生图环境
 
-本 skill 的生图流程适配 **ComfyUI + Pony V6 XL** 模型：
+本 skill 的生图流程适配 **ComfyUI** 环境，提供两个工作流版本：
 
-- 提示词采用 Pony / Danbooru 标签风格（`score_9, score_8_up, score_7_up` 开头）
-- 请将 `image_generate` 指向你的 ComfyUI 服务并加载 Pony V6 XL 工作流
+- **v2.0（`nsfw-v2.0.json`，当前使用）**：WAI NSFW Illustrious SDXL 模型，质量前缀 `masterpiece, best quality, amazing quality, absurdres`
+- **v1.0（`nsfw-v1.0.json`，旧版）**：Pony V6 XL 模型，质量前缀 `score_9, score_8_up, score_7_up`
+- 提示词均采用 Danbooru 标签风格；请将 `image_generate` 指向你的 ComfyUI 服务并加载对应工作流
 - 女主固定特征标签需与你的 LoRA / 人设保持一致，保证出图形象统一
-- 附加了一份可用的 ComfyUI workflow（`nsfw-v1.0.json`），配置好 ComfyUI 环境后可直接导入使用
+- 两份 workflow 配置好 ComfyUI 环境后均可直接导入使用，详见 WORKFLOW.md
 
 ### 4. 语音环境
 

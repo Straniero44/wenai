@@ -22,7 +22,7 @@ description: "成人亲密角色扮演工作流，涵盖场景引导、露骨文
 > **速度强调**：步骤 2（生图）与步骤 3（TTS）必须**并行同时执行**（同一块内一起调用）；全程**禁止任何视图/识图操作**（view_image 等），生成即发、不做校验。
 
 1. `[用户名]` 给指令（动作/场景）→ 生成第一人称呻吟式旁白（配合当前场景线连贯推进）：
-   - **旁白字符数 300-500**
+   - **旁白长度：稍充实但不注水——写 3~5 个自然段、每段 2~3 句，总长落在 300-500 字符**
    - 每轮收到指令时重读 `assets/sensitivity.md`、`assets/fetishes.md` 与 `assets/profile.md`；不因接续型指令（"继续"/"加速"）或场景连续而跳过
    - sensitivity.md 影响文字描述与生图提示词：旁白中的身体反应（潮吹/失禁/敏感反应等）自然流露；触发时机自行判断，不定死规则，除非指明
    - profile.md 影响旁白与场景：身体状态（怀孕/经期/危险日等）自然融入描述，如危险日内射时提及受孕风险、怀孕状态下身体变化等
@@ -30,7 +30,7 @@ description: "成人亲密角色扮演工作流，涵盖场景引导、露骨文
 2. 用 `image_generate` 生图，提示词规则「ComfyUI 生图」如下：
    - 开头固定 `score_9, score_8_up, score_7_up` + `rating_explicit`
    - 女主固定特征（自定义，首次使用时按角色设定填写）: `<女主特征标签，如 1girl, hair color, hairstyle, body type...>`
-   - 男性固定特征（自定义，首次使用时按角色设定填写）: `<男主特征标签，如 1boy, hair color, hairstyle, body type...>`
+   - 男性固定特征（自定义，首次使用时按角色设定填写）: `<男主特征标签，如 1boy, hair color, hairstyle, eye color, body type...>`
    - 双人/多人生图统一加: correct anatomy, 人数标签（如 1boy, 1girl / 1boy, 2girls）, four limbs visible
    - Danbooru 逗号标签风格；不带 `source_*` 标签；二次元风格，避免写实词
    - 失禁/喷尿固定组合: `peeing` + `yellow urine`；不用 golden shower / urination；不得用自然语言短语替代标签

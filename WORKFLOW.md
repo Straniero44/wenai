@@ -1,10 +1,10 @@
 # ComfyUI Workflow 说明
 
-本目录包含三个生图工作流版本（nsfw-v1.0.json = Pony 旧版 / nsfw-v2.0.json = WAI 现行版 / nsfw-v3.0.json = 动图版，WAI 静帧 + Wan 图生视频 GIF）。
+本目录包含三个生图工作流版本（nsfw-anime-v1.0.json = Pony 旧版 / nsfw-anime-v2.0.json = WAI 现行版 / nsfw-anime-v3.0.json = 动图版，WAI 静帧 + Wan 图生视频 GIF）。
 
 ---
 
-# 生图工作流 v1.0（nsfw-v1.0.json）
+# 生图工作流 v1.0（nsfw-anime-v1.0.json）
 
 > **旧版（Pony 时代）**。现行版本为 v2.0（WAI），本章保留供回退参考。
 
@@ -45,7 +45,7 @@
 
 ---
 
-# 生图工作流 v2.0（nsfw-v2.0.json）
+# 生图工作流 v2.0（nsfw-anime-v2.0.json）
 
 > **当前使用版本（WAI）**。旧版 1.0（Pony）保留供回退参考。
 
@@ -84,7 +84,7 @@
 
 ---
 
-# 生图工作流 v3.0（nsfw-v3.0.json，动图版）
+# 生图工作流 v3.0（nsfw-anime-v3.0.json，动图版）
 
 > **动图版**：在 v2.0（WAI）静帧基础上接 Wan 图生视频，输出 12fps 无限循环 GIF。**流程时间明显更长**（静帧 + 视频采样两段），追求速度或只要静态图仍用 v2.0。
 

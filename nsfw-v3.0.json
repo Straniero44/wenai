@@ -114,7 +114,7 @@
     },
     "class_type": "VHS_VideoCombine",
     "_meta": {
-      "title": "GIF 输出（16fps 无限循环）"
+      "title": "GIF 输出（12 fps 无限循环）"
     }
   },
   "247": {

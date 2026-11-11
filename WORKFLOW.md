@@ -1,6 +1,6 @@
 # ComfyUI Workflow 说明
 
-本目录包含三份工作流：生图两个版本（nsfw-v1.0.json = Pony 旧版 / nsfw-v2.0.json = WAI 现行版，main/voice 分支均有）与语音（voice-qwen.json，仅 voice 分支）。
+本目录包含四份工作流：生图两版本（nsfw-v1.0.json = Pony 旧版 / nsfw-v2.0.json = WAI 现行版）+ 动图版（nsfw-v3.0.json，WAI 静帧 + Wan 图生视频，main/voice 分支均有）与语音（voice-qwen.json，仅 voice 分支）。
 
 ---
 
@@ -81,6 +81,40 @@
 - LoRA 与主模型文件名需与本机 models 目录一致，缺哪个就在对应节点替换
 - asanagi LoRA 可按喜好更换/删除（删除后需把 1→5 的 model/clip 连线直连）
 - 分辨率在节点 4 调整；SDXL 推荐 1024~1536 区间
+
+---
+
+# 生图工作流 v3.0（nsfw-v3.0.json，动图版）
+
+> **动图版**：在 v2.0（WAI）静帧基础上接 Wan 图生视频，输出 16fps 无限循环 GIF。**流程时间明显更长**（静帧 + 视频采样两段），追求速度或只要静态图仍用 v2.0。
+
+适配模型：**WAI-Nsfw-Illustrious-17**（静帧，同 v2.0）+ **Wan 图生视频模型（fp8 unet HIGH/LOW 双档）**；可选 **Qwen3.5-VL**（AILab 节点，参考图自动反推提示词）
+
+## 流程结构
+
+| 阶段 | 节点 | 作用 |
+|---|---|---|
+| 参考图 | 28 LoadImage | 加载参考图（可选） |
+| 提示词 | 238 QwenVL / 240 ComfySwitchNode | auto/manual 切换：True = Qwen3.5-VL 自动反推 / False = 手写 |
+| 提示词 | **29 / 31 PrimitiveStringMultiline** | **手写提示词输入口（29 = 正向完整提示词）** |
+| 静帧生成 | 25:x 组（Checkpoint/LoRA/KSampler/VAE） | WAI 生图（同 v2.0 逻辑，首尾帧） |
+| 视频生成 | 236:xx 组（WanFirstLastFrameToVideo + KSamplerAdvanced 双档 + CreateVideo） | 首尾帧图生视频 |
+| GIF 压缩 | 247 ImageScaleBy（0.45x）/ 248 ImageQuantize（64色 bayer-8） | 控制产出体积 |
+| 输出 | 243 VHS_VideoCombine（16fps 无限循环 GIF）/ 242 SaveVideo | GIF + 视频 |
+
+## 使用方法
+
+1. 导入 JSON 到 ComfyUI，除 v2.0 所需模型外另需：Wan 图生视频 fp8 unet（HIGH/LOW）、VHS（Video Helper Suite）插件；auto 模式另需 AILab QwenVL 插件与 Qwen3.5-VL 模型
+2. 手写模式：节点 **240 置 False**，正向提示词写入节点 **29 的 value**（格式同 v2.0：`rating_explicit, masterpiece, best quality, amazing quality, absurdres` + Danbooru 标签）
+3. auto 模式：节点 240 置 True，加载参考图到节点 28，由 Qwen3.5-VL 自动反推提示词
+4. Agent 对接（手写模式）：comfy 插件配置 `workflowPath` 指向本文件，`promptNodeId: 29`，`promptInputName: value`
+5. 动图体积已内置压缩（缩图 0.45x + 64色量化），若仍超限可继续调低 247 的 scale_by 或 248 的 colors
+
+## 注意
+
+- **流程时间明显长于 v2.0**（视频采样是耗时大头），建议按需切换 workflow
+- 节点 id 带冒号（如 25:18）是子图（subgraph）节点，导入后属正常结构
+- Wan 模型文件名需与本机 models 目录一致
 
 ---
 

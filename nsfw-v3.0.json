@@ -1,0 +1,670 @@
+{
+  "28": {
+    "inputs": {
+      "image": "Hbybs.png"
+    },
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "加载图像"
+    }
+  },
+  "29": {
+    "inputs": {
+      "value": "rating_explicit, masterpiece, best quality, amazing quality, absurdres, 1girl, black hair, short hair, petite, small breasts, purple eyes, heart pupils, pregnant, pregnant belly, 1boy, black hair, short hair, black eyes, muscular, correct anatomy, four limbs visible, collar, reverse cowgirl position, girl on top, sitting on lap, facing viewer, vaginal, sex, cum, cum in pussy, cum drip, hand on stomach, peeing, yellow urine"
+    },
+    "class_type": "PrimitiveStringMultiline",
+    "_meta": {
+      "title": "字符串（多行）"
+    }
+  },
+  "31": {
+    "inputs": {
+      "value": "3d, realistic, photorealistic, photo, photograph, cgi, unreal engine, octane render, 3d render, hyperrealistic, realism, real skin, detailed skin texture, pores, skin imperfections, real face, monochrome, grayscale, black and white, bad anatomy, bad hands, missing fingers, extra digits, extra limbs, bad proportions, deformed, disfigured, malformed, mutated, mutation, extra arms, extra legs, fused fingers, too many fingers, cloned face, long neck, mutilated, robotic, cyborg, mechanical parts, text, watermark, signature, logo, cropped, out of frame, low quality, worst quality, jpeg artifacts, blurry, error, duplicate, morbid, ugly, blurry eyes, asymmetrical eyes, poorly drawn face, poorly drawn hands, fusion, oversaturated"
+    },
+    "class_type": "PrimitiveStringMultiline",
+    "_meta": {
+      "title": "字符串（多行）"
+    }
+  },
+  "238": {
+    "inputs": {
+      "model_name": "[local] Qwen3.5-4B-heretic-v2",
+      "quantization": "None (FP16)",
+      "attention_mode": "auto",
+      "use_torch_compile": false,
+      "device": "auto",
+      "preset_prompt": "Wan22 › NSFW I2V",
+      "camera_tag": "[STATIC_CAMERA]",
+      "prompt": "",
+      "max_tokens": 8192,
+      "temperature": 0.6,
+      "top_p": 0.9,
+      "num_beams": 1,
+      "repetition_penalty": 1,
+      "keep_model_loaded": false,
+      "seed": 4162820446,
+      "keep_last_prompt": false,
+      "passthrough": false,
+      "frame_count": 12,
+      "duration": "3s",
+      "image": [
+        "25:6",
+        0
+      ]
+    },
+    "class_type": "AILab_QwenVL_Advanced",
+    "_meta": {
+      "title": "Image to Prompt (Qwen3.5)"
+    }
+  },
+  "240": {
+    "inputs": {
+      "switch": true,
+      "on_false": [
+        "241",
+        0
+      ],
+      "on_true": [
+        "238",
+        0
+      ]
+    },
+    "class_type": "ComfySwitchNode",
+    "_meta": {
+      "title": "auto / manual prompt (True = auto)"
+    }
+  },
+  "241": {
+    "inputs": {
+      "value": ""
+    },
+    "class_type": "PrimitiveStringMultiline",
+    "_meta": {
+      "title": "字符串（多行）"
+    }
+  },
+  "242": {
+    "inputs": {
+      "filename_prefix": "video/nsfw",
+      "format": "auto",
+      "format.codec": "auto",
+      "codec": "auto",
+      "video": [
+        "236:94",
+        0
+      ]
+    },
+    "class_type": "SaveVideo",
+    "_meta": {
+      "title": "保存视频"
+    }
+  },
+  "243": {
+    "inputs": {
+      "frame_rate": 12,
+      "loop_count": 0,
+      "filename_prefix": "nsfw/nsfw-gif",
+      "format": "image/gif",
+      "pingpong": false,
+      "save_output": true,
+      "images": [
+        "248",
+        0
+      ]
+    },
+    "class_type": "VHS_VideoCombine",
+    "_meta": {
+      "title": "GIF 输出（16fps 无限循环）"
+    }
+  },
+  "247": {
+    "inputs": {
+      "upscale_method": "lanczos",
+      "scale_by": 0.8,
+      "image": [
+        "236:87",
+        0
+      ]
+    },
+    "class_type": "ImageScaleBy",
+    "_meta": {
+      "title": "GIF压缩: 缩图 0.45x"
+    }
+  },
+  "248": {
+    "inputs": {
+      "colors": 64,
+      "dither": "bayer-8",
+      "image": [
+        "247",
+        0
+      ]
+    },
+    "class_type": "ImageQuantize",
+    "_meta": {
+      "title": "GIF压缩: 64色 bayer-8"
+    }
+  },
+  "25:18": {
+    "inputs": {
+      "value": "asanagi style"
+    },
+    "class_type": "PrimitiveString",
+    "_meta": {
+      "title": "字符串"
+    }
+  },
+  "25:22": {
+    "inputs": {
+      "a": [
+        "25:21",
+        1
+      ],
+      "b": "",
+      "operation": "a == b",
+      "case_sensitive": true
+    },
+    "class_type": "easy mathString",
+    "_meta": {
+      "title": "字符串比较"
+    }
+  },
+  "25:23": {
+    "inputs": {
+      "boolean": [
+        "25:22",
+        0
+      ],
+      "on_true": [
+        "25:20",
+        0
+      ],
+      "on_false": [
+        "25:4",
+        0
+      ]
+    },
+    "class_type": "easy ifElse",
+    "_meta": {
+      "title": "是否判断"
+    }
+  },
+  "25:2": {
+    "inputs": {
+      "text": [
+        "25:17",
+        0
+      ],
+      "clip": [
+        "25:13",
+        1
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP文本编码"
+    }
+  },
+  "25:3": {
+    "inputs": {
+      "text": [
+        "31",
+        0
+      ],
+      "clip": [
+        "25:13",
+        1
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP文本编码"
+    }
+  },
+  "25:6": {
+    "inputs": {
+      "samples": [
+        "25:5",
+        0
+      ],
+      "vae": [
+        "25:1",
+        2
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "VAE解码"
+    }
+  },
+  "25:17": {
+    "inputs": {
+      "string_a": [
+        "25:18",
+        0
+      ],
+      "string_b": [
+        "29",
+        0
+      ],
+      "delimiter": ""
+    },
+    "class_type": "StringConcatenate",
+    "_meta": {
+      "title": "连接"
+    }
+  },
+  "25:21": {
+    "inputs": {
+      "empty_color": "0, 0, 0",
+      "empty_threshold": 0,
+      "images": [
+        "28",
+        0
+      ]
+    },
+    "class_type": "ImageBatchFilter",
+    "_meta": {
+      "title": "Image Batch Filter"
+    }
+  },
+  "25:13": {
+    "inputs": {
+      "lora_name": "asanagi.safetensors",
+      "strength_model": 0.5,
+      "strength_clip": 0.5,
+      "model": [
+        "25:1",
+        0
+      ],
+      "clip": [
+        "25:1",
+        1
+      ]
+    },
+    "class_type": "LoraLoader",
+    "_meta": {
+      "title": "加载LoRA"
+    }
+  },
+  "25:1": {
+    "inputs": {
+      "ckpt_name": "WAI-Nsfw-Illustrious-17.safetensors"
+    },
+    "class_type": "CheckpointLoaderSimple",
+    "_meta": {
+      "title": "Checkpoint加载器（简易）"
+    }
+  },
+  "25:5": {
+    "inputs": {
+      "seed": 42,
+      "steps": 28,
+      "cfg": 5.5,
+      "sampler_name": "euler_ancestral",
+      "scheduler": "normal",
+      "denoise": 1,
+      "model": [
+        "25:13",
+        0
+      ],
+      "positive": [
+        "25:2",
+        0
+      ],
+      "negative": [
+        "25:3",
+        0
+      ],
+      "latent_image": [
+        "25:23",
+        0
+      ]
+    },
+    "class_type": "KSampler",
+    "_meta": {
+      "title": "K采样器"
+    }
+  },
+  "25:20": {
+    "inputs": {
+      "pixels": [
+        "28",
+        0
+      ],
+      "vae": [
+        "25:1",
+        2
+      ]
+    },
+    "class_type": "VAEEncode",
+    "_meta": {
+      "title": "VAE编码"
+    }
+  },
+  "25:4": {
+    "inputs": {
+      "width": 1280,
+      "height": 1024,
+      "batch_size": 1
+    },
+    "class_type": "EmptyLatentImage",
+    "_meta": {
+      "title": "空Latent图像"
+    }
+  },
+  "236:84": {
+    "inputs": {
+      "clip_name": "umt5_xxl_fp8_e4m3fn_scaled.safetensors",
+      "type": "wan",
+      "device": "default"
+    },
+    "class_type": "CLIPLoader",
+    "_meta": {
+      "title": "加载CLIP"
+    }
+  },
+  "236:96": {
+    "inputs": {
+      "unet_name": "Wan2_2-I2V-A14B-NSFW_fast_move-LOW_FP8(lightning_edition)V2.safetensors",
+      "weight_dtype": "default"
+    },
+    "class_type": "UNETLoader",
+    "_meta": {
+      "title": "Load Diffusion Model LOW (fp8)"
+    }
+  },
+  "236:95": {
+    "inputs": {
+      "unet_name": "Wan2_2-I2V-A14B-NSFW_fast_move-HIGH_FP8(lightning_edition)V2.safetensors",
+      "weight_dtype": "default"
+    },
+    "class_type": "UNETLoader",
+    "_meta": {
+      "title": "Load Diffusion Model HIGH (fp8)"
+    }
+  },
+  "236:104": {
+    "inputs": {
+      "shift": 5.000000000000001,
+      "model": [
+        "236:95",
+        0
+      ]
+    },
+    "class_type": "ModelSamplingSD3",
+    "_meta": {
+      "title": "采样算法（SD3）"
+    }
+  },
+  "236:87": {
+    "inputs": {
+      "samples": [
+        "236:85",
+        0
+      ],
+      "vae": [
+        "236:90",
+        0
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "VAE解码"
+    }
+  },
+  "236:94": {
+    "inputs": {
+      "fps": [
+        "236:162",
+        0
+      ],
+      "bit_depth": 8,
+      "color_space": "sRGB",
+      "codec": "none",
+      "images": [
+        "236:87",
+        0
+      ]
+    },
+    "class_type": "CreateVideo",
+    "_meta": {
+      "title": "创建视频"
+    }
+  },
+  "236:161": {
+    "inputs": {
+      "value": 3
+    },
+    "class_type": "PrimitiveFloat",
+    "_meta": {
+      "title": "Float (Duration)"
+    }
+  },
+  "236:118": {
+    "inputs": {
+      "value": 4
+    },
+    "class_type": "PrimitiveInt",
+    "_meta": {
+      "title": "Int (Steps)"
+    }
+  },
+  "236:122": {
+    "inputs": {
+      "value": 1
+    },
+    "class_type": "PrimitiveFloat",
+    "_meta": {
+      "title": "Float (CFG)"
+    }
+  },
+  "236:124": {
+    "inputs": {
+      "value": 2
+    },
+    "class_type": "PrimitiveInt",
+    "_meta": {
+      "title": "Int (split_step)"
+    }
+  },
+  "236:103": {
+    "inputs": {
+      "shift": 5.000000000000001,
+      "model": [
+        "236:96",
+        0
+      ]
+    },
+    "class_type": "ModelSamplingSD3",
+    "_meta": {
+      "title": "采样算法（SD3）"
+    }
+  },
+  "236:162": {
+    "inputs": {
+      "value": 12
+    },
+    "class_type": "PrimitiveFloat",
+    "_meta": {
+      "title": "Float (FPS)"
+    }
+  },
+  "236:163": {
+    "inputs": {
+      "expression": "floor (a * b + 1)",
+      "values.a": [
+        "236:161",
+        0
+      ],
+      "values.b": [
+        "236:162",
+        0
+      ]
+    },
+    "class_type": "ComfyMathExpression",
+    "_meta": {
+      "title": "数学表达式"
+    }
+  },
+  "236:90": {
+    "inputs": {
+      "vae_name": "wan_2.1_vae.safetensors"
+    },
+    "class_type": "VAELoader",
+    "_meta": {
+      "title": "加载VAE"
+    }
+  },
+  "236:93": {
+    "inputs": {
+      "text": [
+        "240",
+        0
+      ],
+      "clip": [
+        "236:84",
+        0
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP Text Encode (Positive Prompt)"
+    }
+  },
+  "236:89": {
+    "inputs": {
+      "text": "色调艳丽，过曝，静态，细节模糊不清，字幕，风格，作品，画作，画面，静止，整体发灰，最差质量，低质量，JPEG压缩残留，丑陋的，残缺的，多余的手指，画得不好的手部，画得不好的脸部，畸形的，毁容的，形态畸形的肢体，手指融合，静止不动的画面，杂乱的背景，三条腿，背景人很多，倒着走",
+      "clip": [
+        "236:84",
+        0
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP Text Encode (Negative Prompt)"
+    }
+  },
+  "236:246": {
+    "inputs": {
+      "width": 640,
+      "height": 640,
+      "length": [
+        "236:163",
+        1
+      ],
+      "batch_size": 1,
+      "positive": [
+        "236:93",
+        0
+      ],
+      "negative": [
+        "236:89",
+        0
+      ],
+      "vae": [
+        "236:90",
+        0
+      ],
+      "start_image": [
+        "25:6",
+        0
+      ],
+      "end_image": [
+        "25:6",
+        0
+      ]
+    },
+    "class_type": "WanFirstLastFrameToVideo",
+    "_meta": {
+      "title": "Wan首尾帧视频"
+    }
+  },
+  "236:86": {
+    "inputs": {
+      "add_noise": "enable",
+      "noise_seed": 726660643435879,
+      "steps": [
+        "236:118",
+        0
+      ],
+      "cfg": [
+        "236:122",
+        0
+      ],
+      "sampler_name": "euler",
+      "scheduler": "simple",
+      "start_at_step": 0,
+      "end_at_step": [
+        "236:124",
+        0
+      ],
+      "return_with_leftover_noise": "enable",
+      "model": [
+        "236:104",
+        0
+      ],
+      "positive": [
+        "236:246",
+        0
+      ],
+      "negative": [
+        "236:246",
+        1
+      ],
+      "latent_image": [
+        "236:246",
+        2
+      ]
+    },
+    "class_type": "KSamplerAdvanced",
+    "_meta": {
+      "title": "K采样器（高级）"
+    }
+  },
+  "236:85": {
+    "inputs": {
+      "add_noise": "disable",
+      "noise_seed": 0,
+      "steps": [
+        "236:118",
+        0
+      ],
+      "cfg": [
+        "236:122",
+        0
+      ],
+      "sampler_name": "euler",
+      "scheduler": "simple",
+      "start_at_step": [
+        "236:124",
+        0
+      ],
+      "end_at_step": [
+        "236:118",
+        0
+      ],
+      "return_with_leftover_noise": "disable",
+      "model": [
+        "236:103",
+        0
+      ],
+      "positive": [
+        "236:246",
+        0
+      ],
+      "negative": [
+        "236:246",
+        1
+      ],
+      "latent_image": [
+        "236:86",
+        0
+      ]
+    },
+    "class_type": "KSamplerAdvanced",
+    "_meta": {
+      "title": "K采样器（高级）"
+    }
+  }
+}

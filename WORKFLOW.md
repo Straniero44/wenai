@@ -100,7 +100,7 @@
 | **29 / 31** | PrimitiveStringMultiline | **手写提示词输入口（29 的 value = 正向完整提示词）** |
 | 25:x 组 | CheckpointLoaderSimple / LoraLoader / KSampler / VAEDecode 等 | WAI 静帧生成（结构同 v2.0，首尾帧） |
 | 236:xx 组 | WanFirstLastFrameToVideo / KSamplerAdvanced ×2 / CreateVideo 等 | 首尾帧图生视频（fp8 unet HIGH/LOW 双档） |
-| 247 | ImageScaleBy | GIF 压缩：缩图 0.45x |
+| 247 | ImageScaleBy | GIF 压缩：缩图 0.8x |
 | 248 | ImageQuantize | GIF 压缩：64 色 bayer-8 |
 | 243 | VHS_VideoCombine | GIF 输出（12fps 无限循环） |
 | 242 | SaveVideo | 视频输出 |
@@ -111,7 +111,7 @@
 2. 手写模式：节点 **240 置 False**，正向提示词写入节点 **29 的 value**（格式同 v2.0：`rating_explicit, masterpiece, best quality, amazing quality, absurdres` + Danbooru 标签）
 3. auto 模式：节点 240 置 True，加载参考图到节点 28，由 Qwen3.5-VL 自动反推提示词
 4. Agent 对接（手写模式）：comfy 插件配置 `workflowPath` 指向本文件，`promptNodeId: 29`，`promptInputName: value`
-5. 动图体积已内置压缩（缩图 0.45x + 64色量化），若仍超限可继续调低 247 的 scale_by 或 248 的 colors
+5. 动图体积已内置压缩（缩图 0.8x + 64色量化），若仍超限可继续调低 247 的 scale_by 或 248 的 colors
 
 ## 注意
 

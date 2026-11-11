@@ -86,21 +86,24 @@
 
 # 生图工作流 v3.0（nsfw-v3.0.json，动图版）
 
-> **动图版**：在 v2.0（WAI）静帧基础上接 Wan 图生视频，输出 16fps 无限循环 GIF。**流程时间明显更长**（静帧 + 视频采样两段），追求速度或只要静态图仍用 v2.0。
+> **动图版**：在 v2.0（WAI）静帧基础上接 Wan 图生视频，输出 12fps 无限循环 GIF。**流程时间明显更长**（静帧 + 视频采样两段），追求速度或只要静态图仍用 v2.0。
 
 适配模型：**WAI-Nsfw-Illustrious-17**（静帧，同 v2.0）+ **Wan 图生视频模型（fp8 unet HIGH/LOW 双档）**；可选 **Qwen3.5-VL**（AILab 节点，参考图自动反推提示词）
 
-## 流程结构
+## 节点结构
 
-| 阶段 | 节点 | 作用 |
+| 节点 | 类型 | 作用 |
 |---|---|---|
-| 参考图 | 28 LoadImage | 加载参考图（可选） |
-| 提示词 | 238 QwenVL / 240 ComfySwitchNode | auto/manual 切换：True = Qwen3.5-VL 自动反推 / False = 手写 |
-| 提示词 | **29 / 31 PrimitiveStringMultiline** | **手写提示词输入口（29 = 正向完整提示词）** |
-| 静帧生成 | 25:x 组（Checkpoint/LoRA/KSampler/VAE） | WAI 生图（同 v2.0 逻辑，首尾帧） |
-| 视频生成 | 236:xx 组（WanFirstLastFrameToVideo + KSamplerAdvanced 双档 + CreateVideo） | 首尾帧图生视频 |
-| GIF 压缩 | 247 ImageScaleBy（0.45x）/ 248 ImageQuantize（64色 bayer-8） | 控制产出体积 |
-| 输出 | 243 VHS_VideoCombine（16fps 无限循环 GIF）/ 242 SaveVideo | GIF + 视频 |
+| 28 | LoadImage | 加载参考图（auto 模式用） |
+| 238 | AILab_QwenVL_Advanced | Image to Prompt（Qwen3.5-VL 自动反推提示词） |
+| 240 | ComfySwitchNode | auto / manual 提示词切换（True = auto） |
+| **29 / 31** | PrimitiveStringMultiline | **手写提示词输入口（29 的 value = 正向完整提示词）** |
+| 25:x 组 | CheckpointLoaderSimple / LoraLoader / KSampler / VAEDecode 等 | WAI 静帧生成（结构同 v2.0，首尾帧） |
+| 236:xx 组 | WanFirstLastFrameToVideo / KSamplerAdvanced ×2 / CreateVideo 等 | 首尾帧图生视频（fp8 unet HIGH/LOW 双档） |
+| 247 | ImageScaleBy | GIF 压缩：缩图 0.45x |
+| 248 | ImageQuantize | GIF 压缩：64 色 bayer-8 |
+| 243 | VHS_VideoCombine | GIF 输出（12fps 无限循环） |
+| 242 | SaveVideo | 视频输出 |
 
 ## 使用方法
 

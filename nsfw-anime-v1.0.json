@@ -66,7 +66,7 @@
   },
   "15": {
     "inputs": {
-      "filename_prefix": "nsfw/nsfw",
+      "filename_prefix": "nsfw-anime/nsfw-img",
       "images": [
         "8",
         0
@@ -121,7 +121,7 @@
         "80",
         0
       ],
-      "string_b": "",
+      "string_b": "score_9, score_8_up, score_7_up, 1girl, short black hair, slender, petite, medium breasts, pale skin, wide hips, thick thighs, wearing revealing sheer lace lingerie, black teddy, see-through bra, nipples visible through fabric, leopard print pattern, strappy details, garter belt, thigh-high stockings, standing in bedroom, looking at viewer, shy blushing expression, slight smile, one hand behind head, posing for selfie, phone in other hand, mirror selfie, soft warm lighting, bedroom background, anime coloring, high detail, masterpiece",
       "delimiter": ", "
     },
     "class_type": "StringConcatenate",

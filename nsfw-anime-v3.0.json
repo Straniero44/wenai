@@ -42,7 +42,7 @@
       "num_beams": 1,
       "repetition_penalty": 1,
       "keep_model_loaded": false,
-      "seed": 4162820446,
+      "seed": 4213010679,
       "keep_last_prompt": false,
       "passthrough": false,
       "frame_count": 12,
@@ -85,10 +85,11 @@
   },
   "242": {
     "inputs": {
-      "filename_prefix": "video/nsfw",
+      "filename_prefix": "nsfw-anime/nsfw-vid",
       "format": "auto",
       "format.codec": "auto",
       "codec": "auto",
+      "video-preview": "",
       "video": [
         "236:94",
         0
@@ -103,7 +104,7 @@
     "inputs": {
       "frame_rate": 12,
       "loop_count": 0,
-      "filename_prefix": "nsfw/nsfw-gif",
+      "filename_prefix": "nsfw-anime/nsfw-gif",
       "format": "image/gif",
       "pingpong": false,
       "save_output": true,
@@ -133,7 +134,7 @@
   },
   "248": {
     "inputs": {
-      "colors": 64,
+      "colors": 128,
       "dither": "bayer-8",
       "image": [
         "247",
@@ -583,7 +584,7 @@
   "236:86": {
     "inputs": {
       "add_noise": "enable",
-      "noise_seed": 726660643435879,
+      "noise_seed": 834779646514850,
       "steps": [
         "236:118",
         0

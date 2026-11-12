@@ -96,7 +96,7 @@
   },
   "7": {
     "inputs": {
-      "filename_prefix": "nsfw/nsfw",
+      "filename_prefix": "nsfw-anime/nsfw-img",
       "images": [
         "6",
         0

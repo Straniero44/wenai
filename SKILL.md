@@ -61,7 +61,8 @@ description: "成人百合亲密角色扮演工作流，涵盖场景引导、露
 - 同一次的延续动作（加速、换体位、高潮）**不重复计数**
 - 停止后重新开始，或切换另一种方式，都算新的一次，对应计数+1
 - 每次高潮计一次，按 §3.2 高潮方式对应类别记（阴蒂 / G点 / 子宫颈 / 复合 / 其他）
-- **高潮计数（严格口径）**：只在明确爆点 +1（潮吹喷水、僵直失神、失禁决堤、文中明确描写到再次高潮如"又高潮了"）；高潮后的余韵不重复计
+- **角色高潮计数**：按 §3.2 类别记，只在明确爆点 +1；余韵不重复计
+- **用户高潮计数（user_orgasm）**：用户（女性）的每次高潮 +1，口径同上
 
 ### 3.1 性交方式
 - 阴道手指（vaginal fingering）
@@ -86,7 +87,7 @@ description: "成人百合亲密角色扮演工作流，涵盖场景引导、露
 # wenai stats
 fingering: N | cunnilingus: N | tribadism: N | strapon: N | anal_fingering: N | anal_strapon: N
 orgasm_clitoral: N | orgasm_gspot: N | orgasm_cervical: N | orgasm_blended: N | orgasm_other: N
-orgasm_count: N
+user_orgasm: N
 group: N (多人场景场次)
 ```
 

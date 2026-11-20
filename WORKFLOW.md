@@ -47,7 +47,7 @@
 | 75:72 | Krea2EditModelPatch | 身份编辑补丁（ref_boost 2 / ref_boost_a 4） |
 | 75:73 | KSampler | 采样：euler / simple，8 步，CFG 1 |
 | 75:74 | VAEDecode | 解码换脸成品 |
-| 75:83 | ComfySwitchNode | False=直出 MOSS 原图（锁头锁脸已关闭）/ True=开启换脸 |
+| 75:83 | ComfySwitchNode | True=输出换脸成品（False=跳过换脸） |
 | **77** | SaveImage | **最终成品输出（前缀 nsfw-real/nsfw-img-kt）** |
 
 ## 使用方法
@@ -62,6 +62,6 @@
 
 - 主模型 / LoRA / 编码器文件名需与本机 models 目录一致，缺哪个就在对应节点替换
 - NSFW LoRA 强度默认 0.7，尺度偏软可上调（18:37）；换脸保真不足上调 75:72 的 ref_boost
-- 锁头锁脸已关闭（75:83 默认 False）：成品直出 MOSS 原图、不强制换脸参考；想恢复换脸置 True 即可
+- 想跳过换脸直接取 MOSS 原图：75:83 置 False，成品走节点 9
 - 全局审美前缀在节点 18:31 的 string_b，可按需修改
 - 分辨率在节点 19 调整（默认 1:1 · 1MP · 16 倍数）

@@ -80,9 +80,30 @@
       "title": "仅锁脸"
     }
   },
-  "18:17": {
+  "85": {
     "inputs": {
       "value": "POV shot from below: a petite Asian woman with short black hair, B-cup breasts, straddling the viewer in reverse cowgirl position, fully naked except for thigh-high stockings. She rides on top, his penis inside her anus, anal penetration. Her face locked in a full ahegao expression: eyes rolled up showing whites, tongue hanging out, drool running down her chin, her cheeks deeply flushed. Her hips bucking uncontrollably. Urine dripping from her urethra, leaking down between her spread legs, dripping onto the viewer's stomach below, her vulva wet and glistening. Her hands both resting on the viewer's thighs behind her, fingers digging into the skin. Her breasts bouncing with each movement, nipples erect. Sweat covering her entire body, her hair sticking to her forehead. Her thighs trembling and shaking, muscles spasming. The bed sheets beneath soaked and wrinkled. Camera looking straight up at her face and body from below, her torso towering over the viewer. Soft warm lighting."
+    },
+    "class_type": "PrimitiveStringMultiline",
+    "_meta": {
+      "title": "字符串（多行）"
+    }
+  },
+  "86": {
+    "inputs": {
+      "value": ""
+    },
+    "class_type": "PrimitiveStringMultiline",
+    "_meta": {
+      "title": "字符串（多行）"
+    }
+  },
+  "18:17": {
+    "inputs": {
+      "value": [
+        "85",
+        0
+      ]
     },
     "class_type": "PrimitiveStringMultiline",
     "_meta": {
@@ -254,7 +275,10 @@
   },
   "18:5": {
     "inputs": {
-      "text": "",
+      "text": [
+        "86",
+        0
+      ],
       "clip": [
         "18:2",
         0

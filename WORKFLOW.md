@@ -20,10 +20,12 @@
 | 18:37 | LoraLoaderModelOnly | NSFW LoRA（强度 0.7） |
 | 18:2 / 18:3 | CLIPLoader / VAELoader | 文本编码 qwen3.5_9b_w4a8_gptq（moss_image）/ flux2-vae |
 | 18:14 | PrimitiveStringMultiline | LLM 改写系统提示（中文粗需求 → 英文图像提示词） |
-| **18:17** | PrimitiveStringMultiline | **正面提示词直输口（value 为提示词输入口）** |
+| **85** | PrimitiveStringMultiline | **正面提示词输入口（value 写提示词，经 18:17 转接）** |
+| 86 | PrimitiveStringMultiline | 负面提示词输入口（默认留空） |
+| 18:17 | PrimitiveStringMultiline | 85 的转接节点（内容来自 85，18:16 可切换走 LLM 改写） |
 | 18:16 | ComfySwitchNode | False=直输 18:17 / True=经 18:11 TextGenerate LLM 改写 |
 | 18:31 | StringConcatenate | 提示词 + 全局审美前缀（Douyin/小红书美女风格串） |
-| 18:4 / 18:5 | CLIPTextEncode | 正/负条件编码 |
+| 18:4 / 18:5 | CLIPTextEncode | 正/负条件编码（负向文本来自节点 86） |
 | 19 | ResolutionSelector | 分辨率（默认 1:1 · 1MP · 16 倍数） |
 | 18:24 | ComfySwitchNode | False=LoRA 模型 / True=18:15 SkipLayerGuidance（SLG） |
 | 18:7 | KSampler | 采样：euler / simple，12 步，CFG 1 |
@@ -52,9 +54,9 @@
 
 1. 导入 JSON 到你的 ComfyUI，确保已下载：MOSS-Image SFT turbo 主模型、NSFW LoRA、Krea2 turbo、identity edit LoRA、qwen3.5_9b / qwen3vl_4b 文本编码器、flux2-vae / qwen_image_vae
 2. 女主正脸参考图：把 `assets/face-real.jpg` 上传到 ComfyUI 输入目录（节点 76 默认文件名即 face-real.jpg），或改节点 76 指向你的文件
-3. 提示词写入节点 **18:17 的 value**（英文自然语言写实描述）；把 18:16 置 True 可走 18:11 TextGenerate 自动改写（配合 18:14 系统提示可投喂中文粗需求）
+3. 提示词写入节点 **85 的 value**（英文自然语言写实描述，经 18:17 转接）；把 18:16 置 True 可走 18:11 TextGenerate 自动改写（配合 18:14 系统提示可投喂中文粗需求）；负面提示词可填入节点 86
 4. 采样步数/CFG 在 18:7、75:73；换脸强度可用 75:72 的 ref_boost 微调
-5. Agent 对接：comfy 插件配置 `workflowPath` 指向本文件，`promptNodeId: 18:17`，`promptInputName: value`，`inputImageNodeId: 76`，`outputNodeId: 77`
+5. Agent 对接：comfy 插件配置 `workflowPath` 指向本文件，`promptNodeId: 85`，`promptInputName: value`，`inputImageNodeId: 76`，`outputNodeId: 77`
 
 ## 注意
 

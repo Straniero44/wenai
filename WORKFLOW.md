@@ -34,7 +34,7 @@
 
 | 节点 | 类型 | 作用 |
 |---|---|---|
-| **76** | LoadImage | **女主正脸参考图输入口（默认文件名 aria-real.jpg，对应本仓库 assets/face-real.jpg）** |
+| **76** | LoadImage | **女主正脸参考图输入口（默认文件名 face-real.jpg，即本仓库 assets/face-real.jpg）** |
 | 81 / 82 | PrimitiveStringMultiline | head_swap（脸+发型全换）/ face_swap（仅脸部）编辑指令 |
 | 78 | ComfySwitchNode | False=head_swap / True=face_swap |
 | 75:64 / 75:65 | UNETLoader / LoraLoaderModelOnly | Krea2 turbo（fp8）+ identity_edit_v2 LoRA |
@@ -51,9 +51,9 @@
 ## 使用方法
 
 1. 导入 JSON 到你的 ComfyUI，确保已下载：MOSS-Image SFT turbo 主模型、NSFW LoRA、Krea2 turbo、identity edit LoRA、qwen3.5_9b / qwen3vl_4b 文本编码器、flux2-vae / qwen_image_vae
-2. 女主正脸参考图：把 `assets/face-real.jpg` 上传到 ComfyUI 输入目录并按节点 76 的默认文件名（aria-real.jpg）命名，或改节点 76 指向你的文件
+2. 女主正脸参考图：把 `assets/face-real.jpg` 上传到 ComfyUI 输入目录（节点 76 默认文件名即 face-real.jpg），或改节点 76 指向你的文件
 3. 提示词写入节点 **18:17 的 value**（英文自然语言写实描述）；把 18:16 置 True 可走 18:11 TextGenerate 自动改写（配合 18:14 系统提示可投喂中文粗需求）
-4. 分辨率在节点 19 调整（默认 1:1 1MP）；采样步数/CFG 在 18:7、75:73；换脸强度可用 75:72 的 ref_boost 微调
+4. 采样步数/CFG 在 18:7、75:73；换脸强度可用 75:72 的 ref_boost 微调
 5. Agent 对接：comfy 插件配置 `workflowPath` 指向本文件，`promptNodeId: 18:17`，`promptInputName: value`，`inputImageNodeId: 76`，`outputNodeId: 77`
 
 ## 注意
@@ -61,4 +61,5 @@
 - 主模型 / LoRA / 编码器文件名需与本机 models 目录一致，缺哪个就在对应节点替换
 - NSFW LoRA 强度默认 0.7，尺度偏软可上调（18:37）；换脸保真不足上调 75:72 的 ref_boost
 - 想跳过换脸直接取 MOSS 原图：75:83 置 False，成品走节点 9
-- 提示词走自然语言写实风格（推荐英文），与 SKILL.md 的提示词规则一致；全局审美前缀在节点 18:31 的 string_b，可按需修改
+- 全局审美前缀在节点 18:31 的 string_b，可按需修改
+- 分辨率在节点 19 调整（默认 1:1 · 1MP · 16 倍数）

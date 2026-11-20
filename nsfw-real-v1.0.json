@@ -25,7 +25,7 @@
   },
   "76": {
     "inputs": {
-      "image": "aria-real.jpg"
+      "image": "face-real.jpg"
     },
     "class_type": "LoadImage",
     "_meta": {

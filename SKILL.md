@@ -37,7 +37,7 @@ description: "成人亲密角色扮演工作流，涵盖场景引导、露骨文
    - fetishes.md 影响场景设计：无具体指令时，主动把场景往已记录的偏好方向推进
 2. 用 `image_generate` 生图，提示词规则与 AGENTS.md「ComfyUI 三次元生图」保持同步（AGENTS.md 为准，两处同步修改）：
    - 写实自然语言整段描述（不用 Danbooru 标签·推荐英文）：主体+动作/姿势+场景+镜头语言+光影+氛围+风格连贯成段，最长约 4K token，写得越完整越贴近
-   - 生图时必须同时传入女主正脸参考图：`image_generate` 调用时传 `image="<女主正脸图路径，如 assets/face-real.jpg>"`（提示词与正脸图缺一不可）
+   - 生图时必须同时传入女主正脸参考图：`image_generate` 调用时传 `image="<女主正脸图绝对路径>"`（相对路径会被拒·提示词与正脸图缺一不可）
    - 女主固定描述（自定义，首次使用时按角色设定填写）: `<女主外观与体型描述，如 a petite girl with short black hair, purple eyes, small breasts>`
    - 男性固定描述（自定义，首次使用时按角色设定填写）: `<男主外观与体型描述，如 a muscular man with short black hair and black eyes>`
    - 双人/多人生图用英文自然语言描述人数与相对位置（如 `two people facing each other`）

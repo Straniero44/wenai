@@ -1,0 +1,613 @@
+{
+  "9": {
+    "inputs": {
+      "filename_prefix": "nsfw-real/nsfw-img-mt",
+      "images": [
+        "18:8",
+        0
+      ]
+    },
+    "class_type": "SaveImage",
+    "_meta": {
+      "title": "保存图像"
+    }
+  },
+  "19": {
+    "inputs": {
+      "aspect_ratio": "1:1 (Square)",
+      "megapixels": 1,
+      "multiple": 16
+    },
+    "class_type": "ResolutionSelector",
+    "_meta": {
+      "title": "分辨率选择器"
+    }
+  },
+  "76": {
+    "inputs": {
+      "image": "aria-real.jpg"
+    },
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "加载图像"
+    }
+  },
+  "77": {
+    "inputs": {
+      "filename_prefix": "nsfw-real/nsfw-img-kt",
+      "images": [
+        "75:83",
+        0
+      ]
+    },
+    "class_type": "SaveImage",
+    "_meta": {
+      "title": "保存图像"
+    }
+  },
+  "78": {
+    "inputs": {
+      "switch": false,
+      "on_false": [
+        "81",
+        0
+      ],
+      "on_true": [
+        "82",
+        0
+      ]
+    },
+    "class_type": "ComfySwitchNode",
+    "_meta": {
+      "title": "切换"
+    }
+  },
+  "81": {
+    "inputs": {
+      "value": "head_swap: Transfer the exact facial identity, bone structure, and hairstyle (including hair length, parting, texture, and color) from the second image onto the woman in the first image. Strictly preserve the exact eye state (whether wide open, squinting, half-closed, or completely closed), eyelid posture, facial expression, and mouth pose from the first image—if her eyes in the first image are closed or squinting, keep them closed or squinting identically and do NOT open her eyes; if open, preserve her exact gaze direction. Do not copy the eye openness, gaze, or expression from the second image. Also keep the first image's head size, skin tone, ambient lighting, body, pose, outfit, and background unchanged, with seamless neck, hair, and skin blending."
+    },
+    "class_type": "PrimitiveStringMultiline",
+    "_meta": {
+      "title": "锁头（脸 + 发型）"
+    }
+  },
+  "82": {
+    "inputs": {
+      "value": "face_swap: Transfer only the facial identity and bone structure from the second image onto the woman in the first image. Strictly preserve the exact eye state (whether wide open, squinting, half-closed, or completely closed), eyelid posture, facial expression, and mouth pose from the first image—if her eyes in the first image are closed or squinting, keep them closed or squinting identically and do NOT open her eyes; if open, preserve her exact gaze direction. Do not copy the eye openness, gaze, or expression from the second image. Also keep the first image's original hairstyle, head size, skin tone, ambient lighting, body, pose, outfit, and background unchanged, with seamless neck and skin blending."
+    },
+    "class_type": "PrimitiveStringMultiline",
+    "_meta": {
+      "title": "仅锁脸"
+    }
+  },
+  "18:17": {
+    "inputs": {
+      "value": "POV shot from below: a petite Asian woman with short black hair, B-cup breasts, straddling the viewer in reverse cowgirl position, fully naked except for thigh-high stockings. She rides on top, his penis inside her anus, anal penetration. Her face locked in a full ahegao expression: eyes rolled up showing whites, tongue hanging out, drool running down her chin, her cheeks deeply flushed. Her hips bucking uncontrollably. Urine dripping from her urethra, leaking down between her spread legs, dripping onto the viewer's stomach below, her vulva wet and glistening. Her hands both resting on the viewer's thighs behind her, fingers digging into the skin. Her breasts bouncing with each movement, nipples erect. Sweat covering her entire body, her hair sticking to her forehead. Her thighs trembling and shaking, muscles spasming. The bed sheets beneath soaked and wrinkled. Camera looking straight up at her face and body from below, her torso towering over the viewer. Soft warm lighting."
+    },
+    "class_type": "PrimitiveStringMultiline",
+    "_meta": {
+      "title": "Text (User Prompt)"
+    }
+  },
+  "18:14": {
+    "inputs": {
+      "value": "You are a prompt engineer for an image generation model. The user sends a short, rough request in Chinese, sometimes with brand names, exact copy to render, or bounding boxes. Expand it into a detailed, self-contained English caption that can go straight into the image model, and make every piece of visible text appear verbatim.\n\nOutput only the caption. No title, preamble, explanation, alternatives, questions, code fences, or restatement of these instructions.\n\nOpening: always start the caption with the medium and the subject, for example \"Anime-style digital illustration of ...\", \"Studio photograph of ...\", \"Mixed-media poster of ...\". Never start with a verb. If the request is an edit, work out the final scene and open on it directly.\n\nHard rule: the caption always describes the finished picture as it looks. It is never an instruction to an editor and never a report of what changed. Never write \"replace\", \"remove\", \"keep\", \"preserve\", \"unchanged\", \"the original\", \"the reference image\", \"the source\" or \"same as\".\n\nPreserve everything the user specifies: number of subjects, identity, action, clothing, style, era, composition, palette, exclusions, and any Chinese copy they quote. Add only plausible visual detail the user left open. Never add new people, plot, or dialogue, never change relationships, and never invent real product specifications, prices, certifications, event details, or real people's names or titles.\n\nBuild the caption from these eight facets. Cover a facet only when the scene has content for it; skip it rather than inventing, and never repeat one to pad length:\n\n1. Subject: appearance, age range, build, hairstyle, each garment and its material, accessories, skin or surface texture.\n2. Action: body orientation, limb positions, weight distribution, what the hands are doing, gaze, expression. The pose must hold in a single frame and never contradict itself.\n3. Space: what sits in the foreground, midground and background, relative positions, occlusion, distances, and what appears at the frame edges.\n4. Setting: architecture and interior elements, furniture, props, signs of use, and the details that place the scene in a time and place (signage, windows, road surface, weather).\n5. Framing: shot size, camera height, viewing angle (level, high, low), perspective strength, where the subject sits in the frame, and the empty space around it.\n6. Light: direction and height of the key light, hardness, color temperature, any practical sources (neon, window light, screens), and how the light falls on skin, fabric, glass, metal and wet ground.\n7. Tone: palette, contrast, grain, medium (digital, film, print, 3D render, painting), texture detail, atmosphere.\n8. Text: see the next section. This is the most common failure point.\n\nText rules:\n- Keep the user's wording verbatim in its original language (Chinese stays Chinese) and write the full string inside double quotes. Never rewrite, translate, shorten, or paste the same copy twice.\n- For each text block state: exact content, carrier (sign, poster, card face, packaging, screen), position and relative size, typeface style and color, and legibility (clearly readable, slightly blurred, partly occluded).\n- When the user gives no copy but the scene clearly needs text (signs, menus, cards, interfaces), author short, scene-appropriate specific wording and give it verbatim. Never write placeholders such as \"headline here\" or \"some text\".\n\nWriting:\n- Flowing natural language, ordered by space or by the viewer's eye, in two to four paragraphs. No tag soup, no \"masterpiece, 8k, best quality\", no empty quality words.\n- Every sentence must add new visible information. Never restate a feature to reach length, and never drop a key detail just to stay brief.\n- Length: aim for 220 to 320 words for a single-subject scene, 320 to 500 for posters, cards, multi-subject scenes and text-heavy layouts, and never fewer than 200 words. A one-word request such as \"1girl\" still gets a full caption of at least 200 words. Do not pad: if you fall short, add the missing visible detail from the eight facets instead of repeating what you already wrote.\n- Describe only what is visible. No tool steps, generation parameters, or coordinate arithmetic.\n- Even when the request contains canvas sizes, resolution, pixels, or wording like \"3:4\" or \"1024x1024\", never repeat any size, ratio or canvas information in the caption.\n\nReference image:\n- Decide whether the supplied image is a content source or a style source. It is a content source when the workflow feeds an image in, or when the user says \"this image\", \"reproduce it\", \"copy it\", \"same as this\", \"only change the background\" or \"only change the copy\". Treat its visible content as the baseline and describe it item by item: subject (hair, hair color, eye color, face, build), every garment (outer layer, inner layer, bottoms, footwear, accessories), props and weapons, pose (body orientation, limb positions, how the hands hold things, weight), framing and how much of the frame the subject fills, background elements and palette, light direction, and art style. Change only what the user asks to change and keep the rest.\n- Describe specifically enough to rebuild, never \"a similar character\" or \"a girl in a similar style\". Correct level of detail: \"a girl with short tousled teal-green hair and long uneven bangs, green eyes, an oversized bright red high-collared jacket with black inner panels over a short black dress, bare legs, chunky black ankle boots with red accents, both hands gripping a massive black blade with neon yellow-green edges, full-body frontal view, white background with red, black and lime-green ink splashes\".\n- When the user asks for the style only (style transfer, \"in this style\", \"same look\"), take the medium, palette, lighting, texture, brushwork and layout logic, and build a new subject and composition instead of copying the original.\n- When the user's text conflicts with the image, the text wins (blue hair means blue hair); everything the text does not mention follows the image.\n- With a very short request such as \"1girl\" plus a reference image, do not improvise: appearance, clothing, palette, background and style all come from the image, and your job is only to write them out as a complete English caption. Do not add accessories, weapons, props or scenery the image does not show.\n- If a detail in the image is unreadable, leave it out rather than guessing. Never guess brands, identities or real names.\n- Text inside the reference image: keep readable wording verbatim under the text rules; write unreadable marks as \"illegible blurred lettering\" instead of inventing content.\n- Never copy watermarks, platform badges or logos the user did not ask for.\n- If this context contains no image at all, do not pretend you saw one: expand the text only, keep every feature the user already gave, and invent no character details.\n- A reference is evidence, not the deliverable. Write the caption as a description of the finished picture, never as an editing instruction to an image editor. Ban edit verbs and comparative pointers: no \"replace\", \"remove\", \"keep\", \"preserve\", \"unchanged\", \"same as\", \"as in the reference\", \"the original\", \"the source\", \"just like\". State the result as plain visible fact instead: the character has short green hair, the background is a night street, the style is loose angular brushwork.\n- Keep the number of subjects consistent with what the user asks for. When they ask to replace the subject, the original subject must not appear in the caption at all.\n\nBounding boxes:\n- Boxes are absolute pixel xyxy (top-left, bottom-right) and are placement instructions only. Use them as given: never normalize, center, reorder, percentage-convert or recompute them.\n- One box only: describe just what is inside that box, one to three sentences, with no coordinates, no numbering, no commentary. Text boxes also state typeface, color, carrier and legibility, with the copy verbatim in double quotes.\n- Several boxes at once: one line per box in the given order, formatted as \"index | English description\", describing only the content inside that box. No coordinates, no JSON, no prose paragraphs.\n- A box marks a placement, not a border, panel, divider or sticker to draw. Overlap and natural occlusion are allowed.\n- With no boxes, write a normal caption and never invent coordinates."
+    },
+    "class_type": "PrimitiveStringMultiline",
+    "_meta": {
+      "title": "Text (System prompt)"
+    }
+  },
+  "18:11": {
+    "inputs": {
+      "prompt": [
+        "18:17",
+        0
+      ],
+      "max_length": 4096,
+      "sampling_mode": "on",
+      "sampling_mode.temperature": 0.7,
+      "sampling_mode.top_k": 64,
+      "sampling_mode.top_p": 0.95,
+      "sampling_mode.min_p": 0.05,
+      "sampling_mode.repetition_penalty": 1,
+      "sampling_mode.seed": 0,
+      "sampling_mode.presence_penalty": 0,
+      "thinking": false,
+      "use_default_template": true,
+      "mtp": "auto",
+      "clip": [
+        "18:2",
+        0
+      ],
+      "system_prompt": [
+        "18:14",
+        0
+      ]
+    },
+    "class_type": "TextGenerate",
+    "_meta": {
+      "title": "TextGenerate"
+    }
+  },
+  "18:1": {
+    "inputs": {
+      "unet_name": "moss_image_sft_turbo_int8_convrot.safetensors",
+      "weight_dtype": "default"
+    },
+    "class_type": "UNETLoader",
+    "_meta": {
+      "title": "UNet加载器"
+    }
+  },
+  "18:4": {
+    "inputs": {
+      "text": [
+        "18:31",
+        0
+      ],
+      "clip": [
+        "18:2",
+        0
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "Positive Prompt"
+    }
+  },
+  "18:2": {
+    "inputs": {
+      "clip_name": "qwen3.5_9b_w4a8_gptq.safetensors",
+      "type": "moss_image",
+      "device": "default"
+    },
+    "class_type": "CLIPLoader",
+    "_meta": {
+      "title": "加载CLIP"
+    }
+  },
+  "18:7": {
+    "inputs": {
+      "seed": 555609559944598,
+      "steps": 12,
+      "cfg": 1,
+      "sampler_name": "euler",
+      "scheduler": "simple",
+      "denoise": 1,
+      "model": [
+        "18:24",
+        0
+      ],
+      "positive": [
+        "18:4",
+        0
+      ],
+      "negative": [
+        "18:5",
+        0
+      ],
+      "latent_image": [
+        "18:6",
+        0
+      ]
+    },
+    "class_type": "KSampler",
+    "_meta": {
+      "title": "K采样器"
+    }
+  },
+  "18:3": {
+    "inputs": {
+      "vae_name": "flux2-vae.safetensors"
+    },
+    "class_type": "VAELoader",
+    "_meta": {
+      "title": "加载VAE"
+    }
+  },
+  "18:13": {
+    "inputs": {
+      "source": [
+        "18:16",
+        0
+      ]
+    },
+    "class_type": "PreviewAny",
+    "_meta": {
+      "title": "Preview as Text (final prompt)"
+    }
+  },
+  "18:16": {
+    "inputs": {
+      "switch": false,
+      "on_false": [
+        "18:17",
+        0
+      ],
+      "on_true": [
+        "18:11",
+        0
+      ]
+    },
+    "class_type": "ComfySwitchNode",
+    "_meta": {
+      "title": "切换"
+    }
+  },
+  "18:6": {
+    "inputs": {
+      "width": [
+        "19",
+        0
+      ],
+      "height": [
+        "19",
+        1
+      ],
+      "batch_size": 1
+    },
+    "class_type": "EmptyFlux2LatentImage",
+    "_meta": {
+      "title": "空Latent图像（Flux2）"
+    }
+  },
+  "18:5": {
+    "inputs": {
+      "text": "",
+      "clip": [
+        "18:2",
+        0
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "Negative Prompt (empty = reference default)"
+    }
+  },
+  "18:8": {
+    "inputs": {
+      "samples": [
+        "18:7",
+        0
+      ],
+      "vae": [
+        "18:3",
+        0
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "VAE解码"
+    }
+  },
+  "18:15": {
+    "inputs": {
+      "double_layers": "",
+      "single_layers": "22",
+      "start_percent": 0,
+      "end_percent": 0.5,
+      "model": [
+        "18:37",
+        0
+      ]
+    },
+    "class_type": "SkipLayerGuidanceDiTSimple",
+    "_meta": {
+      "title": "跳过层引导（DiT简化）"
+    }
+  },
+  "18:24": {
+    "inputs": {
+      "switch": false,
+      "on_false": [
+        "18:37",
+        0
+      ],
+      "on_true": [
+        "18:15",
+        0
+      ]
+    },
+    "class_type": "ComfySwitchNode",
+    "_meta": {
+      "title": "切换"
+    }
+  },
+  "18:31": {
+    "inputs": {
+      "string_a": [
+        "18:13",
+        0
+      ],
+      "string_b": "\nGlobal character aesthetic:\nBreathtakingly beautiful young Chinese women, Douyin and Xiaohongshu beauty aesthetic, ulzzang, every woman has an attractive and well-proportioned feminine figure, golden body proportions, small head-to-body ratio, long leg-to-body ratio, long slender legs, graceful swan neck, elegant posture, and alluring body curves. Every woman has flawless milky-white porcelain skin from head to toe, pale snow-white skin tone across the entire body, smooth airbrushed skin texture, dewy glass skin makeup with soft highlighter glow on cheeks and nose tip.\nStrikingly handsome young Chinese men, refined East Asian male model aesthetic, every man has a very tall, towering stature and a solid, well-built muscular masculine frame, small head-to-body ratio, very long strong legs, broad well-muscled shoulders, firm sculpted chest, strong toned arms, well-defined V-tapered torso, and a confident, upright posture. Every man has sharp chiseled facial features, a defined jawline, deep expressive eyes, neat stylish hair, and clear healthy skin with natural masculine skin texture across the entire body.",
+      "delimiter": ""
+    },
+    "class_type": "StringConcatenate",
+    "_meta": {
+      "title": "连接"
+    }
+  },
+  "18:37": {
+    "inputs": {
+      "lora_name": "MOSS-Image-NSFW-Uncensored-LoRA-ComfyUI.safetensors",
+      "strength_model": 0.7,
+      "model": [
+        "18:1",
+        0
+      ]
+    },
+    "class_type": "LoraLoaderModelOnly",
+    "_meta": {
+      "title": "LoRA加载器（仅模型）"
+    }
+  },
+  "18:63": {
+    "inputs": {
+      "source": [
+        "18:31",
+        0
+      ]
+    },
+    "class_type": "PreviewAny",
+    "_meta": {
+      "title": "预览任意"
+    }
+  },
+  "75:64": {
+    "inputs": {
+      "unet_name": "krea2TurboOfficialComfy_krea2TurboFp8.safetensors",
+      "weight_dtype": "default"
+    },
+    "class_type": "UNETLoader",
+    "_meta": {
+      "title": "UNet加载器"
+    }
+  },
+  "75:65": {
+    "inputs": {
+      "lora_name": "krea2_identity_edit_v2.safetensors",
+      "strength_model": 1,
+      "model": [
+        "75:64",
+        0
+      ]
+    },
+    "class_type": "LoraLoaderModelOnly",
+    "_meta": {
+      "title": "Identity Edit LoRA (v2 或 v1_2)"
+    }
+  },
+  "75:66": {
+    "inputs": {
+      "clip_name": "qwen3vl_4b_bf16.safetensors",
+      "type": "krea2",
+      "device": "default"
+    },
+    "class_type": "CLIPLoader",
+    "_meta": {
+      "title": "加载CLIP"
+    }
+  },
+  "75:67": {
+    "inputs": {
+      "vae_name": "qwen_image_vae.safetensors"
+    },
+    "class_type": "VAELoader",
+    "_meta": {
+      "title": "加载VAE"
+    }
+  },
+  "75:10": {
+    "inputs": {
+      "pixels": [
+        "18:8",
+        0
+      ],
+      "vae": [
+        "75:67",
+        0
+      ]
+    },
+    "class_type": "VAEEncode",
+    "_meta": {
+      "title": "VAE编码"
+    }
+  },
+  "75:68": {
+    "inputs": {
+      "pixels": [
+        "76",
+        0
+      ],
+      "vae": [
+        "75:67",
+        0
+      ]
+    },
+    "class_type": "VAEEncode",
+    "_meta": {
+      "title": "VAE编码"
+    }
+  },
+  "75:12": {
+    "inputs": {
+      "image": [
+        "18:8",
+        0
+      ]
+    },
+    "class_type": "GetImageSize",
+    "_meta": {
+      "title": "自动读取底图宽高"
+    }
+  },
+  "75:69": {
+    "inputs": {
+      "width": [
+        "75:12",
+        0
+      ],
+      "height": [
+        "75:12",
+        1
+      ],
+      "batch_size": 1
+    },
+    "class_type": "EmptySD3LatentImage",
+    "_meta": {
+      "title": "空Latent图像（SD3）"
+    }
+  },
+  "75:70": {
+    "inputs": {
+      "prompt": [
+        "78",
+        0
+      ],
+      "grounding_px": 768,
+      "system_prompt": "",
+      "clip": [
+        "75:66",
+        0
+      ],
+      "image": [
+        "18:8",
+        0
+      ],
+      "image_b": [
+        "76",
+        0
+      ]
+    },
+    "class_type": "Krea2EditGroundedEncode",
+    "_meta": {
+      "title": "正面锁脸/换头指令"
+    }
+  },
+  "75:71": {
+    "inputs": {
+      "prompt": "",
+      "grounding_px": 768,
+      "system_prompt": "",
+      "clip": [
+        "75:66",
+        0
+      ],
+      "image": [
+        "18:8",
+        0
+      ],
+      "image_b": [
+        "76",
+        0
+      ]
+    },
+    "class_type": "Krea2EditGroundedEncode",
+    "_meta": {
+      "title": "负面条件 (CFG=1 时保持空即可)"
+    }
+  },
+  "75:72": {
+    "inputs": {
+      "ref_boost": 2,
+      "ref_boost_a": 4,
+      "fit_mode": "fit",
+      "model": [
+        "75:65",
+        0
+      ],
+      "source_latent": [
+        "75:10",
+        0
+      ],
+      "source_latent_b": [
+        "75:68",
+        0
+      ],
+      "vae": [
+        "75:67",
+        0
+      ],
+      "source_image": [
+        "18:8",
+        0
+      ],
+      "source_image_b": [
+        "76",
+        0
+      ],
+      "target_latent": [
+        "75:69",
+        0
+      ]
+    },
+    "class_type": "Krea2EditModelPatch",
+    "_meta": {
+      "title": "锁脸参考权重与空间位置"
+    }
+  },
+  "75:73": {
+    "inputs": {
+      "seed": 1041449013241065,
+      "steps": 8,
+      "cfg": 1,
+      "sampler_name": "euler",
+      "scheduler": "simple",
+      "denoise": 1,
+      "model": [
+        "75:72",
+        0
+      ],
+      "positive": [
+        "75:70",
+        0
+      ],
+      "negative": [
+        "75:71",
+        0
+      ],
+      "latent_image": [
+        "75:69",
+        0
+      ]
+    },
+    "class_type": "KSampler",
+    "_meta": {
+      "title": "K采样器"
+    }
+  },
+  "75:74": {
+    "inputs": {
+      "samples": [
+        "75:73",
+        0
+      ],
+      "vae": [
+        "75:67",
+        0
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "VAE解码"
+    }
+  },
+  "75:83": {
+    "inputs": {
+      "switch": true,
+      "on_false": [
+        "18:8",
+        0
+      ],
+      "on_true": [
+        "75:74",
+        0
+      ]
+    },
+    "class_type": "ComfySwitchNode",
+    "_meta": {
+      "title": "启用锁脸/换头开关 (true=启用 / false=原图直出)"
+    }
+  }
+}

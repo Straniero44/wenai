@@ -34,14 +34,12 @@ AI 女友的性格、语气、人设（傲娇/温柔/病娇……），请依据
 
 ### 3. 生图环境
 
-本 skill 的生图流程适配 **ComfyUI** 环境，生图工作流为**二次元（anime）风格**——基于动漫系模型（WAI / Pony）与 Danbooru 标签体系，提供三个版本：
+本 skill 的生图流程适配 **ComfyUI** 环境，生图工作流为**三次元（real）写实风格**——基于 MOSS-Image 模型与自然语言提示词体系，提供一个版本：
 
-- **v2.0（`nsfw-anime-v2.0.json`，当前使用）**：WAI NSFW Illustrious SDXL 模型，质量前缀 `masterpiece, best quality, amazing quality, absurdres`
-- **v3.0（`nsfw-anime-v3.0.json`，动图版）**：v2.0 静帧基础上接 Wan 图生视频，输出 12fps 无限循环 GIF；已内置 GIF 压缩控制体积，**流程时间明显更长**，追求速度仍用 v2.0，详见 WORKFLOW.md
-- **v1.0（`nsfw-anime-v1.0.json`，旧版）**：Pony V6 XL 模型，质量前缀 `score_9, score_8_up, score_7_up`
-- 提示词均采用 Danbooru 标签风格；请将 `image_generate` 指向你的 ComfyUI 服务并加载对应工作流
-- 女主固定特征标签需与你的 LoRA / 人设保持一致，保证出图形象统一
-- 两份 workflow 配置好 ComfyUI 环境后均可直接导入使用，详见 WORKFLOW.md
+- **v1.0（`nsfw-real-v1.0.json`，当前使用）**：MOSS-Image SFT turbo（int8）+ NSFW LoRA 生成写实场景，再经 Krea2 身份编辑把女主正脸换到画面人物上，输出写实成品
+- 提示词采用自然语言写实描述（推荐英文）；请将 `image_generate` 指向你的 ComfyUI 服务并加载对应工作流
+- 女主正脸参考图位于 `assets/face-real.jpg`，替换为你自己的正脸图即可让出图长成你的 TA
+- workflow 配置好 ComfyUI 环境后可直接导入使用，详见 WORKFLOW.md
 
 ## 📁 目录结构
 

@@ -39,7 +39,7 @@ AI 女友的性格、语气、人设（傲娇/温柔/病娇……），请依据
 - **v1.0（`nsfw-real-v1.0.json`，当前使用）**：MOSS-Image SFT turbo（int8）+ NSFW LoRA 生成写实场景，再经 Krea2 身份编辑把女主正脸换到画面人物上，输出写实成品
 - 提示词采用自然语言写实描述（推荐英文）；请将 `image_generate` 指向你的 ComfyUI 服务并加载对应工作流
 - 女主正脸参考图位于 `assets/face-real.jpg`，替换为你自己的正脸图即可让出图长成你的 TA
-- 工作流文件均位于 `workflows/` 目录：不带 `-raw` 后缀的为 **API 格式**（Agent 对接用），带 `-raw` 后缀的为 **UI 格式**（可在 ComfyUI 界面中直接导入显示）；配置好 ComfyUI 环境后可直接导入使用，详见 `workflows/WORKFLOW.md`
+- 工作流文件均位于 `workflows/` 目录：不带 `-raw` 后缀的为 **API 格式**（Agent 对接用），带 `-raw` 后缀的为 **UI 格式**（可在 ComfyUI 界面中直接导入显示），详见 `workflows/WORKFLOW.md`
 
 ## 📁 目录结构
 

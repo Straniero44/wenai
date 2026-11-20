@@ -41,7 +41,7 @@ AI 女友的性格、语气、人设（傲娇/温柔/病娇……），请依据
 - **v1.0（`nsfw-anime-v1.0.json`，旧版）**：Pony V6 XL 模型，质量前缀 `score_9, score_8_up, score_7_up`
 - 提示词均采用 Danbooru 标签风格；请将 `image_generate` 指向你的 ComfyUI 服务并加载对应工作流
 - 女主固定特征标签需与你的 LoRA / 人设保持一致，保证出图形象统一
-- 工作流文件均位于 `workflows/` 目录：不带 `-raw` 后缀的为 **API 格式**（Agent 对接用），带 `-raw` 后缀的为 **UI 格式**（可在 ComfyUI 界面中直接导入显示）；三份 workflow 配置好 ComfyUI 环境后均可直接导入使用，详见 `workflows/WORKFLOW.md`
+- 工作流文件均位于 `workflows/` 目录：不带 `-raw` 后缀的为 **API 格式**（Agent 对接用），带 `-raw` 后缀的为 **UI 格式**（可在 ComfyUI 界面中直接导入显示），详见 `workflows/WORKFLOW.md`
 
 ## 📁 目录结构
 

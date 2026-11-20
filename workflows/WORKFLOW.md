@@ -26,7 +26,7 @@
 | 18:16 | ComfySwitchNode | False=直输 18:17 / True=经 18:11 TextGenerate LLM 改写 |
 | 18:31 | StringConcatenate | 提示词 + 全局审美前缀（Douyin/小红书美女风格串） |
 | 18:4 / 18:5 | CLIPTextEncode | 正/负条件编码（负向文本来自节点 86） |
-| 19 | ResolutionSelector | 分辨率（默认 1:1 · 1MP · 16 倍数） |
+| 19 | ResolutionSelector | 分辨率（默认 3:4 竖版 · 1MP · 16 倍数） |
 | 18:24 | ComfySwitchNode | False=LoRA 模型 / True=18:15 SkipLayerGuidance（SLG） |
 | 18:7 | KSampler | 采样：euler / simple，12 步，CFG 1 |
 | 18:8 | VAEDecode | 解码出图 |
@@ -64,4 +64,4 @@
 - NSFW LoRA 强度默认 0.7，尺度偏软可上调（18:37）；换脸保真不足上调 75:72 的 ref_boost
 - 默认开启锁头/换脸（可能导致表情崩坏或画面畸变）；想跳过锁头/换脸直接取 MOSS 原图：75:83 置 False，成品走节点 9
 - 全局审美前缀在节点 18:31 的 string_b，可按需修改
-- 分辨率在节点 19 调整（默认 1:1 · 1MP · 16 倍数）
+- 分辨率在节点 19 调整（默认 3:4 竖版 · 1MP · 16 倍数）

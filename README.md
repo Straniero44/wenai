@@ -37,11 +37,12 @@ AI 女友的性格、语气、人设（傲娇/温柔/病娇……），请依据
 本 skill 的生图流程适配 **ComfyUI** 环境，生图工作流为**二次元（anime）风格**——基于动漫系模型（WAI / Pony）与 Danbooru 标签体系，提供三个版本：
 
 - **v2.0（`nsfw-anime-v2.0.json`，当前使用）**：WAI NSFW Illustrious SDXL 模型，质量前缀 `masterpiece, best quality, amazing quality, absurdres`
-- **v3.0（`nsfw-anime-v3.0.json`，动图版）**：v2.0 静帧基础上接 Wan 图生视频，输出 12fps 无限循环 GIF；已内置 GIF 压缩控制体积，**流程时间明显更长**，追求速度仍用 v2.0，详见 WORKFLOW.md
+- **v3.0（`nsfw-anime-v3.0.json`，动图版）**：v2.0 静帧基础上接 Wan 图生视频，输出 12fps 无限循环 GIF；已内置 GIF 压缩控制体积，**流程时间明显更长**，追求速度仍用 v2.0，详见 workflows/WORKFLOW.md
 - **v1.0（`nsfw-anime-v1.0.json`，旧版）**：Pony V6 XL 模型，质量前缀 `score_9, score_8_up, score_7_up`
 - 提示词均采用 Danbooru 标签风格；请将 `image_generate` 指向你的 ComfyUI 服务并加载对应工作流
 - 女主固定特征标签需与你的 LoRA / 人设保持一致，保证出图形象统一
-- 三份 workflow 配置好 ComfyUI 环境后均可直接导入使用，详见 WORKFLOW.md
+- 三份 workflow 配置好 ComfyUI 环境后均可直接导入使用，详见 workflows/WORKFLOW.md
+- 工作流文件均位于 `workflows/` 目录：不带 raw 后缀的为 **API 格式**（Agent 对接用）；带 `-raw` 后缀的为 **UI 格式**（可在 ComfyUI 界面中直接导入显示）
 
 ### 4. 语音环境
 
@@ -51,7 +52,7 @@ AI 女友的性格、语气、人设（傲娇/温柔/病娇……），请依据
 - 语音用 `message` 工具 `asVoice` 发送，不依赖自动投递
 - TTS 引擎两种来源（同为 tts，任选其一）：
   - **云 TTS 服务**：如豆包等云端语音合成服务（通过 Agent 的 tts 工具调用）
-  - **ComfyUI 本地 TTS**：本分支提供工作流示例（`voice-qwen.json`，适配 Qwen3-TTS），详见 WORKFLOW.md
+  - **ComfyUI 本地 TTS**：本分支提供工作流示例（`voice-qwen.json`，适配 Qwen3-TTS），详见 workflows/WORKFLOW.md
 
 ## 📁 目录结构
 

@@ -60,7 +60,7 @@ description: "成人百合亲密角色扮演工作流，涵盖场景引导、露
 - 只有**新插入**才计数一次，按插入方式记（手指 fingering / 玩具/穿戴 dildo / 舌头 cunnilingus）
 - 同一次插入的延续动作（加速、换体位、高潮）**不重复计数**
 - 拔出后重新插入，或换另一种方式，都算新的插入，对应计数+1
-- 每次潮吹计一次（按触发方式记：阴蒂/手指/舌头/玩具/磨豆）
+- 每次高潮计一次（按触发方式记：阴蒂/手指/舌头/玩具/磨豆）
 - **高潮计数（严格口径）**：只在明确爆点 +1（潮吹喷水、僵直失神、失禁决堤、文中明确描写到再次高潮如"又高潮了"）；高潮后的余韵不重复计
 
 ### 3.1 性交方式
@@ -71,11 +71,11 @@ description: "成人百合亲密角色扮演工作流，涵盖场景引导、露
 - 肛门手指（anal fingering）
 - 肛门玩具（anal strapon / anal dildo）
 
-### 3.2 潮吹方式
-- 阴蒂潮吹（clitoral squirt）
-- G点潮吹（G-spot squirt）
-- 玩具潮吹（toy-induced squirt）
-- 磨豆潮吹（tribadism squirt）
+### 3.2 高潮方式
+- 阴蒂高潮（clitoral orgasm）
+- G点高潮（G-spot orgasm）
+- 玩具高潮（toy orgasm）
+- 磨豆高潮（tribadism orgasm）
 
 ### 3.3 场景标签计数（独立维度）
 - group: 多人场景次数（只记场次）
@@ -84,7 +84,7 @@ description: "成人百合亲密角色扮演工作流，涵盖场景引导、露
 ```markdown
 # wenai stats
 fingering: N | cunnilingus: N | tribadism: N | strapon: N | anal_fingering: N | anal_strapon: N
-squirt_clitoral: N | squirt_gspot: N | squirt_toy: N | squirt_trib: N
+orgasm_clitoral: N | orgasm_gspot: N | orgasm_toy: N | orgasm_trib: N
 orgasm_count: N
 group: N (多人场景场次)
 ```

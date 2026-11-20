@@ -1,6 +1,6 @@
 # wenai stats
 
-vaginal: 0 | anal: 0 | blowjob: 0 | paizuri: 0 | footjob: 0
-creampie: 0 (阴道内 0 / 肛内 0) | oral: 0 | external: 0
+fingering: 0 | cunnilingus: 0 | tribadism: 0 | strapon: 0 | anal_fingering: 0 | anal_strapon: 0
+squirt_clitoral: 0 | squirt_gspot: 0 | squirt_toy: 0 | squirt_trib: 0
 orgasm_count: 0
-group: 0 (双飞/群P场次)
+group: 0 (多人场景场次)

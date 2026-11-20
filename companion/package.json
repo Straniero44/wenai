@@ -1,0 +1,14 @@
+{
+  "name": "companion",
+  "private": true,
+  "type": "module",
+  "description": "Local motion service. Depends only on files in this directory.",
+  "main": "src/main.js",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "start": "node src/main.js",
+    "test": "node --test test/*.test.js"
+  }
+}

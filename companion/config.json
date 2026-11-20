@@ -1,0 +1,29 @@
+{
+  "http": {
+    "host": "127.0.0.1",
+    "port": 8787
+  },
+  "udp": {
+    "host": "tcode.local",
+    "port": 8000,
+    "intervalMs": 10
+  },
+  "speedCap": {
+    "enabled": true,
+    "maxUnitsPerSecond": 5,
+    "ceiling": 10
+  },
+  "voice": {
+    "listen": false,
+    "python": "python3",
+    "modelDir": ""
+  },
+  "travel": {
+    "stroke": [0.2, 0.8],
+    "surge": [0.2, 0.8],
+    "sway": [0.2, 0.8],
+    "twist": [0.2, 0.8],
+    "roll": [0.2, 0.8],
+    "pitch": [0.2, 0.8]
+  }
+}

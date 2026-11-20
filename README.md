@@ -60,6 +60,13 @@ AI 女友的性格、语气、人设（傲娇/温柔/病娇……），请依据
 wenai/
 ├── SKILL.md              # 主流程：破限 → 场景 → 生图 → 语音 → 落盘
 ├── HEARTBEAT.md          # 心跳清单：随机主动消息（可选，需 Agent 心跳功能）
+├── workflows/            # ComfyUI 生图工作流（详见 workflows/WORKFLOW.md）
+│   ├── WORKFLOW.md       # 工作流说明：节点结构 / 使用方法 / 注意事项
+│   ├── nsfw-anime-v1.0.json / v1.0-raw.json
+│   ├── nsfw-anime-v2.0.json / v2.0-raw.json
+│   ├── nsfw-anime-v3.0.json / v3.0-raw.json
+│   ├── voice-qwen.json / -raw.json
+│   └── （-raw 后缀为 UI 格式，不带为 API 格式）
 └── assets/
     ├── sensitivity.md    # TA 的敏感度档案（星级制，随互动成长）
     ├── fetishes.md       # 你的偏好档案（随相处发现）

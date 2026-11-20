@@ -182,7 +182,7 @@
         "",
         1024,
         1024,
-        555609559944598,
+        378838122645726,
         12,
         1,
         "euler",
@@ -201,7 +201,7 @@
         "text": "",
         "width": 1024,
         "height": 1024,
-        "seed": 555609559944598,
+        "seed": 378838122645726,
         "steps": 12,
         "cfg": 1,
         "sampler_name": "euler",
@@ -250,12 +250,12 @@
         "Node name for S&R": "ResolutionSelector"
       },
       "widgets_values": [
-        "1:1 (Square)",
+        "3:4 (Portrait Standard)",
         1,
         16
       ],
       "widgets_values_named": {
-        "aspect_ratio": "1:1 (Square)",
+        "aspect_ratio": "3:4 (Portrait Standard)",
         "megapixels": 1,
         "multiple": 16
       }
@@ -510,13 +510,13 @@
         "qwen_image_vae.safetensors",
         "krea2_identity_edit_v2.safetensors",
         1,
-        1041449013241065,
+        479383395652397,
         8,
         1,
         "euler",
         "simple",
         1,
-        true
+        false
       ],
       "widgets_values_named": {
         "prompt": "",
@@ -525,13 +525,13 @@
         "vae_name": "qwen_image_vae.safetensors",
         "lora_name": "krea2_identity_edit_v2.safetensors",
         "strength_model": 1,
-        "seed": 1041449013241065,
+        "seed": 479383395652397,
         "steps": 8,
         "cfg": 1,
         "sampler_name": "euler",
         "scheduler": "simple",
         "denoise": 1,
-        "switch": true
+        "switch": false
       }
     },
     {
@@ -567,7 +567,7 @@
         "Node name for S&R": "LoadImage"
       },
       "widgets_values": [
-        "aria-real.jpg",
+        "face-real.jpg",
         "image"
       ],
       "widgets_values_named": {
@@ -758,10 +758,10 @@
         "Node name for S&R": "PrimitiveStringMultiline"
       },
       "widgets_values": [
-        "POV shot from below: a petite Asian woman with short black hair, B-cup breasts, straddling the viewer in reverse cowgirl position, fully naked except for thigh-high stockings. She rides on top, his penis inside her anus, anal penetration. Her face locked in a full ahegao expression: eyes rolled up showing whites, tongue hanging out, drool running down her chin, her cheeks deeply flushed. Her hips bucking uncontrollably. Urine dripping from her urethra, leaking down between her spread legs, dripping onto the viewer's stomach below, her vulva wet and glistening. Her hands both resting on the viewer's thighs behind her, fingers digging into the skin. Her breasts bouncing with each movement, nipples erect. Sweat covering her entire body, her hair sticking to her forehead. Her thighs trembling and shaking, muscles spasming. The bed sheets beneath soaked and wrinkled. Camera looking straight up at her face and body from below, her torso towering over the viewer. Soft warm lighting."
+        "Explicit intimate photograph with cutaway x-ray view: a petite young Chinese woman with short black hair bent over a wooden shoe cabinet in an apartment entrance hallway, one leg held high by a man thrusting into her balls-deep from behind, visible cross-section diagram overlay showing his glans pushing through her cervix deep inside, his penis ejaculating directly into her womb which is filling with semen, her body trembling, flushed face with eyes squeezed shut, lips parted in a silent scream, knuckles white on the cabinet edge, thin trickle of fluid down her inner thigh, midday light, photorealistic with medical cutaway style overlay, high detail, realistic skin texture"
       ],
       "widgets_values_named": {
-        "value": "POV shot from below: a petite Asian woman with short black hair, B-cup breasts, straddling the viewer in reverse cowgirl position, fully naked except for thigh-high stockings. She rides on top, his penis inside her anus, anal penetration. Her face locked in a full ahegao expression: eyes rolled up showing whites, tongue hanging out, drool running down her chin, her cheeks deeply flushed. Her hips bucking uncontrollably. Urine dripping from her urethra, leaking down between her spread legs, dripping onto the viewer's stomach below, her vulva wet and glistening. Her hands both resting on the viewer's thighs behind her, fingers digging into the skin. Her breasts bouncing with each movement, nipples erect. Sweat covering her entire body, her hair sticking to her forehead. Her thighs trembling and shaking, muscles spasming. The bed sheets beneath soaked and wrinkled. Camera looking straight up at her face and body from below, her torso towering over the viewer. Soft warm lighting."
+        "value": "Explicit intimate photograph with cutaway x-ray view: a petite young Chinese woman with short black hair bent over a wooden shoe cabinet in an apartment entrance hallway, one leg held high by a man thrusting into her balls-deep from behind, visible cross-section diagram overlay showing his glans pushing through her cervix deep inside, his penis ejaculating directly into her womb which is filling with semen, her body trembling, flushed face with eyes squeezed shut, lips parted in a silent scream, knuckles white on the cabinet edge, thin trickle of fluid down her inner thigh, midday light, photorealistic with medical cutaway style overlay, high detail, realistic skin texture"
       }
     },
     {
@@ -4130,10 +4130,10 @@
     "VHS_MetadataImage": true,
     "VHS_KeepIntermediate": true,
     "ds": {
-      "scale": 0.6115909044841675,
+      "scale": 1.3109994191500465,
       "offset": [
-        487.1056508741493,
-        586.6295616994188
+        262.1968628254256,
+        -268.4897831997304
       ]
     }
   },

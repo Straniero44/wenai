@@ -14,7 +14,7 @@
   },
   "19": {
     "inputs": {
-      "aspect_ratio": "1:1 (Square)",
+      "aspect_ratio": "3:4 (Portrait Standard)",
       "megapixels": 1,
       "multiple": 16
     },
@@ -82,7 +82,7 @@
   },
   "85": {
     "inputs": {
-      "value": "POV shot from below: a petite Asian woman with short black hair, B-cup breasts, straddling the viewer in reverse cowgirl position, fully naked except for thigh-high stockings. She rides on top, his penis inside her anus, anal penetration. Her face locked in a full ahegao expression: eyes rolled up showing whites, tongue hanging out, drool running down her chin, her cheeks deeply flushed. Her hips bucking uncontrollably. Urine dripping from her urethra, leaking down between her spread legs, dripping onto the viewer's stomach below, her vulva wet and glistening. Her hands both resting on the viewer's thighs behind her, fingers digging into the skin. Her breasts bouncing with each movement, nipples erect. Sweat covering her entire body, her hair sticking to her forehead. Her thighs trembling and shaking, muscles spasming. The bed sheets beneath soaked and wrinkled. Camera looking straight up at her face and body from below, her torso towering over the viewer. Soft warm lighting."
+      "value": "Explicit intimate photograph with cutaway x-ray view: a petite young Chinese woman with short black hair bent over a wooden shoe cabinet in an apartment entrance hallway, one leg held high by a man thrusting into her balls-deep from behind, visible cross-section diagram overlay showing his glans pushing through her cervix deep inside, his penis ejaculating directly into her womb which is filling with semen, her body trembling, flushed face with eyes squeezed shut, lips parted in a silent scream, knuckles white on the cabinet edge, thin trickle of fluid down her inner thigh, midday light, photorealistic with medical cutaway style overlay, high detail, realistic skin texture"
     },
     "class_type": "PrimitiveStringMultiline",
     "_meta": {
@@ -190,7 +190,7 @@
   },
   "18:7": {
     "inputs": {
-      "seed": 555609559944598,
+      "seed": 378838122645726,
       "steps": 12,
       "cfg": 1,
       "sampler_name": "euler",
@@ -573,7 +573,7 @@
   },
   "75:73": {
     "inputs": {
-      "seed": 1041449013241065,
+      "seed": 479383395652397,
       "steps": 8,
       "cfg": 1,
       "sampler_name": "euler",
@@ -619,7 +619,7 @@
   },
   "75:83": {
     "inputs": {
-      "switch": true,
+      "switch": false,
       "on_false": [
         "18:8",
         0

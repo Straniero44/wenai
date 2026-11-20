@@ -43,6 +43,7 @@ description: "成人亲密角色扮演工作流，涵盖场景引导、露骨文
    - 双人/多人生图用英文自然语言描述人数与相对位置（如 `two people facing each other`）
    - 失禁/喷尿用英文自然语言描述（如 `peeing, involuntary urination`），不用标签组合
    - 表情写实克制：英文提示词用 eyes squeezed shut / brows furrowed / lips parted / flushed cheeks with tears 等自然高潮神态，避免 eyes rolling / ahegao / broken expression 等夸张描述（写实风格下易失真）
+   - 潮吹/失禁写实克制：提示词用 glistening wetness / a thin trickle running down her inner thighs / damp sheets 等轻量描述，避免 spraying / arcing / powerful stream / spurting 等夸张动词（写实风下不自然）
    - 文件名: `wenai_<角色名>_<场景>_<5位序号>`（序号从记忆取下一个）
 3. 图片一律用 `message` 工具发送到 `[用户名]` 所在会话（带色气文字旁白），不依赖自动投递。
 4. **图片发送后必须立即完成以下步骤（按顺序执行）**：

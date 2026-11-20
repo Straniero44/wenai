@@ -55,7 +55,8 @@ wenai/
     ├── sensitivity.md    # TA 的敏感度档案（星级制，随互动成长）
     ├── fetishes.md       # 你的偏好档案（随相处发现）
     ├── profile.md        # TA 的身体状态档案（破处/怀孕/经期/排卵期）
-    └── stats.md          # 互动统计（插入/内射/高潮计数）
+    ├── stats.md          # 互动统计（插入/内射/高潮计数）
+    └── face-real.jpg      # 女主正脸参考图（real 管线生图用）
 ```
 
 ## 📌 使用须知

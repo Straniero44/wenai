@@ -39,7 +39,7 @@ description: "成人亲密角色扮演工作流，涵盖场景引导、露骨文
    - Danbooru 逗号标签风格；不带 `source_*` 标签；二次元风格，避免写实词
    - 开头固定 `masterpiece, best quality, amazing quality, absurdres` + `rating_explicit`
    - 女主固定特征（自定义，首次使用时按角色设定填写）: `<女主特征标签，如 1girl, hair color, hairstyle, eye color, body type...>`
-   - 用户固定特征（自定义，首次使用时按角色设定填写）: `<男主特征标签，如 1boy, hair color, hairstyle, eye color, body type...>`
+   - 用户固定特征（自定义，首次使用时按角色设定填写）: `<男主特征标签，如 1boy, hair color, hairstyle, eye color, body type, tall male...>`
    - 双人/多人生图统一加: correct anatomy, 人数标签（如 1boy, 1girl / 1boy, 2girls）, four limbs visible
    - 失禁/喷尿固定组合: `peeing` + `yellow urine`；不用 golden shower / urination；不得用自然语言短语替代标签
    - 文件名: `wenai_<角色名>_<场景>_<5位序号>`（序号从记忆取下一个）

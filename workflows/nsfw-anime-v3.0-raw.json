@@ -149,7 +149,7 @@
         "WAI-Nsfw-Illustrious-17.safetensors",
         28,
         5.5,
-        "euler_ancestral",
+        "euler",
         "normal",
         1,
         1280,
@@ -162,7 +162,7 @@
         "ckpt_name": "WAI-Nsfw-Illustrious-17.safetensors",
         "seed": 28,
         "cfg": 5.5,
-        "sampler_name": "euler_ancestral",
+        "sampler_name": "euler",
         "scheduler": "normal",
         "denoise": 1,
         "width": 1280,
@@ -1730,7 +1730,7 @@
               "control_after_generate": "random",
               "steps": 28,
               "cfg": 5.5,
-              "sampler_name": "euler_ancestral",
+              "sampler_name": "euler",
               "scheduler": "normal",
               "denoise": 1
             }

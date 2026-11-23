@@ -62,7 +62,7 @@
 | 2 | CLIPTextEncode | 正向条件编码 |
 | 3 | CLIPTextEncode | 负向条件编码（内置反 3D/写实负面词） |
 | 4 | EmptyLatentImage | 画布：1280×1024 |
-| 5 | KSampler | 采样：euler / normal，28 步，CFG 5.5 |
+| 5 | KSampler | 采样：euler_ancestral / normal，28 步，CFG 5.5 |
 | 6 | VAEDecode | 解码 |
 | 7 | SaveImage | 输出（前缀 nsfw/nsfw） |
 | 19~23 | 图像输入组 | 图生图入口（不连入时走文生图） |

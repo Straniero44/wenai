@@ -1,8 +1,8 @@
 {
   "id": "08988737-a544-4ab1-99fb-22d67b7c36e3",
   "revision": 0,
-  "last_node_id": 52,
-  "last_link_id": 91,
+  "last_node_id": 54,
+  "last_link_id": 97,
   "nodes": [
     {
       "id": 29,
@@ -53,7 +53,7 @@
       ],
       "size": [
         560,
-        1070
+        1100
       ],
       "flags": {},
       "order": 5,
@@ -123,7 +123,7 @@
           "link": null
         },
         {
-          "label": "enable_lora",
+          "label": "enable_nsfw",
           "name": "value_3",
           "type": "BOOLEAN",
           "widget": {
@@ -186,10 +186,11 @@
         512,
         1024,
         1024,
-        257234543689947,
+        1009215487841551,
         true,
         "SKP-NSFW_Master_Krea2_turbo.safetensors",
         0.8,
+        false,
         "yoneyama_mai_krea2_3_d32_final.safetensors",
         0.8,
         "",
@@ -204,10 +205,11 @@
         "max_length_1": 512,
         "width_1": 1024,
         "height_1": 1024,
-        "seed_1": 257234543689947,
+        "seed_1": 1009215487841551,
         "value_3": true,
         "lora_name_1": "SKP-NSFW_Master_Krea2_turbo.safetensors",
         "strength_model_1": 0.8,
+        "enable_style": false,
         "style_lora": "yoneyama_mai_krea2_3_d32_final.safetensors",
         "style_strength": 0.8,
         "string_b_1": "",
@@ -421,8 +423,8 @@
         "version": 1,
         "state": {
           "lastGroupId": 10,
-          "lastNodeId": 52,
-          "lastLinkId": 91,
+          "lastNodeId": 54,
+          "lastLinkId": 97,
           "lastRerouteId": 0
         },
         "revision": 0,
@@ -434,7 +436,7 @@
             -1663.0467311105908,
             442.6713226822096,
             160.76953125,
-            368
+            388
           ]
         },
         "outputNode": {
@@ -544,7 +546,7 @@
             "linkIds": [
               78
             ],
-            "label": "enable_lora",
+            "label": "enable_nsfw",
             "pos": [
               -1526.2771998605908,
               606.6713226822096
@@ -577,6 +579,18 @@
             ]
           },
           {
+            "id": "b1542c2a-8891-41bb-b2f2-0ca8f1db78ae",
+            "name": "enable_style",
+            "type": "BOOLEAN",
+            "linkIds": [
+              93
+            ],
+            "pos": [
+              -1526.2771998605908,
+              666.6713226822096
+            ]
+          },
+          {
             "id": "9020a0fe-959c-4df7-bae6-50eea00642cb",
             "name": "style_lora",
             "type": "COMBO",
@@ -585,7 +599,7 @@
             ],
             "pos": [
               -1526.2771998605908,
-              666.6713226822096
+              686.6713226822096
             ]
           },
           {
@@ -597,7 +611,7 @@
             ],
             "pos": [
               -1526.2771998605908,
-              686.6713226822096
+              706.6713226822096
             ]
           },
           {
@@ -610,7 +624,7 @@
             "label": "lora_trigger_word",
             "pos": [
               -1526.2771998605908,
-              706.6713226822096
+              726.6713226822096
             ]
           },
           {
@@ -622,7 +636,7 @@
             ],
             "pos": [
               -1526.2771998605908,
-              726.6713226822096
+              746.6713226822096
             ]
           },
           {
@@ -634,7 +648,7 @@
             ],
             "pos": [
               -1526.2771998605908,
-              746.6713226822096
+              766.6713226822096
             ]
           },
           {
@@ -646,7 +660,7 @@
             ],
             "pos": [
               -1526.2771998605908,
-              766.6713226822096
+              786.6713226822096
             ]
           }
         ],
@@ -789,8 +803,8 @@
             "id": 3,
             "type": "KSampler",
             "pos": [
-              640,
-              -100
+              645.2000774719539,
+              -53.19987404301481
             ],
             "size": [
               320,
@@ -804,7 +818,7 @@
                 "localized_name": "模型",
                 "name": "model",
                 "type": "MODEL",
-                "link": 30
+                "link": 97
               },
               {
                 "localized_name": "正面条件",
@@ -1172,7 +1186,7 @@
                 "name": "MODEL",
                 "type": "MODEL",
                 "links": [
-                  87
+                  92
                 ]
               }
             ],
@@ -1586,8 +1600,8 @@
             "id": 22,
             "type": "ComfySwitchNode",
             "pos": [
-              640,
-              -270
+              643.1200083971324,
+              -237.7599290988157
             ],
             "size": [
               320,
@@ -1609,7 +1623,7 @@
                 "name": "on_true",
                 "shape": 7,
                 "type": "MODEL",
-                "link": 88
+                "link": 92
               },
               {
                 "localized_name": "切换",
@@ -1627,7 +1641,8 @@
                 "name": "output",
                 "type": "MODEL",
                 "links": [
-                  30
+                  30,
+                  94
                 ]
               }
             ],
@@ -1675,12 +1690,11 @@
                 "name": "BOOLEAN",
                 "type": "BOOLEAN",
                 "links": [
-                  31,
-                  42
+                  31
                 ]
               }
             ],
-            "title": "Boolean (Enable LoRA?)",
+            "title": "Boolean (Enable NSFW?)",
             "properties": {
               "Node name for S&R": "PrimitiveBoolean",
               "cnr_id": "comfy-core",
@@ -1884,7 +1898,7 @@
                 "localized_name": "模型",
                 "name": "model",
                 "type": "MODEL",
-                "link": 87
+                "link": 30
               },
               {
                 "localized_name": "LoRA名称",
@@ -1911,7 +1925,7 @@
                 "name": "MODEL",
                 "type": "MODEL",
                 "links": [
-                  88
+                  95
                 ]
               }
             ],
@@ -1934,6 +1948,117 @@
             "widgets_values_named": {
               "lora_name": "yoneyama_mai_krea2_3_d32_final.safetensors",
               "strength_model": 0.8
+            }
+          },
+          {
+            "id": 53,
+            "type": "PrimitiveBoolean",
+            "pos": [
+              -910,
+              1000
+            ],
+            "size": [
+              270,
+              110
+            ],
+            "flags": {},
+            "order": 21,
+            "mode": 0,
+            "inputs": [
+              {
+                "localized_name": "值",
+                "name": "value",
+                "type": "BOOLEAN",
+                "widget": {
+                  "name": "value"
+                },
+                "link": 93
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "布尔",
+                "name": "BOOLEAN",
+                "type": "BOOLEAN",
+                "links": [
+                  42,
+                  96
+                ]
+              }
+            ],
+            "title": "Boolean (Enable Style?)",
+            "properties": {
+              "Node name for S&R": "PrimitiveBoolean",
+              "cnr_id": "comfy-core",
+              "ver": "0.25.0"
+            },
+            "widgets_values": [
+              true
+            ],
+            "widgets_values_named": {
+              "value": true
+            }
+          },
+          {
+            "id": 54,
+            "type": "ComfySwitchNode",
+            "pos": [
+              641.0399393223108,
+              -426.0799197528021
+            ],
+            "size": [
+              320,
+              130
+            ],
+            "flags": {},
+            "order": 22,
+            "mode": 0,
+            "inputs": [
+              {
+                "localized_name": "为假时",
+                "name": "on_false",
+                "shape": 7,
+                "type": "MODEL",
+                "link": 94
+              },
+              {
+                "localized_name": "为真时",
+                "name": "on_true",
+                "shape": 7,
+                "type": "MODEL",
+                "link": 95
+              },
+              {
+                "localized_name": "切换",
+                "name": "switch",
+                "type": "BOOLEAN",
+                "widget": {
+                  "name": "switch"
+                },
+                "link": 96
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "输出",
+                "name": "output",
+                "type": "MODEL",
+                "links": [
+                  97
+                ]
+              }
+            ],
+            "title": "Switch (Style Model)",
+            "properties": {
+              "Node name for S&R": "ComfySwitchNode",
+              "cnr_id": "comfy-core",
+              "ver": "0.25.0"
+            },
+            "widgets_values": [
+              false
+            ],
+            "widgets_values_named": {
+              "switch": false
             }
           }
         ],
@@ -2017,7 +2142,7 @@
               -1080,
               580,
               610,
-              400
+              560
             ],
             "color": "#3f789e",
             "flags": {}
@@ -2036,7 +2161,7 @@
             "id": 30,
             "origin_id": 22,
             "origin_slot": 0,
-            "target_id": 3,
+            "target_id": 51,
             "target_slot": 0,
             "type": "MODEL"
           },
@@ -2186,7 +2311,7 @@
           },
           {
             "id": 42,
-            "origin_id": 23,
+            "origin_id": 53,
             "origin_slot": 0,
             "target_id": 28,
             "target_slot": 2,
@@ -2275,7 +2400,7 @@
           {
             "id": 81,
             "origin_id": -10,
-            "origin_slot": 12,
+            "origin_slot": 13,
             "target_id": 27,
             "target_slot": 1,
             "type": "STRING"
@@ -2283,7 +2408,7 @@
           {
             "id": 82,
             "origin_id": -10,
-            "origin_slot": 13,
+            "origin_slot": 14,
             "target_id": 10,
             "target_slot": 0,
             "type": "COMBO"
@@ -2291,7 +2416,7 @@
           {
             "id": 83,
             "origin_id": -10,
-            "origin_slot": 14,
+            "origin_slot": 15,
             "target_id": 11,
             "target_slot": 0,
             "type": "COMBO"
@@ -2299,31 +2424,15 @@
           {
             "id": 84,
             "origin_id": -10,
-            "origin_slot": 15,
+            "origin_slot": 16,
             "target_id": 12,
             "target_slot": 0,
             "type": "COMBO"
           },
           {
-            "id": 87,
-            "origin_id": 15,
-            "origin_slot": 0,
-            "target_id": 51,
-            "target_slot": 0,
-            "type": "MODEL"
-          },
-          {
-            "id": 88,
-            "origin_id": 51,
-            "origin_slot": 0,
-            "target_id": 22,
-            "target_slot": 1,
-            "type": "MODEL"
-          },
-          {
             "id": 89,
             "origin_id": -10,
-            "origin_slot": 10,
+            "origin_slot": 11,
             "target_id": 51,
             "target_slot": 1,
             "type": "COMBO"
@@ -2331,10 +2440,58 @@
           {
             "id": 90,
             "origin_id": -10,
-            "origin_slot": 11,
+            "origin_slot": 12,
             "target_id": 51,
             "target_slot": 2,
             "type": "FLOAT"
+          },
+          {
+            "id": 92,
+            "origin_id": 15,
+            "origin_slot": 0,
+            "target_id": 22,
+            "target_slot": 1,
+            "type": "MODEL"
+          },
+          {
+            "id": 93,
+            "origin_id": -10,
+            "origin_slot": 10,
+            "target_id": 53,
+            "target_slot": 0,
+            "type": "BOOLEAN"
+          },
+          {
+            "id": 94,
+            "origin_id": 22,
+            "origin_slot": 0,
+            "target_id": 54,
+            "target_slot": 0,
+            "type": "MODEL"
+          },
+          {
+            "id": 95,
+            "origin_id": 51,
+            "origin_slot": 0,
+            "target_id": 54,
+            "target_slot": 1,
+            "type": "MODEL"
+          },
+          {
+            "id": 96,
+            "origin_id": 53,
+            "origin_slot": 0,
+            "target_id": 54,
+            "target_slot": 2,
+            "type": "BOOLEAN"
+          },
+          {
+            "id": 97,
+            "origin_id": 54,
+            "origin_slot": 0,
+            "target_id": 3,
+            "target_slot": 0,
+            "type": "MODEL"
           },
           {
             "id": 18,
@@ -2381,10 +2538,10 @@
     "VHS_MetadataImage": true,
     "VHS_KeepIntermediate": true,
     "ds": {
-      "scale": 0.6830134553650709,
+      "scale": 0.6209213230591553,
       "offset": [
-        2199.173109713959,
-        661.5781104372936
+        2302.952998303192,
+        649.0649998130874
       ]
     }
   },

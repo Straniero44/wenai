@@ -75,7 +75,7 @@
   },
   "30:3": {
     "inputs": {
-      "seed": 453648363169817,
+      "seed": 257234543689947,
       "steps": 8,
       "cfg": 1,
       "sampler_name": "euler",
@@ -334,7 +334,7 @@
   },
   "30:24": {
     "inputs": {
-      "value": true
+      "value": false
     },
     "class_type": "PrimitiveBoolean",
     "_meta": {

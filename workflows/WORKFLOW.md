@@ -103,7 +103,7 @@
 | 30:18 | PrimitiveStringMultiline | 系统提示词 |
 | **52** | PrimitiveStringMultiline | **用户提示词输入口（52 的 value）** |
 | 30:16 | TextGenerate | LLM 自动扩写提示词（Qwen3-VL） |
-| 30:24 / 30:21 | PrimitiveBoolean / ComfySwitchNode | 扩写开关 |
+| 30:24 / 30:21 | PrimitiveBoolean / ComfySwitchNode | 扩写开关（默认关闭） |
 | 30:17 / 30:27 / 30:28 | StringConcatenate ×2 / ComfySwitchNode | 提示词拼接与 LoRA 触发词拼接 |
 | 30:6 | CLIPTextEncode | 正向条件编码 |
 | 30:13 | ConditioningZeroOut | 负向条件（CFG 1 下为零化占位） |
@@ -116,10 +116,10 @@
 ## 使用方法
 
 1. 导入 JSON 到 ComfyUI，确保已下载：Krea2 Turbo 主模型、Qwen3-VL-4B 文本编码器、Qwen-Image VAE；需要时再装两个 LoRA
-2. 手写模式：关闭扩写开关（节点 30:24 置 False），提示词写入节点 **52 的 value**
+2. 手写模式（当前默认）：扩写开关（节点 30:24）为 False，提示词写入节点 **52 的 value**
    - 开头固定：`Anime illustration, 2D anime style, cel shading, clean crisp line art, soft pastel palette`
    - 接英文自然语言整段描述
-3. 扩写模式：节点 30:24 置 True，由 Qwen3-VL 按系统提示词自动扩写，适合简短输入
+3. 扩写模式（可选）：节点 30:24 置 True，由 Qwen3-VL 按系统提示词自动扩写，适合简短输入
 4. LoRA：节点 30:23 置 True 启用；节点 30:27 的触发词当前为空，可按需填写
 5. Agent 对接：comfy 插件配置 `workflowPath` 指向本文件，`promptNodeId: 52`，`promptInputName: value`
 

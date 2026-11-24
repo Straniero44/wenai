@@ -1,0 +1,993 @@
+{
+  "id": "7bc32cd2-e3f3-4fbf-8a92-1e9918512d24",
+  "revision": 0,
+  "last_node_id": 125,
+  "last_link_id": 229,
+  "nodes": [
+    {
+      "id": 74,
+      "type": "StringConcatenate",
+      "pos": [
+        630.1540339084083,
+        273.79604838588773
+      ],
+      "size": [
+        400,
+        200
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "string_a",
+          "type": "STRING",
+          "widget": {
+            "name": "string_a"
+          },
+          "link": 113
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            109
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "StringConcatenate"
+      },
+      "widgets_values": [
+        "",
+        "score_9, score_8_up, score_7_up, 1girl, short black hair, slender, petite, medium breasts, pale skin, wide hips, thick thighs, wearing revealing sheer lace lingerie, black teddy, see-through bra, nipples visible through fabric, leopard print pattern, strappy details, garter belt, thigh-high stockings, standing in bedroom, looking at viewer, shy blushing expression, slight smile, one hand behind head, posing for selfie, phone in other hand, mirror selfie, soft warm lighting, bedroom background, anime coloring, high detail, masterpiece",
+        ", "
+      ],
+      "widgets_values_named": {
+        "string_a": "",
+        "string_b": "score_9, score_8_up, score_7_up, 1girl, short black hair, slender, petite, medium breasts, pale skin, wide hips, thick thighs, wearing revealing sheer lace lingerie, black teddy, see-through bra, nipples visible through fabric, leopard print pattern, strappy details, garter belt, thigh-high stockings, standing in bedroom, looking at viewer, shy blushing expression, slight smile, one hand behind head, posing for selfie, phone in other hand, mirror selfie, soft warm lighting, bedroom background, anime coloring, high detail, masterpiece",
+        "delimiter": ", "
+      }
+    },
+    {
+      "id": 80,
+      "type": "PrimitiveString",
+      "pos": [
+        207.44647914847263,
+        294.9820380128985
+      ],
+      "size": [
+        270,
+        58
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            113
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "PrimitiveString"
+      },
+      "widgets_values": [
+        "zPDXL3, Asanagi"
+      ],
+      "widgets_values_named": {
+        "value": "zPDXL3, Asanagi"
+      }
+    },
+    {
+      "id": 24,
+      "type": "LoraLoader",
+      "pos": [
+        403.12317620318055,
+        -37.45878199020889
+      ],
+      "size": [
+        270,
+        126
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 44
+        },
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 24
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            25
+          ]
+        },
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            26
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoraLoader"
+      },
+      "widgets_values": [
+        "[Artist] Asanagi_Geekpower [PDXL].safetensors",
+        1,
+        1
+      ],
+      "widgets_values_named": {
+        "lora_name": "[Artist] Asanagi_Geekpower [PDXL].safetensors",
+        "strength_model": 1,
+        "strength_clip": 1
+      }
+    },
+    {
+      "id": 4,
+      "type": "CheckpointLoaderSimple",
+      "pos": [
+        -26.18055723153683,
+        -40.5747843472902
+      ],
+      "size": [
+        273.4576171875,
+        98
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            44
+          ]
+        },
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            24
+          ]
+        },
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": []
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CheckpointLoaderSimple"
+      },
+      "widgets_values": [
+        "ponyDiffusionV6XL_v6StartWithThisOne.safetensors"
+      ],
+      "widgets_values_named": {
+        "ckpt_name": "ponyDiffusionV6XL_v6StartWithThisOne.safetensors"
+      }
+    },
+    {
+      "id": 6,
+      "type": "CLIPTextEncode",
+      "pos": [
+        1141.5633626883985,
+        146.85262513985234
+      ],
+      "size": [
+        400,
+        200
+      ],
+      "flags": {},
+      "order": 12,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 89
+        },
+        {
+          "name": "text",
+          "type": "STRING",
+          "widget": {
+            "name": "text"
+          },
+          "link": 109
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            134
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        "score_9, score_8_up, score_7_up, 1girl, short black hair, slender, petite, medium breasts, pale skin, wide hips, thick thighs, wearing revealing sheer lace lingerie, black teddy, see-through bra, nipples visible through fabric, leopard print pattern, strappy details, garter belt, thigh-high stockings, standing in bedroom, looking at viewer, shy blushing expression, slight smile, one hand behind head, posing for selfie, phone in other hand, mirror selfie, soft warm lighting, bedroom background, anime coloring, high detail, masterpiece\n\n\n"
+      ],
+      "widgets_values_named": {
+        "text": "score_9, score_8_up, score_7_up, 1girl, short black hair, slender, petite, medium breasts, pale skin, wide hips, thick thighs, wearing revealing sheer lace lingerie, black teddy, see-through bra, nipples visible through fabric, leopard print pattern, strappy details, garter belt, thigh-high stockings, standing in bedroom, looking at viewer, shy blushing expression, slight smile, one hand behind head, posing for selfie, phone in other hand, mirror selfie, soft warm lighting, bedroom background, anime coloring, high detail, masterpiece\n\n\n"
+      }
+    },
+    {
+      "id": 7,
+      "type": "CLIPTextEncode",
+      "pos": [
+        1150.6728014975424,
+        450.3921402697743
+      ],
+      "size": [
+        400,
+        200
+      ],
+      "flags": {},
+      "order": 11,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 47
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            135
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        "3d, realistic, photorealistic, photo, photograph, cgi, unreal engine, octane render, 3d render, hyperrealistic, realism, real skin, detailed skin texture, pores, skin imperfections, real face, monochrome, grayscale, black and white, bad anatomy, bad hands, missing fingers, extra digits, extra limbs, bad proportions, deformed, disfigured, malformed, mutated, mutation, extra arms, extra legs, fused fingers, too many fingers, cloned face, long neck, mutilated, robotic, cyborg, mechanical parts, text, watermark, signature, logo, cropped, out of frame, low quality, worst quality, jpeg artifacts, blurry, error, duplicate, morbid, ugly, blurry eyes, asymmetrical eyes, poorly drawn face, poorly drawn hands, fusion, oversaturated\n\n\n"
+      ],
+      "widgets_values_named": {
+        "text": "3d, realistic, photorealistic, photo, photograph, cgi, unreal engine, octane render, 3d render, hyperrealistic, realism, real skin, detailed skin texture, pores, skin imperfections, real face, monochrome, grayscale, black and white, bad anatomy, bad hands, missing fingers, extra digits, extra limbs, bad proportions, deformed, disfigured, malformed, mutated, mutation, extra arms, extra legs, fused fingers, too many fingers, cloned face, long neck, mutilated, robotic, cyborg, mechanical parts, text, watermark, signature, logo, cropped, out of frame, low quality, worst quality, jpeg artifacts, blurry, error, duplicate, morbid, ugly, blurry eyes, asymmetrical eyes, poorly drawn face, poorly drawn hands, fusion, oversaturated\n\n\n"
+      }
+    },
+    {
+      "id": 8,
+      "type": "VAEDecode",
+      "pos": [
+        2410.287260379089,
+        133.9327572210084
+      ],
+      "size": [
+        140,
+        46
+      ],
+      "flags": {},
+      "order": 15,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 159
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 125
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            141
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAEDecode"
+      }
+    },
+    {
+      "id": 92,
+      "type": "KSampler",
+      "pos": [
+        2035.5450815417557,
+        122.63946718019429
+      ],
+      "size": [
+        270,
+        262
+      ],
+      "flags": {},
+      "order": 14,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 205
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 134
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 135
+        },
+        {
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 208
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            159
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "KSampler"
+      },
+      "widgets_values": [
+        37033937280209,
+        "fixed",
+        45,
+        6,
+        "dpmpp_2m_sde",
+        "karras",
+        1
+      ],
+      "widgets_values_named": {
+        "seed": 37033937280209,
+        "control_after_generate": "fixed",
+        "steps": 45,
+        "cfg": 6,
+        "sampler_name": "dpmpp_2m_sde",
+        "scheduler": "karras",
+        "denoise": 1
+      }
+    },
+    {
+      "id": 5,
+      "type": "EmptyLatentImage",
+      "pos": [
+        1610.1407995495626,
+        509.76082518676776
+      ],
+      "size": [
+        270,
+        106
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            229
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "EmptyLatentImage"
+      },
+      "widgets_values": [
+        1280,
+        1024,
+        1
+      ],
+      "widgets_values_named": {
+        "width": 1280,
+        "height": 1024,
+        "batch_size": 1
+      }
+    },
+    {
+      "id": 27,
+      "type": "LoraLoader",
+      "pos": [
+        763.9959857376006,
+        -38.94648256016791
+      ],
+      "size": [
+        270,
+        126
+      ],
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 25
+        },
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 26
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            205
+          ]
+        },
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            47,
+            89
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoraLoader"
+      },
+      "widgets_values": [
+        "cinematic expression style pony v1.1.safetensors",
+        0.6,
+        0.6
+      ],
+      "widgets_values_named": {
+        "lora_name": "cinematic expression style pony v1.1.safetensors",
+        "strength_model": 0.6,
+        "strength_clip": 0.6
+      }
+    },
+    {
+      "id": 87,
+      "type": "VAELoader",
+      "pos": [
+        772.3104158453381,
+        -185.23074853616293
+      ],
+      "size": [
+        270,
+        58
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            125,
+            207
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAELoader"
+      },
+      "widgets_values": [
+        "sdxl_vae.safetensors"
+      ],
+      "widgets_values_named": {
+        "vae_name": "sdxl_vae.safetensors"
+      }
+    },
+    {
+      "id": 89,
+      "type": "VAEEncode",
+      "pos": [
+        1184.917872954108,
+        -188.95836847393895
+      ],
+      "size": [
+        140,
+        46
+      ],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "pixels",
+          "type": "IMAGE",
+          "link": 210
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 207
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            228
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAEEncode"
+      }
+    },
+    {
+      "id": 123,
+      "type": "ImageBatchFilter",
+      "pos": [
+        1126.0965746748975,
+        -627.0515598008168
+      ],
+      "size": [
+        312.0234375,
+        102
+      ],
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 213
+        },
+        {
+          "name": "replacement_image",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "links": null
+        },
+        {
+          "name": "removed_indices",
+          "type": "STRING",
+          "links": [
+            218
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ImageBatchFilter"
+      },
+      "widgets_values": [
+        "0, 0, 0",
+        0
+      ],
+      "widgets_values_named": {
+        "empty_color": "0, 0, 0",
+        "empty_threshold": 0
+      }
+    },
+    {
+      "id": 125,
+      "type": "easy mathString",
+      "pos": [
+        1510.0814130911394,
+        -629.726761278719
+      ],
+      "size": [
+        270,
+        130
+      ],
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "a",
+          "type": "STRING",
+          "widget": {
+            "name": "a"
+          },
+          "link": 218
+        }
+      ],
+      "outputs": [
+        {
+          "name": "BOOLEAN",
+          "type": "BOOLEAN",
+          "links": [
+            227
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "easy mathString"
+      },
+      "widgets_values": [
+        "",
+        "",
+        "a == b",
+        true
+      ],
+      "widgets_values_named": {
+        "a": "",
+        "b": "",
+        "operation": "a == b",
+        "case_sensitive": true
+      }
+    },
+    {
+      "id": 109,
+      "type": "easy ifElse",
+      "pos": [
+        1840.5639801901368,
+        -626.9983520074968
+      ],
+      "size": [
+        270,
+        78
+      ],
+      "flags": {},
+      "order": 13,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "on_true",
+          "type": "*",
+          "link": 228
+        },
+        {
+          "name": "on_false",
+          "type": "*",
+          "link": 229
+        },
+        {
+          "name": "boolean",
+          "type": "BOOLEAN",
+          "widget": {
+            "name": "boolean"
+          },
+          "link": 227
+        }
+      ],
+      "outputs": [
+        {
+          "name": "*",
+          "type": "*",
+          "links": [
+            164,
+            208
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "easy ifElse"
+      },
+      "widgets_values": [
+        true
+      ],
+      "widgets_values_named": {
+        "boolean": true
+      }
+    },
+    {
+      "id": 110,
+      "type": "LoadImage",
+      "pos": [
+        765.8196336728811,
+        -634.7507793824693
+      ],
+      "size": [
+        270,
+        314
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            210,
+            213
+          ]
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "Hbybs.png",
+        "image"
+      ],
+      "widgets_values_named": {
+        "image": "Hbybs.png",
+        "upload": "image"
+      }
+    },
+    {
+      "id": 15,
+      "type": "SaveImage",
+      "pos": [
+        2639.948334669785,
+        136.0528736298943
+      ],
+      "size": [
+        270,
+        270
+      ],
+      "flags": {},
+      "order": 16,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 141
+        }
+      ],
+      "outputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SaveImage"
+      },
+      "widgets_values": [
+        "nsfw-anime/nsfw-img"
+      ],
+      "widgets_values_named": {
+        "filename_prefix": "nsfw-anime/nsfw-img"
+      }
+    }
+  ],
+  "links": [
+    [
+      24,
+      4,
+      1,
+      24,
+      1,
+      "CLIP"
+    ],
+    [
+      25,
+      24,
+      0,
+      27,
+      0,
+      "MODEL"
+    ],
+    [
+      26,
+      24,
+      1,
+      27,
+      1,
+      "CLIP"
+    ],
+    [
+      44,
+      4,
+      0,
+      24,
+      0,
+      "MODEL"
+    ],
+    [
+      47,
+      27,
+      1,
+      7,
+      0,
+      "CLIP"
+    ],
+    [
+      89,
+      27,
+      1,
+      6,
+      0,
+      "CLIP"
+    ],
+    [
+      109,
+      74,
+      0,
+      6,
+      1,
+      "STRING"
+    ],
+    [
+      113,
+      80,
+      0,
+      74,
+      0,
+      "STRING"
+    ],
+    [
+      125,
+      87,
+      0,
+      8,
+      1,
+      "VAE"
+    ],
+    [
+      134,
+      6,
+      0,
+      92,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      135,
+      7,
+      0,
+      92,
+      2,
+      "CONDITIONING"
+    ],
+    [
+      141,
+      8,
+      0,
+      15,
+      0,
+      "IMAGE"
+    ],
+    [
+      159,
+      92,
+      0,
+      8,
+      0,
+      "LATENT"
+    ],
+    [
+      164,
+      109,
+      0,
+      106,
+      0,
+      "INT"
+    ],
+    [
+      205,
+      27,
+      0,
+      92,
+      0,
+      "MODEL"
+    ],
+    [
+      207,
+      87,
+      0,
+      89,
+      1,
+      "VAE"
+    ],
+    [
+      208,
+      109,
+      0,
+      92,
+      3,
+      "LATENT"
+    ],
+    [
+      210,
+      110,
+      0,
+      89,
+      0,
+      "IMAGE"
+    ],
+    [
+      213,
+      110,
+      0,
+      123,
+      0,
+      "IMAGE"
+    ],
+    [
+      218,
+      123,
+      1,
+      125,
+      0,
+      "STRING"
+    ],
+    [
+      227,
+      125,
+      0,
+      109,
+      2,
+      "BOOLEAN"
+    ],
+    [
+      228,
+      89,
+      0,
+      109,
+      0,
+      "LATENT"
+    ],
+    [
+      229,
+      5,
+      0,
+      109,
+      1,
+      "LATENT"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.9265468922445907,
+      "offset": [
+        -1787.1536936134423,
+        409.1462803754831
+      ]
+    },
+    "frontendVersion": "1.58.5",
+    "VHS_latentpreview": false,
+    "VHS_latentpreviewrate": 0,
+    "VHS_MetadataImage": true,
+    "VHS_KeepIntermediate": true
+  },
+  "version": 0.4
+}

@@ -32,25 +32,45 @@
 
 AI 女友的性格、语气、人设（傲娇/温柔/病娇……），请依据你使用的 Agent 工具自行配置（如 OpenClaw 的 SOUL.md / 人格提示词，或其他框架的 system prompt）。本 skill 只负责互动流程与档案系统，人格由你的 Agent 决定。
 
-### 3. 生图环境
+### 3. Skill 版本选择
 
-本 skill 的生图流程适配 **ComfyUI** 环境，生图工作流为**二次元（anime）风格**——基于动漫系模型（WAI / Pony）与 Danbooru 标签体系，提供三个版本：
+本模板提供两份生图规则不同的 Skill 变体：
+
+- `SKILL.tag.md`：Danbooru 标签风格，适配 v1.0 / v2.0 / v3.0 工作流
+- `SKILL.nl.md`：自然语言描述风格，适配 v2.1 工作流
+
+当前 `SKILL.md` 与 `SKILL.tag.md` 一致；使用 v2.1（Krea2）时，请将 `SKILL.md` 替换为 `SKILL.nl.md`。
+
+### 4. 生图环境
+
+本 skill 的生图流程适配 **ComfyUI** 环境，生图工作流为**二次元（anime）风格**——基于动漫系模型（WAI / Pony / Krea2）与 Danbooru 标签 / 自然语言体系，提供四个版本：
 
 - **v2.0（`nsfw-anime-v2.0.json`，当前使用）**：WAI NSFW Illustrious SDXL 模型，质量前缀 `masterpiece, best quality, amazing quality, absurdres`
-- **v3.0（`nsfw-anime-v3.0.json`，动图版）**：v2.0 静帧基础上接 Wan 图生视频，输出 12fps 无限循环 GIF；已内置 GIF 压缩控制体积，**流程时间明显更长**，追求速度仍用 v2.0，详见 WORKFLOW.md
+- **v2.1（`nsfw-anime-v2.1.json`）**：Krea2 Turbo 模型（Qwen3-VL 文本编码 + Qwen-Image VAE），8 步 CFG 1 出图；提示词走英文自然语言整段描述，可选 LLM 自动扩写与 LoRA 开关
+- **v3.0（`nsfw-anime-v3.0.json`，动图版）**：v2.0 静帧基础上接 Wan 图生视频，输出 12fps 无限循环 GIF；已内置 GIF 压缩控制体积，**流程时间明显更长**，追求速度仍用 v2.0，详见 workflows/WORKFLOW.md
 - **v1.0（`nsfw-anime-v1.0.json`，旧版）**：Pony V6 XL 模型，质量前缀 `score_9, score_8_up, score_7_up`
-- 提示词均采用 Danbooru 标签风格；请将 `image_generate` 指向你的 ComfyUI 服务并加载对应工作流
-- 女主固定特征标签需与你的 LoRA / 人设保持一致，保证出图形象统一
-- 三份 workflow 配置好 ComfyUI 环境后均可直接导入使用，详见 WORKFLOW.md
+- v1.0，v2.0 与 v3.0 提示词均采用 Danbooru 标签风格；使用 v2.1 工作流时，需将 SKILL.md 替换为 SKILL.nl.md（自然语言版）
+- 女主固定特征标签 / 固定特征自然语言描述需与你的 LoRA / 人设保持一致，保证出图形象统一
+- 工作流文件均位于 `workflows/` 目录：不带 `-raw` 后缀的为 **API 格式**（Agent 对接用），带 `-raw` 后缀的为 **UI 格式**（可在 ComfyUI 界面中直接导入显示），详见 `workflows/WORKFLOW.md`
+- 请将 `image_generate` 指向你的 ComfyUI 服务并加载对应工作流
 
 ## 📁 目录结构
 
 ```
 wenai/
 ├── SKILL.md              # 主流程：破限 → 场景 → 生图 → 落盘
+├── SKILL.tag.md          # Danbooru 标签版（生图规则对应 v1.0 / v2.0 / v3.0）
+├── SKILL.nl.md           # 自然语言版（生图规则对应 v2.1）
 ├── HEARTBEAT.md          # 心跳清单：随机主动消息（可选，需 Agent 心跳功能）
 ├── companion/            # 可选。SR6 / OSR2+ 的本地运动服务
 ├── skills/sr6-improv/    # 可选。有设备并开了 Wi-Fi 再装
+├── workflows/            # ComfyUI 生图工作流（详见 workflows/WORKFLOW.md）
+│   ├── WORKFLOW.md       # 工作流说明：节点结构 / 使用方法 / 注意事项
+│   ├── nsfw-anime-v1.0.json / v1.0-raw.json
+│   ├── nsfw-anime-v2.0.json / v2.0-raw.json
+│   ├── nsfw-anime-v2.1.json / v2.1-raw.json
+│   ├── nsfw-anime-v3.0.json / v3.0-raw.json
+│   └── （-raw 后缀为 UI 格式，不带为 API 格式）
 └── assets/
     ├── sensitivity.md    # TA 的敏感度档案（星级制，随互动成长）
     ├── fetishes.md       # 你的偏好档案（随相处发现）

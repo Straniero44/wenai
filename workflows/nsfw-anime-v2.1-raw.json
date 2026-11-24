@@ -181,12 +181,12 @@
       },
       "widgets_values": [
         "\n\n\n\n\n\n",
-        true,
+        false,
         false,
         512,
         1024,
         1024,
-        453648363169817,
+        257234543689947,
         true,
         "SKP-NSFW_Master_Krea2_turbo.safetensors",
         0.8,
@@ -199,12 +199,12 @@
       ],
       "widgets_values_named": {
         "value": "\n\n\n\n\n\n",
-        "value_1": true,
+        "value_1": false,
         "thinking": false,
         "max_length_1": 512,
         "width_1": 1024,
         "height_1": 1024,
-        "seed_1": 453648363169817,
+        "seed_1": 257234543689947,
         "value_3": true,
         "lora_name_1": "SKP-NSFW_Master_Krea2_turbo.safetensors",
         "strength_model_1": 0.8,
@@ -2381,10 +2381,10 @@
     "VHS_MetadataImage": true,
     "VHS_KeepIntermediate": true,
     "ds": {
-      "scale": 0.6830134553650705,
+      "scale": 0.6830134553650709,
       "offset": [
-        2149.624081166413,
-        677.3503691869425
+        2199.173109713959,
+        661.5781104372936
       ]
     }
   },

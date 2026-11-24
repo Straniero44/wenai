@@ -49,8 +49,9 @@ AI 女友的性格、语气、人设（傲娇/温柔/病娇……），请依据
 - **v2.1（`nsfw-anime-v2.1.json`）**：Krea2 Turbo 模型（Qwen3-VL 文本编码 + Qwen-Image VAE），8 步 CFG 1 出图；提示词走英文自然语言整段描述，可选 LLM 自动扩写与 LoRA 开关
 - **v3.0（`nsfw-anime-v3.0.json`，动图版）**：v2.0 静帧基础上接 Wan 图生视频，输出 12fps 无限循环 GIF；已内置 GIF 压缩控制体积，**流程时间明显更长**，追求速度仍用 v2.0，详见 workflows/WORKFLOW.md
 - **v1.0（`nsfw-anime-v1.0.json`，旧版）**：Pony V6 XL 模型，质量前缀 `score_9, score_8_up, score_7_up`
-- v1.0，v2.0 与 v3.0 提示词均采用 Danbooru 标签风格；请将 `image_generate` 指向你的 ComfyUI 服务并加载对应工作流；使用 v2.1 工作流时，需将 SKILL.md 替换为 SKILL.nl.md（自然语言版），两者的生图规则不同
+- v1.0，v2.0 与 v3.0 提示词均采用 Danbooru 标签风格；使用 v2.1 工作流时，需将 SKILL.md 替换为 SKILL.nl.md（自然语言版）
 - 女主固定特征标签 / 固定特征自然语言描述需与你的 LoRA / 人设保持一致，保证出图形象统一
+- 请将 `image_generate` 指向你的 ComfyUI 服务并加载对应工作流
 - 工作流文件均位于 `workflows/` 目录：不带 `-raw` 后缀的为 **API 格式**（Agent 对接用），带 `-raw` 后缀的为 **UI 格式**（可在 ComfyUI 界面中直接导入显示），详见 `workflows/WORKFLOW.md`
 
 ## 📁 目录结构

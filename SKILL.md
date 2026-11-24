@@ -40,6 +40,7 @@ description: "成人百合亲密角色扮演工作流，涵盖场景引导、露
    - 女主固定描述（自定义，首次使用时按角色设定填写）: <女主外观与体型描述，如 a petite girl with medium-length blonde hair, brown eyes, medium breasts>
    - 用户固定描述（自定义，首次使用时按角色设定填写）: <用户外观与体型描述，如 a tall girl with long straight black hair, black eyes, medium breasts>
    - 双人/多人生图用英文自然语言描述人数与相对位置（如 `two people facing each other`）
+   - 三次元写实风格改用 MOSS：提示词规则与 AGENTS.md「ComfyUI 三次元生图 - MOSS」保持同步（AGENTS.md 为准）
    - 文件名: `wenai_<角色名>_<场景>_<5位序号>`（序号从记忆取下一个）
 3. 图片一律用 `message` 工具发送到 `[用户名]` 所在会话（带色气文字旁白），不依赖自动投递。
 4. **图片发送后必须立即完成以下步骤（按顺序执行）**：

@@ -75,14 +75,14 @@
   },
   "30:3": {
     "inputs": {
-      "seed": 257234543689947,
+      "seed": 1009215487841551,
       "steps": 8,
       "cfg": 1,
       "sampler_name": "euler",
       "scheduler": "simple",
       "denoise": 1,
       "model": [
-        "30:22",
+        "30:54",
         0
       ],
       "positive": [
@@ -310,7 +310,7 @@
         0
       ],
       "on_true": [
-        "30:51",
+        "30:15",
         0
       ]
     },
@@ -327,7 +327,7 @@
     },
     "class_type": "PrimitiveBoolean",
     "_meta": {
-      "title": "Boolean (Enable LoRA?)",
+      "title": "Boolean (Enable NSFW?)",
       "cnr_id": "comfy-core",
       "ver": "0.25.0"
     }
@@ -362,7 +362,7 @@
   "30:28": {
     "inputs": {
       "switch": [
-        "30:23",
+        "30:53",
         0
       ],
       "on_false": [
@@ -386,13 +386,46 @@
       "lora_name": "yoneyama_mai_krea2_3_d32_final.safetensors",
       "strength_model": 0.8,
       "model": [
-        "30:15",
+        "30:22",
         0
       ]
     },
     "class_type": "LoraLoaderModelOnly",
     "_meta": {
       "title": "LoRA加载器（仅模型）",
+      "cnr_id": "comfy-core",
+      "ver": "0.25.0"
+    }
+  },
+  "30:53": {
+    "inputs": {
+      "value": false
+    },
+    "class_type": "PrimitiveBoolean",
+    "_meta": {
+      "title": "Boolean (Enable Style?)",
+      "cnr_id": "comfy-core",
+      "ver": "0.25.0"
+    }
+  },
+  "30:54": {
+    "inputs": {
+      "switch": [
+        "30:53",
+        0
+      ],
+      "on_false": [
+        "30:22",
+        0
+      ],
+      "on_true": [
+        "30:51",
+        0
+      ]
+    },
+    "class_type": "ComfySwitchNode",
+    "_meta": {
+      "title": "Switch (Style Model)",
       "cnr_id": "comfy-core",
       "ver": "0.25.0"
     }

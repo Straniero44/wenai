@@ -1,6 +1,6 @@
 # ComfyUI Workflow 说明
 
-本目录包含三个生图工作流版本（nsfw-anime-v1.0.json = Pony 旧版 / nsfw-anime-v2.0.json = WAI 现行版 / nsfw-anime-v3.0.json = 动图版，WAI 静帧 + Wan 图生视频 GIF）。
+本目录包含四个生图工作流版本（nsfw-anime-v1.0.json = Pony 旧版 / nsfw-anime-v2.0.json = WAI 现行版 / nsfw-anime-v2.1.json = Krea2 版 / nsfw-anime-v3.0.json = 动图版，WAI 静帧 + Wan 图生视频 GIF）。
 
 ---
 
@@ -81,6 +81,54 @@
 - LoRA 与主模型文件名需与本机 models 目录一致，缺哪个就在对应节点替换
 - asanagi LoRA 可按喜好更换/删除（删除后需把 1→5 的 model/clip 连线直连）
 - 分辨率在节点 4 调整；SDXL 推荐 1024~1536 区间
+
+---
+
+# 生图工作流 v2.1（nsfw-anime-v2.1.json，Krea2 版）
+
+> **Krea2 版本**：把 v2.0 的 Danbooru 标签体系换成 Krea2 的自然语言提示词；不替代 v2.0，按模型环境二选一。
+
+适配模型：**Krea2 Turbo**（`krea2TurboOfficialComfy_krea2TurboFp8.safetensors`）+ **Qwen3-VL-4B 文本编码器**（`qwen3vl_4b_bf16.safetensors`）+ **Qwen-Image VAE**（`qwen_image_vae.safetensors`）；可选 NSFW LoRA（`SKP-NSFW_Master_Krea2_turbo.safetensors`）与角色 LoRA（`yoneyama_mai_krea2_3_d32_final.safetensors`）
+
+## 节点结构
+
+| 节点 | 类型 | 作用 |
+|---|---|---|
+| 30:10 | UNETLoader | 加载 Krea2 Turbo 主模型 |
+| 30:11 | CLIPLoader | 加载 Qwen3-VL-4B 文本编码器（type krea2） |
+| 30:12 | VAELoader | 加载 Qwen-Image VAE |
+| 30:15 | LoraLoaderModelOnly | NSFW LoRA（强度 0.8） |
+| 30:51 | LoraLoaderModelOnly | 角色 LoRA（强度 0.8） |
+| 30:23 / 30:22 | PrimitiveBoolean / ComfySwitchNode | LoRA 开关 |
+| 30:18 / 30:19 | PrimitiveStringMultiline | 系统提示词 / 用户提示词 |
+| 30:16 | TextGenerate | LLM 自动扩写提示词（Qwen3-VL） |
+| 30:24 / 30:21 | PrimitiveBoolean / ComfySwitchNode | 扩写开关 |
+| **30:19** | PrimitiveStringMultiline | **手写提示词输入口（30:19 的 value）** |
+| 30:17 / 30:27 / 30:28 | StringConcatenate ×2 / ComfySwitchNode | 提示词拼接与 LoRA 触发词注入 |
+| 30:6 | CLIPTextEncode | 正向条件编码 |
+| 30:13 | ConditioningZeroOut | 负向条件（CFG 1 下为零化占位） |
+| 30:5 | EmptyLatentImage | 画布（由 49 分辨率选择器决定） |
+| 49 | ResolutionSelector | 分辨率：1:1 / 1MP / 8 对齐 |
+| 30:3 | KSampler | 采样：euler / simple，8 步，CFG 1 |
+| 30:8 | VAEDecode | 解码 |
+| 29 | SaveImage | 输出（前缀 Krea2_turbo） |
+
+## 使用方法
+
+1. 导入 JSON 到 ComfyUI，确保已下载：Krea2 Turbo 主模型、Qwen3-VL-4B 文本编码器、Qwen-Image VAE；需要时再装两个 LoRA
+2. 手写模式：关闭扩写开关（节点 30:24 置 False），提示词写入节点 **30:19 的 value**
+   - 开头固定：`Anime illustration, 2D anime style, cel shading, clean crisp line art, soft pastel palette`
+   - 接英文自然语言整段描述（主体+动作/姿势+场景+镜头语言+光影+氛围+风格）
+3. 扩写模式：节点 30:24 置 True，由 Qwen3-VL 按系统提示词自动扩写，适合简短输入
+4. LoRA：节点 30:23 置 True 启用；触发词由节点 30:27 拼接（`muted minimalist sketch style`）
+5. Agent 对接（手写模式）：comfy 插件配置 `workflowPath` 指向本文件，`promptNodeId: 30:19`，`promptInputName: value`
+
+## 注意
+
+- 节点 id 带冒号（如 30:6）是子图节点，导入后属正常结构
+- Krea2 走自然语言提示词，不认 Danbooru 标签；括号权重在普通 CLIP 编码下无效
+- CFG 为 1，负向条件被 `ConditioningZeroOut` 置零；负面词在此工作流基本不起作用
+- 分辨率由节点 49 控制（默认 1:1 / 1MP），改画幅请改这里
 
 ---
 

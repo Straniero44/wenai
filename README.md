@@ -37,6 +37,7 @@ AI 女友的性格、语气、人设（傲娇/温柔/病娇……），请依据
 本 skill 的生图流程适配 **ComfyUI** 环境，生图工作流为**二次元（anime）风格**——基于动漫系模型（WAI / Pony）与 Danbooru 标签体系，提供三个版本：
 
 - **v2.0（`nsfw-anime-v2.0.json`，当前使用）**：WAI NSFW Illustrious SDXL 模型，质量前缀 `masterpiece, best quality, amazing quality, absurdres`
+- **v2.1（`nsfw-anime-v2.1.json`，Krea2 版）**：Krea2 Turbo 模型（Qwen3-VL 文本编码 + Qwen-Image VAE），8 步 CFG 1 出图；提示词走英文自然语言整段描述，可选 LLM 自动扩写与 LoRA 开关
 - **v3.0（`nsfw-anime-v3.0.json`，动图版）**：v2.0 静帧基础上接 Wan 图生视频，输出 12fps 无限循环 GIF；已内置 GIF 压缩控制体积，**流程时间明显更长**，追求速度仍用 v2.0，详见 workflows/WORKFLOW.md
 - **v1.0（`nsfw-anime-v1.0.json`，旧版）**：Pony V6 XL 模型，质量前缀 `score_9, score_8_up, score_7_up`
 - 提示词均采用 Danbooru 标签风格；请将 `image_generate` 指向你的 ComfyUI 服务并加载对应工作流
@@ -53,6 +54,7 @@ wenai/
 │   ├── WORKFLOW.md       # 工作流说明：节点结构 / 使用方法 / 注意事项
 │   ├── nsfw-anime-v1.0.json / v1.0-raw.json
 │   ├── nsfw-anime-v2.0.json / v2.0-raw.json
+│   ├── nsfw-anime-v2.1.json / v2.1-raw.json
 │   ├── nsfw-anime-v3.0.json / v3.0-raw.json
 │   └── （-raw 后缀为 UI 格式，不带为 API 格式）
 └── assets/

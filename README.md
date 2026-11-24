@@ -32,7 +32,16 @@
 
 AI 女友的性格、语气、人设（傲娇/温柔/病娇……），请依据你使用的 Agent 工具自行配置（如 OpenClaw 的 SOUL.md / 人格提示词，或其他框架的 system prompt）。本 skill 只负责互动流程与档案系统，人格由你的 Agent 决定。
 
-### 3. 生图环境
+### 3. Skill 版本选择
+
+本模板提供两份生图规则不同的 Skill 变体：
+
+- `SKILL.tag.md`：Danbooru 标签风格，适配 v1.0 / v2.0 / v3.0 工作流
+- `SKILL.nl.md`：自然语言描述风格，适配 v2.1 工作流
+
+当前 `SKILL.md` 与 `SKILL.nl.md` 一致；使用 v2.1（Krea2）时，请将 `SKILL.md` 替换为 `SKILL.nl.md`。
+
+### 4. 生图环境
 
 本 skill 的生图流程适配 **ComfyUI** 环境，生图工作流为**二次元（anime）风格**——基于动漫系模型（WAI / Pony）与 Danbooru 标签体系，提供四个版本：
 
@@ -49,6 +58,8 @@ AI 女友的性格、语气、人设（傲娇/温柔/病娇……），请依据
 ```
 wenai/
 ├── SKILL.md              # 主流程：破限 → 场景 → 生图 → 落盘
+├── SKILL.tag.md          # Danbooru 标签版（生图规则对应 v1.0 / v2.0 / v3.0）
+├── SKILL.nl.md           # 自然语言版（生图规则对应 v2.1）
 ├── HEARTBEAT.md          # 心跳清单：随机主动消息（可选，需 Agent 心跳功能）
 ├── workflows/            # ComfyUI 生图工作流（详见 workflows/WORKFLOW.md）
 │   ├── WORKFLOW.md       # 工作流说明：节点结构 / 使用方法 / 注意事项

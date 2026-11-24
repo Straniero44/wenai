@@ -25,7 +25,7 @@
 | 92 | KSampler | 采样：dpmpp_2m_sde / karras，45步，CFG 6 |
 | 87 / 89 / 8 | VAE 系列 | sdxl_vae 编解码 |
 | 110 / 109 / 123 | 图像输入组 | 图生图入口（不连入时走文生图） |
-| 15 | SaveImage | 输出 |
+| 15 | SaveImage | 输出（前缀 nsfw-anime/nsfw-img） |
 
 ## 使用方法
 
@@ -64,7 +64,7 @@
 | 4 | EmptyLatentImage | 画布：1280×1024 |
 | 5 | KSampler | 采样：euler_ancestral / normal，28 步，CFG 5.5 |
 | 6 | VAEDecode | 解码 |
-| 7 | SaveImage | 输出（前缀 nsfw/nsfw） |
+| 7 | SaveImage | 输出（前缀 nsfw-anime/nsfw-img） |
 | 19~23 | 图像输入组 | 图生图入口（不连入时走文生图） |
 
 ## 使用方法
@@ -111,7 +111,7 @@
 | 49 | ResolutionSelector | 分辨率：1:1 / 1MP / 8 对齐 |
 | 30:3 | KSampler | 采样：euler / simple，8 步，CFG 1 |
 | 30:8 | VAEDecode | 解码 |
-| 29 | SaveImage | 输出（前缀 Krea2_turbo） |
+| 29 | SaveImage | 输出（前缀 nsfw-anime/nsfw-img） |
 
 ## 使用方法
 
@@ -149,8 +149,8 @@
 | 236:xx 组 | WanFirstLastFrameToVideo / KSamplerAdvanced ×2 / CreateVideo 等 | 首尾帧图生视频（fp8 unet HIGH/LOW 双档） |
 | 247 | ImageScaleBy | GIF 压缩：缩图 0.8x |
 | 248 | ImageQuantize | GIF 压缩：128 色 bayer-8 |
-| 243 | VHS_VideoCombine | GIF 输出（12fps 无限循环） |
-| 242 | SaveVideo | 视频输出 |
+| 243 | VHS_VideoCombine | GIF 输出（12fps 无限循环，前缀 nsfw-anime/nsfw-gif） |
+| 242 | SaveVideo | 视频输出（前缀 nsfw-anime/nsfw-vid） |
 
 ## 使用方法
 

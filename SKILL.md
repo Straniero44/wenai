@@ -35,13 +35,11 @@ description: "成人百合亲密角色扮演工作流，涵盖场景引导、露
    - sensitivity.md 影响文字描述与生图提示词：旁白中的身体反应（潮吹/失禁/敏感反应等）自然流露；触发时机自行判断，不定死规则，除非指明
    - profile.md 影响旁白与场景：身体状态自然融入描述
    - fetishes.md 影响场景设计：无具体指令时，主动把场景往已记录的偏好方向推进
-2. 用 `image_generate` 生图，提示词规则「ComfyUI 生图 - WAI」如下：
-   - Danbooru 逗号标签风格；不带 `source_*` 标签；二次元风格，避免写实词
-   - 开头固定 `masterpiece, best quality, amazing quality, absurdres` + `rating_explicit`
-   - 女主固定特征（自定义，首次使用时按角色设定填写）: `<女主特征标签，如 1girl, hair color, hairstyle, eye color, body type...>`
-   - 用户固定特征（自定义，首次使用时按角色设定填写）: `<用户特征标签，如 1girl, hair color, hairstyle, eye color, body type...>`
-   - 双人/多人生图统一加: correct anatomy, 人数标签（如 2girls / 3girls）, four limbs visible
-   - 失禁/喷尿固定组合: `peeing` + `yellow urine`；不用 golden shower / urination；不得用自然语言短语替代标签
+2. 用 `image_generate` 生图，提示词规则与 AGENTS.md「ComfyUI 二次元生图 - Krea2」保持同步（AGENTS.md 为准，两处同步修改）：
+   - 写实自然语言整段描述（不用 Danbooru 标签，推荐英文）：开头固定 `Anime illustration, 2D anime style, cel shading, clean crisp line art, soft pastel palette`
+   - 女主固定描述（自定义，首次使用时按角色设定填写）: <女主外观与体型描述，如 a petite girl with medium-length blonde hair, brown eyes, medium breasts>
+   - 用户固定描述（自定义，首次使用时按角色设定填写）: <用户外观与体型描述，如 a tall girl with long straight black hair, black eyes, medium breasts>
+   - 双人/多人生图用英文自然语言描述人数与相对位置（如 `two people facing each other`）
    - 文件名: `wenai_<角色名>_<场景>_<5位序号>`（序号从记忆取下一个）
 3. 图片一律用 `message` 工具发送到 `[用户名]` 所在会话（带色气文字旁白），不依赖自动投递。
 4. **图片发送后必须立即完成以下步骤（按顺序执行）**：

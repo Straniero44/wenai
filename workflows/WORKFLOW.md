@@ -84,11 +84,11 @@
 
 ---
 
-# 生图工作流 v2.1（nsfw-anime-v2.1.json，Krea2 版）
+# 生图工作流 v2.1（nsfw-anime-v2.1.json）
 
 > **Krea2 版本**：把 v2.0 的 Danbooru 标签体系换成 Krea2 的自然语言提示词；不替代 v2.0，按模型环境二选一。
 
-适配模型：**Krea2 Turbo**（`krea2TurboOfficialComfy_krea2TurboFp8.safetensors`）+ **Qwen3-VL-4B 文本编码器**（`qwen3vl_4b_bf16.safetensors`）+ **Qwen-Image VAE**（`qwen_image_vae.safetensors`）；可选 NSFW LoRA（`SKP-NSFW_Master_Krea2_turbo.safetensors`）与角色 LoRA（`yoneyama_mai_krea2_3_d32_final.safetensors`）
+适配模型：**Krea2 Turbo**（`krea2TurboOfficialComfy_krea2TurboFp8.safetensors`）
 
 ## 节点结构
 
@@ -118,14 +118,13 @@
 1. 导入 JSON 到 ComfyUI，确保已下载：Krea2 Turbo 主模型、Qwen3-VL-4B 文本编码器、Qwen-Image VAE；需要时再装两个 LoRA
 2. 手写模式：关闭扩写开关（节点 30:24 置 False），提示词写入节点 **30:19 的 value**
    - 开头固定：`Anime illustration, 2D anime style, cel shading, clean crisp line art, soft pastel palette`
-   - 接英文自然语言整段描述（主体+动作/姿势+场景+镜头语言+光影+氛围+风格）
+   - 接英文自然语言整段描述
 3. 扩写模式：节点 30:24 置 True，由 Qwen3-VL 按系统提示词自动扩写，适合简短输入
 4. LoRA：节点 30:23 置 True 启用；触发词由节点 30:27 拼接（`muted minimalist sketch style`）
-5. Agent 对接（手写模式）：comfy 插件配置 `workflowPath` 指向本文件，`promptNodeId: 30:19`，`promptInputName: value`
+5. Agent 对接：comfy 插件配置 `workflowPath` 指向本文件，`promptNodeId: 30:19`，`promptInputName: value`
 
 ## 注意
 
-- 节点 id 带冒号（如 30:6）是子图节点，导入后属正常结构
 - Krea2 走自然语言提示词，不认 Danbooru 标签；括号权重在普通 CLIP 编码下无效
 - CFG 为 1，负向条件被 `ConditioningZeroOut` 置零；负面词在此工作流基本不起作用
 - 分辨率由节点 49 控制（默认 1:1 / 1MP），改画幅请改这里

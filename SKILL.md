@@ -35,7 +35,7 @@ description: "成人亲密角色扮演工作流，涵盖场景引导、露骨文
    - sensitivity.md 影响文字描述与生图提示词：旁白中的身体反应（潮吹/失禁/敏感反应等）自然流露；触发时机自行判断，不定死规则，除非指明
    - profile.md 影响旁白与场景：身体状态（怀孕/经期/危险日等）自然融入描述，如危险日内射时提及受孕风险、怀孕状态下身体变化等
    - fetishes.md 影响场景设计：无具体指令时，主动把场景往已记录的偏好方向推进
-2. 用 `image_generate` 生图，提示词规则「ComfyUI 生图」如下：
+2. 用 `image_generate` 生图，提示词规则「ComfyUI 生图 - WAI」如下：
    - Danbooru 逗号标签风格；不带 `source_*` 标签；二次元风格，避免写实词
    - 开头固定 `masterpiece, best quality, amazing quality, absurdres` + `rating_explicit`
    - 女主固定特征（自定义，首次使用时按角色设定填写）: `<女主特征标签，如 1girl, hair color, hairstyle, eye color, body type...>`

@@ -98,14 +98,14 @@
 | 30:11 | CLIPLoader | 加载 Qwen3-VL-4B 文本编码器（type krea2） |
 | 30:12 | VAELoader | 加载 Qwen-Image VAE |
 | 30:15 | LoraLoaderModelOnly | NSFW LoRA（强度 0.8） |
-| 30:51 | LoraLoaderModelOnly | 角色 LoRA（强度 0.8） |
+| 30:51 | LoraLoaderModelOnly | 风格 LoRA（强度 0.8） |
 | 30:23 / 30:22 | PrimitiveBoolean / ComfySwitchNode | NSFW LoRA 开关（默认开启） |
-| 30:53 / 30:54 | PrimitiveBoolean / ComfySwitchNode | 角色 LoRA 开关（默认关闭） |
+| 30:53 / 30:54 | PrimitiveBoolean / ComfySwitchNode | 风格 LoRA 开关（默认关闭） |
 | 30:18 | PrimitiveStringMultiline | 系统提示词 |
 | **52** | PrimitiveStringMultiline | **用户提示词输入口（52 的 value）** |
 | 30:16 | TextGenerate | LLM 自动扩写提示词（Qwen3-VL） |
 | 30:24 / 30:21 | PrimitiveBoolean / ComfySwitchNode | 扩写开关（默认关闭） |
-| 30:17 / 30:27 / 30:28 | StringConcatenate ×2 / ComfySwitchNode | 提示词拼接与角色 LoRA 触发词拼接 |
+| 30:17 / 30:27 / 30:28 | StringConcatenate ×2 / ComfySwitchNode | 提示词拼接与风格 LoRA 触发词拼接 |
 | 30:6 | CLIPTextEncode | 正向条件编码 |
 | 30:13 | ConditioningZeroOut | 负向条件（CFG 1 下为零化占位） |
 | 30:5 | EmptyLatentImage | 画布（由 49 分辨率选择器决定） |
@@ -121,7 +121,7 @@
    - 开头固定：`Anime illustration, 2D anime style, cel shading, clean crisp line art, soft pastel palette`
    - 接英文自然语言整段描述
 3. 扩写模式（可选）：节点 30:24 置 True，由 Qwen3-VL 按系统提示词自动扩写，适合简短输入
-4. LoRA：NSFW LoRA 由节点 30:23 控制（默认开启）；角色 LoRA 由节点 30:53 控制（默认关闭），触发词在节点 30:27 填写（当前为空）
+4. LoRA：NSFW LoRA 由节点 30:23 控制（默认开启）；风格 LoRA 由节点 30:53 控制（默认关闭），触发词在节点 30:27 填写（当前为空）
 5. Agent 对接：comfy 插件配置 `workflowPath` 指向本文件，`promptNodeId: 52`，`promptInputName: value`
 
 ## 注意

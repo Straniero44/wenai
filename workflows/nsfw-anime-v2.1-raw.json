@@ -1,8 +1,8 @@
 {
   "id": "08988737-a544-4ab1-99fb-22d67b7c36e3",
   "revision": 0,
-  "last_node_id": 51,
-  "last_link_id": 90,
+  "last_node_id": 52,
+  "last_link_id": 91,
   "nodes": [
     {
       "id": 29,
@@ -16,7 +16,7 @@
         1020
       ],
       "flags": {},
-      "order": 5,
+      "order": 6,
       "mode": 0,
       "inputs": [
         {
@@ -38,10 +38,10 @@
         "ver": "0.25.0"
       },
       "widgets_values": [
-        "Krea2_turbo"
+        "nsfw-anime/nsfw-img"
       ],
       "widgets_values_named": {
-        "filename_prefix": "Krea2_turbo"
+        "filename_prefix": "nsfw-anime/nsfw-img"
       }
     },
     {
@@ -56,9 +56,17 @@
         1070
       ],
       "flags": {},
-      "order": 4,
+      "order": 5,
       "mode": 0,
       "inputs": [
+        {
+          "name": "value",
+          "type": "STRING",
+          "widget": {
+            "name": "value"
+          },
+          "link": 91
+        },
         {
           "label": "prompt_enhance",
           "name": "value_1",
@@ -172,37 +180,37 @@
         ]
       },
       "widgets_values": [
-        "Anime illustration, 2D anime style, cel shading, clean crisp line art, soft pastel palette, detailed bedroom background.\n\nTwo adult women are scissoring on a bed, fully nude, uncensored, warm flesh tones. Their legs are spread wide and intertwined, hips pressed together; both vulvas are clearly visible and pressed against each other, wet and glistening, no censorship bars, no mosaic.\n\nThe woman on top is tall, with long straight black hair falling over her shoulders, black eyes and medium breasts; she leans down, flushed, breathing hard.\n\nThe woman beneath is petite, with medium-length blonde hair spread across the pillow, brown eyes and medium breasts; she looks up shyly, blushing, lips parted, gripping the bedsheet.\n\nCamera positioned low and close between their spread legs, both faces and both pussies clearly in frame, sweat on skin, warm bedroom light, shallow depth of field, highly detailed, masterpiece.\n\n\n\n\n\n",
+        "\n\n\n\n\n\n",
         true,
         false,
         512,
         1024,
         1024,
-        761444454615280,
+        453648363169817,
         true,
         "SKP-NSFW_Master_Krea2_turbo.safetensors",
         0.8,
         "yoneyama_mai_krea2_3_d32_final.safetensors",
         0.8,
-        "muted minimalist sketch style",
+        "",
         "krea2TurboOfficialComfy_krea2TurboFp8.safetensors",
         "qwen3vl_4b_bf16.safetensors",
         "qwen_image_vae.safetensors"
       ],
       "widgets_values_named": {
-        "value": "Anime illustration, 2D anime style, cel shading, clean crisp line art, soft pastel palette, detailed bedroom background.\n\nTwo adult women are scissoring on a bed, fully nude, uncensored, warm flesh tones. Their legs are spread wide and intertwined, hips pressed together; both vulvas are clearly visible and pressed against each other, wet and glistening, no censorship bars, no mosaic.\n\nThe woman on top is tall, with long straight black hair falling over her shoulders, black eyes and medium breasts; she leans down, flushed, breathing hard.\n\nThe woman beneath is petite, with medium-length blonde hair spread across the pillow, brown eyes and medium breasts; she looks up shyly, blushing, lips parted, gripping the bedsheet.\n\nCamera positioned low and close between their spread legs, both faces and both pussies clearly in frame, sweat on skin, warm bedroom light, shallow depth of field, highly detailed, masterpiece.\n\n\n\n\n\n",
+        "value": "\n\n\n\n\n\n",
         "value_1": true,
         "thinking": false,
         "max_length_1": 512,
         "width_1": 1024,
         "height_1": 1024,
-        "seed_1": 761444454615280,
+        "seed_1": 453648363169817,
         "value_3": true,
         "lora_name_1": "SKP-NSFW_Master_Krea2_turbo.safetensors",
         "strength_model_1": 0.8,
         "style_lora": "yoneyama_mai_krea2_3_d32_final.safetensors",
         "style_strength": 0.8,
-        "string_b_1": "muted minimalist sketch style",
+        "string_b_1": "",
         "unet_name": "krea2TurboOfficialComfy_krea2TurboFp8.safetensors",
         "clip_name": "qwen3vl_4b_bf16.safetensors",
         "vae_name": "qwen_image_vae.safetensors"
@@ -335,6 +343,40 @@
         "megapixels": 1,
         "multiple": 8
       }
+    },
+    {
+      "id": 52,
+      "type": "PrimitiveStringMultiline",
+      "pos": [
+        -631.7817439531996,
+        -361.0832086377345
+      ],
+      "size": [
+        400,
+        200
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            91
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "PrimitiveStringMultiline"
+      },
+      "widgets_values": [
+        "Anime illustration, 2D anime style, cel shading, clean crisp line art, soft pastel palette, detailed bedroom background.\n\nTwo adult women are scissoring on a bed, fully nude, uncensored, warm flesh tones. Their legs are spread wide and intertwined, hips pressed together; both vulvas are clearly visible and pressed against each other, wet and glistening, no censorship bars, no mosaic.\n\nThe woman on top is tall, with long straight black hair falling over her shoulders, black eyes and medium breasts; she leans down, flushed, breathing hard.\n\nThe woman beneath is petite, with medium-length blonde hair spread across the pillow, brown eyes and medium breasts; she looks up shyly, blushing, lips parted, gripping the bedsheet.\n\nCamera positioned low and close between their spread legs, both faces and both pussies clearly in frame, sweat on skin, warm bedroom light, shallow depth of field, highly detailed, masterpiece."
+      ],
+      "widgets_values_named": {
+        "value": "Anime illustration, 2D anime style, cel shading, clean crisp line art, soft pastel palette, detailed bedroom background.\n\nTwo adult women are scissoring on a bed, fully nude, uncensored, warm flesh tones. Their legs are spread wide and intertwined, hips pressed together; both vulvas are clearly visible and pressed against each other, wet and glistening, no censorship bars, no mosaic.\n\nThe woman on top is tall, with long straight black hair falling over her shoulders, black eyes and medium breasts; she leans down, flushed, breathing hard.\n\nThe woman beneath is petite, with medium-length blonde hair spread across the pillow, brown eyes and medium breasts; she looks up shyly, blushing, lips parted, gripping the bedsheet.\n\nCamera positioned low and close between their spread legs, both faces and both pussies clearly in frame, sweat on skin, warm bedroom light, shallow depth of field, highly detailed, masterpiece."
+      }
     }
   ],
   "links": [
@@ -351,7 +393,7 @@
       49,
       0,
       30,
-      3,
+      4,
       "INT"
     ],
     [
@@ -359,8 +401,16 @@
       49,
       1,
       30,
-      4,
+      5,
       "INT"
+    ],
+    [
+      91,
+      52,
+      0,
+      30,
+      0,
+      "STRING"
     ]
   ],
   "groups": [],
@@ -371,8 +421,8 @@
         "version": 1,
         "state": {
           "lastGroupId": 10,
-          "lastNodeId": 51,
-          "lastLinkId": 90,
+          "lastNodeId": 52,
+          "lastLinkId": 91,
           "lastRerouteId": 0
         },
         "revision": 0,
@@ -2331,10 +2381,10 @@
     "VHS_MetadataImage": true,
     "VHS_KeepIntermediate": true,
     "ds": {
-      "scale": 1,
+      "scale": 0.6830134553650705,
       "offset": [
-        1374.618287532302,
-        463.96087868930965
+        2149.624081166413,
+        677.3503691869425
       ]
     }
   },

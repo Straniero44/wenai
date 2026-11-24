@@ -1,7 +1,7 @@
 {
   "29": {
     "inputs": {
-      "filename_prefix": "Krea2_turbo",
+      "filename_prefix": "nsfw-anime/nsfw-img",
       "images": [
         "30:8",
         0
@@ -25,6 +25,15 @@
       "title": "分辨率选择器",
       "cnr_id": "comfy-core",
       "ver": "0.25.0"
+    }
+  },
+  "52": {
+    "inputs": {
+      "value": "Anime illustration, 2D anime style, cel shading, clean crisp line art, soft pastel palette, detailed bedroom background.\n\nTwo adult women are scissoring on a bed, fully nude, uncensored, warm flesh tones. Their legs are spread wide and intertwined, hips pressed together; both vulvas are clearly visible and pressed against each other, wet and glistening, no censorship bars, no mosaic.\n\nThe woman on top is tall, with long straight black hair falling over her shoulders, black eyes and medium breasts; she leans down, flushed, breathing hard.\n\nThe woman beneath is petite, with medium-length blonde hair spread across the pillow, brown eyes and medium breasts; she looks up shyly, blushing, lips parted, gripping the bedsheet.\n\nCamera positioned low and close between their spread legs, both faces and both pussies clearly in frame, sweat on skin, warm bedroom light, shallow depth of field, highly detailed, masterpiece."
+    },
+    "class_type": "PrimitiveStringMultiline",
+    "_meta": {
+      "title": "字符串（多行）"
     }
   },
   "30:6": {
@@ -66,7 +75,7 @@
   },
   "30:3": {
     "inputs": {
-      "seed": 761444454615280,
+      "seed": 453648363169817,
       "steps": 8,
       "cfg": 1,
       "sampler_name": "euler",
@@ -242,7 +251,10 @@
   },
   "30:19": {
     "inputs": {
-      "value": "Anime illustration, 2D anime style, cel shading, clean crisp line art, soft pastel palette, detailed bedroom background.\n\nTwo adult women are scissoring on a bed, fully nude, uncensored, warm flesh tones. Their legs are spread wide and intertwined, hips pressed together; both vulvas are clearly visible and pressed against each other, wet and glistening, no censorship bars, no mosaic.\n\nThe woman on top is tall, with long straight black hair falling over her shoulders, black eyes and medium breasts; she leans down, flushed, breathing hard.\n\nThe woman beneath is petite, with medium-length blonde hair spread across the pillow, brown eyes and medium breasts; she looks up shyly, blushing, lips parted, gripping the bedsheet.\n\nCamera positioned low and close between their spread legs, both faces and both pussies clearly in frame, sweat on skin, warm bedroom light, shallow depth of field, highly detailed, masterpiece.\n\n\n\n\n\n"
+      "value": [
+        "52",
+        0
+      ]
     },
     "class_type": "PrimitiveStringMultiline",
     "_meta": {
@@ -337,7 +349,7 @@
         "30:20",
         0
       ],
-      "string_b": "muted minimalist sketch style",
+      "string_b": "",
       "delimiter": ", "
     },
     "class_type": "StringConcatenate",

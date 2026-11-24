@@ -34,6 +34,7 @@ description: "成人亲密角色扮演工作流，涵盖场景引导、露骨文
    - 用户固定特征（自定义，首次使用时按角色设定填写）: `<男主特征标签，如 1boy, hair color, hairstyle, eye color, body type...>`
    - 双人/多人生图统一加: correct anatomy, 人数标签（如 1boy, 1girl / 1boy, 2girls）, four limbs visible
    - 失禁/喷尿固定组合: `peeing` + `yellow urine`；不用 golden shower / urination；不得用自然语言短语替代标签
+   - 三次元写实风格改用 MOSS：提示词规则与 AGENTS.md「ComfyUI 三次元生图 - MOSS」保持同步（AGENTS.md 为准）
    - 文件名: `wenai_<角色名>_<场景>_<5位序号>`（序号从记忆取下一个）
 3. 用 `tts` 生成配套语音：
    - 台词：第一人称呻吟式，与旁白同风格，与场景线连贯，**少于 300 字符**

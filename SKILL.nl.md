@@ -37,8 +37,8 @@ description: "成人百合亲密角色扮演工作流，涵盖场景引导、露
    - fetishes.md 影响场景设计：无具体指令时，主动把场景往已记录的偏好方向推进
 2. 用 `image_generate` 生图，提示词规则与 AGENTS.md「ComfyUI 二次元生图 - Krea2」保持同步（AGENTS.md 为准，两处同步修改）：
    - 写实自然语言整段描述（不用 Danbooru 标签，推荐英文）：开头固定 `Anime illustration, 2D anime style, cel shading, clean crisp line art, soft pastel palette`
-   - 女主固定特征（与 AGENTS.md 保持一致）: `<女主自然语言描述，如 a petite girl with short black hair, purple eyes, small breasts>`
-   - 用户固定特征: `<用户自然语言描述>`
+   - 女主固定描述（自定义，首次使用时按角色设定填写）: <女主外观与体型描述，如 a petite girl with short black hair, purple eyes, small breasts>
+   - 用户固定描述（自定义，首次使用时按角色设定填写）: <男主外观与体型描述，如 a muscular man with short black hair and black eyes>
    - 双人/多人生图用英文自然语言描述人数与相对位置（如 `two people facing each other`）
    - 文件名: `wenai_<角色名>_<场景>_<5位序号>`（序号从记忆取下一个）
 3. 图片一律用 `message` 工具发送到 `[用户名]` 所在会话（带色气文字旁白），不依赖自动投递。

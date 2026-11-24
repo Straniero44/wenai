@@ -116,7 +116,7 @@
 ## 使用方法
 
 1. 导入 JSON 到 ComfyUI，确保已下载：Krea2 Turbo 主模型、Qwen3-VL-4B 文本编码器、Qwen-Image VAE；需要时再装两个 LoRA
-2. 手写模式（当前默认）：扩写开关（节点 30:24）为 False，提示词写入节点 **52 的 value**
+2. 正面提示词写入节点 **52 的 value**
    - 开头固定：`Anime illustration, 2D anime style, cel shading, clean crisp line art, soft pastel palette`
    - 接英文自然语言整段描述
 3. 扩写模式（可选）：节点 30:24 置 True，由 Qwen3-VL 按系统提示词自动扩写，适合简短输入

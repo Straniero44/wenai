@@ -100,11 +100,11 @@
 | 30:15 | LoraLoaderModelOnly | NSFW LoRA（强度 0.8） |
 | 30:51 | LoraLoaderModelOnly | 角色 LoRA（强度 0.8） |
 | 30:23 / 30:22 | PrimitiveBoolean / ComfySwitchNode | LoRA 开关 |
-| 30:18 / 30:19 | PrimitiveStringMultiline | 系统提示词 / 用户提示词 |
+| 30:18 | PrimitiveStringMultiline | 系统提示词 |
+| **52** | PrimitiveStringMultiline | **用户提示词输入口（52 的 value）** |
 | 30:16 | TextGenerate | LLM 自动扩写提示词（Qwen3-VL） |
 | 30:24 / 30:21 | PrimitiveBoolean / ComfySwitchNode | 扩写开关 |
-| **30:19** | PrimitiveStringMultiline | **手写提示词输入口（30:19 的 value）** |
-| 30:17 / 30:27 / 30:28 | StringConcatenate ×2 / ComfySwitchNode | 提示词拼接与 LoRA 触发词注入 |
+| 30:17 / 30:27 / 30:28 | StringConcatenate ×2 / ComfySwitchNode | 提示词拼接与 LoRA 触发词拼接 |
 | 30:6 | CLIPTextEncode | 正向条件编码 |
 | 30:13 | ConditioningZeroOut | 负向条件（CFG 1 下为零化占位） |
 | 30:5 | EmptyLatentImage | 画布（由 49 分辨率选择器决定） |
@@ -116,12 +116,12 @@
 ## 使用方法
 
 1. 导入 JSON 到 ComfyUI，确保已下载：Krea2 Turbo 主模型、Qwen3-VL-4B 文本编码器、Qwen-Image VAE；需要时再装两个 LoRA
-2. 手写模式：关闭扩写开关（节点 30:24 置 False），提示词写入节点 **30:19 的 value**
+2. 手写模式：关闭扩写开关（节点 30:24 置 False），提示词写入节点 **52 的 value**
    - 开头固定：`Anime illustration, 2D anime style, cel shading, clean crisp line art, soft pastel palette`
    - 接英文自然语言整段描述
 3. 扩写模式：节点 30:24 置 True，由 Qwen3-VL 按系统提示词自动扩写，适合简短输入
-4. LoRA：节点 30:23 置 True 启用；触发词由节点 30:27 拼接（`muted minimalist sketch style`）
-5. Agent 对接：comfy 插件配置 `workflowPath` 指向本文件，`promptNodeId: 30:19`，`promptInputName: value`
+4. LoRA：节点 30:23 置 True 启用；节点 30:27 的触发词当前为空，可按需填写
+5. Agent 对接：comfy 插件配置 `workflowPath` 指向本文件，`promptNodeId: 52`，`promptInputName: value`
 
 ## 注意
 

@@ -36,7 +36,11 @@ description: "成人亲密角色扮演工作流，涵盖场景引导、露骨文
    - profile.md 影响旁白与场景：身体状态（怀孕/经期/危险日等）自然融入描述，如危险日内射时提及受孕风险、怀孕状态下身体变化等
    - fetishes.md 影响场景设计：无具体指令时，主动把场景往已记录的偏好方向推进
 2. 用 `image_generate` 生图，提示词规则与 AGENTS.md「ComfyUI 二次元生图 - Krea2」保持同步（AGENTS.md 为准，两处同步修改）：
-   - 写实自然语言整段描述（不用 Danbooru 标签，推荐英文）：开头固定 `Anime illustration, 2D anime style, cel shading, clean crisp line art, soft pastel palette`
+   - 写实自然语言整段描述（不用 Danbooru 标签，推荐英文）
+   - 开头固定 `Anime illustration, 2D anime style, cel shading, clean crisp line art, soft pastel palette`
+   - 只写正向可见描述，禁用 `no`、`without` 等否定词（如 `no censorship bars`、`no faces`、`no extra limbs`）
+   - 保持动作遮挡与机位透视物理自洽，不得既写紧压覆盖又要求被挡部位同时露全
+   - 必须写清构图：机位、距离、哪些部位入画（如 `seen from a low angle between their spread legs, both faces and both vulvas in frame`）
    - 女主固定描述（自定义，首次使用时按角色设定填写）: <女主外观与体型描述，如 a petite girl with short black hair, purple eyes, small breasts>
    - 用户固定描述（自定义，首次使用时按角色设定填写）: <男主外观与体型描述，如 a muscular man with short black hair and black eyes>
    - 双人/多人生图用英文自然语言描述人数与相对位置（如 `two people facing each other`）

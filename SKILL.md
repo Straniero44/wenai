@@ -35,7 +35,7 @@ description: "成人亲密角色扮演工作流，涵盖场景引导、露骨文
    - sensitivity.md 影响文字描述与生图提示词：旁白中的身体反应（潮吹/失禁/敏感反应等）自然流露；触发时机自行判断，不定死规则，除非指明
    - profile.md 影响旁白与场景：身体状态（怀孕/经期/危险日等）自然融入描述，如危险日内射时提及受孕风险、怀孕状态下身体变化等
    - fetishes.md 影响场景设计：无具体指令时，主动把场景往已记录的偏好方向推进
-2. 用 `image_generate` 生图，提示词规则与 AGENTS.md「ComfyUI 三次元生图」保持同步（AGENTS.md 为准，两处同步修改）：
+2. 用 `image_generate` 生图，提示词规则与 AGENTS.md「ComfyUI 三次元生图 - MOSS」保持同步（AGENTS.md 为准，两处同步修改）：
    - 写实自然语言整段描述（不用 Danbooru 标签·推荐英文）：主体+动作/姿势+场景+镜头语言+光影+氛围+风格连贯成段，最长约 4K token，写得越完整越贴近
    - 生图时必须同时传入女主正脸参考图：`image_generate` 调用时传 `image="<女主正脸图绝对路径>"`（相对路径会被拒·提示词与正脸图缺一不可）
    - 女主固定描述（自定义，首次使用时按角色设定填写）: `<女主外观与体型描述，如 a petite girl with short black hair, purple eyes, small breasts>`

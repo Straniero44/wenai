@@ -43,7 +43,7 @@ description: "成人亲密角色扮演工作流，涵盖场景引导、露骨文
    - 用户固定描述（自定义，首次使用时按角色设定填写）: `<男主外观与体型描述，如 a lean muscular Asian man with short black hair, sharp black eyes and broad shoulders>`
    - 双人/多人生图用英文自然语言描述人数与相对位置（如 `two people facing each other`）
    - 潮吹喷水写实克制：高潮喷水/潮吹用轻量描述（glistening wetness / a thin trickle / damp sheets 等）；避免 spraying / arcing / powerful stream / spurting 等夸张动词，不用标签组合
-   - 失禁写实可见：失禁必须明显可见且只有一条水柱（a single stream of urine pouring down / wet shiny thighs / a puddle forming 等）；不可淡到看不出，禁止多条水柱
+   - 失禁写实可见：失禁必须明显可见且只有一条水柱（a golden stream of urine pouring down / wet shiny thighs / a puddle forming 等）；不可淡到看不出，禁止多条水柱
    - 表情写实克制：英文提示词用 eyes squeezed shut / brows furrowed / lips parted / flushed cheeks with tears 等自然高潮神态，避免 eyes rolling / ahegao / broken expression 等夸张描述（写实风格下易失真）；MOSS 默认爱微笑，高潮场景提示词需加 no smile 压制
    - 透视窗克制：x-ray/剖面内容仅放角落带边框小窗内（corner framed inset panel），禁用医学图解风，小窗与主画面风格一致；主画面保持完全自然写实、不受透视影响
    - 射精写实可见：射精后主画面必须写精液痕迹，如内射（a white ring around the rim / a thin trickle of cum leaking out 等），口爆（cum on her lips and tongue 等），体外（cum streaks on her face and body 等）；不可遗漏

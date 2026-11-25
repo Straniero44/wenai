@@ -39,8 +39,8 @@ description: "成人亲密角色扮演工作流，涵盖场景引导、露骨文
    - 写实自然语言整段描述（不用 Danbooru 标签，推荐英文）：主体+动作/姿势+场景+光影+氛围连贯成段，最长约 4K token，写得越完整越贴近
    - 描述动作/姿势时必须补空间几何链：朝向（如 pelvis tilted up）+路径（从哪里进入/接触）+分层（相关部位谁上谁下）+机位（视角高度）
    - 生图时必须同时传入女主正脸参考图：`image_generate` 调用时传 `image="<女主正脸图绝对路径>"`（相对路径会被拒·提示词与正脸图缺一不可）
-   - 女主固定描述（自定义，首次使用时按角色设定填写）: `<女主外观与体型描述，如 a petite woman with short black hair, purple eyes, small breasts>`
-   - 用户固定描述（自定义，首次使用时按角色设定填写）: `<男主外观与体型描述，如 a muscular man with short black hair and black eyes>`
+   - 女主固定描述（自定义，首次使用时按角色设定填写）: `<女主外观与体型描述，如 a petite young Asian woman with short black hair in a messy bob, captivating purple eyes, a small slender body and small perky breasts>`
+   - 用户固定描述（自定义，首次使用时按角色设定填写）: `<男主外观与体型描述，如 a lean muscular Asian man with short black hair, sharp black eyes and broad shoulders>`
    - 双人/多人生图用英文自然语言描述人数与相对位置（如 `two people facing each other`）
    - 潮吹喷水写实克制：高潮喷水/潮吹用轻量描述（glistening wetness / a thin trickle / damp sheets 等）；避免 spraying / arcing / powerful stream / spurting 等夸张动词，不用标签组合
    - 失禁写实可见：失禁必须明显可见且只有一条水柱（a single stream of urine pouring down / wet shiny thighs / a puddle forming 等）；不可淡到看不出，禁止多条水柱

@@ -8,7 +8,7 @@
 
 > **当前使用版本（real 写实管线）**。两段式：第一段 MOSS-Image 生成写实场景，第二段 Krea2 身份编辑把女主正脸（`assets/face-real.jpg`）换到画面人物上。
 
-适配模型：**MOSS-Image SFT turbo**（`moss_image_sft_turbo_int8_convrot.safetensors`）+ **NSFW LoRA**（`MOSS-Image-NSFW-Uncensored-LoRA-ComfyUI.safetensors`，强度 0.7）+ **文本编码器**（`Qwen3.5_9B_ultra_uncensored_heretic_int8_convrot_gptq_bf16norms.safetensors`，moss_image）；换脸段 **Krea2 turbo**（`krea2TurboOfficialComfy_krea2TurboFp8.safetensors`）+ **identity edit LoRA**（`krea2_identity_edit_v2.safetensors`，强度 1.0）
+适配模型：**MOSS-Image SFT turbo**（`moss_image_sft_turbo_int8_convrot.safetensors`）+ **NSFW LoRA**（`MOSS-Image-NSFW-Uncensored-LoRA-ComfyUI.safetensors`，强度 0.7）；换脸段 **Krea2 turbo**（`krea2TurboOfficialComfy_krea2TurboFp8.safetensors`）+ **identity edit LoRA**（`krea2_identity_edit_v2.safetensors`，强度 1.0）
 
 ## 节点结构
 
@@ -18,7 +18,7 @@
 |---|---|---|
 | 18:1 | UNETLoader | 加载 MOSS-Image SFT turbo 主模型（int8） |
 | 18:37 | LoraLoaderModelOnly | NSFW LoRA（强度 0.7） |
-| 18:2 / 18:3 | CLIPLoader / VAELoader | 文本编码 Qwen3.5_9B_ultra_uncensored_heretic_int8_convrot_gptq_bf16norms.safetensors（moss_image）/ flux2-vae |
+| 18:2 / 18:3 | CLIPLoader / VAELoader | 文本编码 Qwen3.5_9B_ultra_uncensored_heretic_int8_convrot_gptq_bf16norms（moss_image）/ flux2-vae |
 | 18:14 | PrimitiveStringMultiline | LLM 改写系统提示（中文粗需求 → 英文图像提示词） |
 | **85** | PrimitiveStringMultiline | **正面提示词输入口（value 写提示词，经 18:17 转接）** |
 | 86 | PrimitiveStringMultiline | 负面提示词输入口（默认留空） |
@@ -52,7 +52,7 @@
 
 ## 使用方法
 
-1. 导入 JSON 到你的 ComfyUI，确保已下载：MOSS-Image SFT turbo 主模型、NSFW LoRA、Krea2 turbo、identity edit LoRA、Qwen3.5_9B_ultra_uncensored_heretic_int8_convrot_gptq_bf16norms.safetensors / qwen3vl_4b 文本编码器、flux2-vae / qwen_image_vae
+1. 导入 JSON 到你的 ComfyUI，确保已下载：MOSS-Image SFT turbo 主模型、NSFW LoRA、Krea2 turbo、identity edit LoRA、Qwen3.5_9B_ultra_uncensored_heretic_int8_convrot_gptq_bf16norms / qwen3vl_4b 文本编码器、flux2-vae / qwen_image_vae
 2. 女主正脸参考图：把 `assets/face-real.jpg` 上传到 ComfyUI 输入目录（节点 76 默认文件名即 face-real.jpg），或改节点 76 指向你的文件
 3. 提示词写入节点 **85 的 value**（英文自然语言写实描述，经 18:17 转接）；把 18:16 置 True 可走 18:11 TextGenerate 自动改写（配合 18:14 系统提示可投喂中文粗需求）；负面提示词可填入节点 86
 4. 采样步数/CFG 在 18:7、75:73；换脸强度可用 75:72 的 ref_boost 微调

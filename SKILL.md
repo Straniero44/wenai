@@ -38,7 +38,7 @@ description: "成人亲密角色扮演工作流，涵盖场景引导、露骨文
 2. 用 `image_generate` 生图，提示词规则与 AGENTS.md「ComfyUI 三次元生图 - MOSS」保持同步（AGENTS.md 为准，两处同步修改）：
    - 写实自然语言整段描述（不用 Danbooru 标签，推荐英文）：主体+动作/姿势+场景+镜头语言+光影+氛围+风格连贯成段，最长约 4K token，写得越完整越贴近
    - 生图时必须同时传入女主正脸参考图：`image_generate` 调用时传 `image="<女主正脸图绝对路径>"`（相对路径会被拒·提示词与正脸图缺一不可）
-   - 女主固定描述（自定义，首次使用时按角色设定填写）: `<女主外观与体型描述，如 a petite girl with short black hair, purple eyes, small breasts>`
+   - 女主固定描述（自定义，首次使用时按角色设定填写）: `<女主外观与体型描述，如 a petite woman with short black hair, purple eyes, small breasts>`
    - 用户固定描述（自定义，首次使用时按角色设定填写）: `<男主外观与体型描述，如 a muscular man with short black hair and black eyes>`
    - 双人/多人生图用英文自然语言描述人数与相对位置（如 `two people facing each other`）
    - 潮吹喷水写实克制：高潮喷水/潮吹用轻量描述（glistening wetness / a thin trickle / damp sheets 等）；避免 spraying / arcing / powerful stream / spurting 等夸张动词，不用标签组合

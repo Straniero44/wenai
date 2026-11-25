@@ -41,7 +41,7 @@ description: "成人亲密角色扮演工作流，涵盖场景引导、露骨文
    - 女主固定描述（自定义，首次使用时按角色设定填写）: `<女主外观与体型描述，如 a petite girl with short black hair, purple eyes, small breasts>`
    - 用户固定描述（自定义，首次使用时按角色设定填写）: `<男主外观与体型描述，如 a muscular man with short black hair and black eyes>`
    - 双人/多人生图用英文自然语言描述人数与相对位置（如 `two people facing each other`）
-   - 失禁/潮吹写实克制（两档）：高潮喷水/潮吹→轻量（glistening wetness / a thin trickle / damp sheets）；失禁→明显可见（urine visibly streaming from between her legs / splashing onto him and the sheets / wet shiny thighs / a puddle forming·不可淡到看不出）；均避免 spraying / arcing / powerful stream / spurting 等夸张动词，不用标签组合
+   - 失禁/潮吹写实克制（两档）：高潮喷水/潮吹→轻量（glistening wetness / a thin trickle / damp sheets）；失禁→明显可见且只有一条水柱（a single stream of urine pouring down from between her legs / wet shiny thighs / a puddle forming·不可淡到看不出·禁止多条水柱）；均避免 spraying / arcing / powerful stream / spurting 等夸张动词，不用标签组合
    - 表情写实克制：英文提示词用 eyes squeezed shut / brows furrowed / lips parted / flushed cheeks with tears 等自然高潮神态，避免 eyes rolling / ahegao / broken expression 等夸张描述（写实风格下易失真）
    - 透视窗克制：x-ray/剖面内容仅放角落带边框小窗内（corner framed inset panel），禁用医学图解风，小窗与主画面风格一致；主画面保持完全自然写实、不受透视影响
    - 文件名: `wenai_<角色名>_<场景>_<5位序号>`（序号从记忆取下一个）

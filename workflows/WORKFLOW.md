@@ -18,7 +18,7 @@
 |---|---|---|
 | 18:1 | UNETLoader | 加载 MOSS-Image SFT turbo 主模型（int8） |
 | 18:37 | LoraLoaderModelOnly | NSFW LoRA（强度 0.7） |
-| 18:2 / 18:3 | CLIPLoader / VAELoader | 文本编码 Qwen3.5_9B_ultra_uncensored_heretic_int8_convrot_gptq_bf16norms / flux2-vae |
+| 18:2 / 18:3 | CLIPLoader / VAELoader | 文本编码 Qwen3.5_9B_ultra_uncensored_heretic_int8_convrot_gptq_bf16norms（moss_image）/ flux2-vae |
 | 18:14 | PrimitiveStringMultiline | LLM 改写系统提示（中文粗需求 → 英文图像提示词） |
 | **85** | PrimitiveStringMultiline | **正面提示词输入口（value 写提示词，经 18:17 转接）** |
 | 86 | PrimitiveStringMultiline | 负面提示词输入口（默认留空） |

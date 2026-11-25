@@ -1532,12 +1532,12 @@
               ]
             },
             "widgets_values": [
-              "Qwen3.5_9B_ultra_uncensored_heretic_int8_convrot_gptq_bf16norms.safetensors",
+              "qwen3.5_9b_w4a8_gptq.safetensors",
               "moss_image",
               "default"
             ],
             "widgets_values_named": {
-              "clip_name": "Qwen3.5_9B_ultra_uncensored_heretic_int8_convrot_gptq_bf16norms.safetensors",
+              "clip_name": "qwen3.5_9b_w4a8_gptq.safetensors",
               "type": "moss_image",
               "device": "default"
             },

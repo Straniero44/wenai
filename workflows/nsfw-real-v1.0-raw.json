@@ -182,7 +182,7 @@
         "",
         1024,
         1024,
-        378838122645726,
+        639416288072549,
         12,
         1,
         "euler",
@@ -201,7 +201,7 @@
         "text": "",
         "width": 1024,
         "height": 1024,
-        "seed": 378838122645726,
+        "seed": 639416288072549,
         "steps": 12,
         "cfg": 1,
         "sampler_name": "euler",
@@ -1644,7 +1644,7 @@
               "Node name for S&R": "KSampler"
             },
             "widgets_values": [
-              1079856452515620,
+              639416288072549,
               "randomize",
               8,
               1,
@@ -1653,7 +1653,7 @@
               1
             ],
             "widgets_values_named": {
-              "seed": 1079856452515620,
+              "seed": 639416288072549,
               "control_after_generate": "randomize",
               "steps": 8,
               "cfg": 1,

@@ -3599,7 +3599,7 @@
               "Node name for S&R": "KSampler"
             },
             "widgets_values": [
-              42,
+              479383395652397,
               "randomize",
               10,
               1,
@@ -3608,7 +3608,7 @@
               1
             ],
             "widgets_values_named": {
-              "seed": 42,
+              "seed": 479383395652397,
               "control_after_generate": "randomize",
               "steps": 10,
               "cfg": 1,

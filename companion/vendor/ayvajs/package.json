@@ -1,0 +1,9 @@
+{
+  "name": "ayvajs",
+  "version": "0.19.0",
+  "private": true,
+  "type": "module",
+  "description": "Vendored copy of ayvajs 0.19.0 for companion. See README.md.",
+  "main": "index.js",
+  "license": "MIT"
+}

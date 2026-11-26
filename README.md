@@ -62,6 +62,8 @@ wenai/
 ├── SKILL.tag.md          # Danbooru 标签版（生图规则对应 v1.0 / v2.0 / v3.0）
 ├── SKILL.nl.md           # 自然语言版（生图规则对应 v2.1）
 ├── HEARTBEAT.md          # 心跳清单：随机主动消息（可选，需 Agent 心跳功能）
+├── companion/            # 可选。SR6 / OSR2+ 的本地运动服务
+├── skills/sr6-improv/    # 可选。有设备并开了 Wi-Fi 再装
 ├── workflows/            # ComfyUI 生图工作流（详见 workflows/WORKFLOW.md）
 │   ├── WORKFLOW.md       # 工作流说明：节点结构 / 使用方法 / 注意事项
 │   ├── nsfw-anime-v1.0.json / v1.0-raw.json
@@ -81,6 +83,18 @@ wenai/
 - 仅限填写的 `[用户名]` 本人使用，其他账号调用一律拒绝
 - 所有内容为成年人虚构角色扮演
 - 档案与统计实时落盘，删除文件即重置关系（请谨慎备份你的"回忆"）
+
+## 可选：SR6 / OSR2+
+
+wenai 还是恋爱互动技能。没有这两台设备就不用看这一节。
+
+有 **SR6** 或 **OSR2+**，并且设备已经打开 Wi-Fi、和跑 Agent 的电脑在同一局域网时，可以再装下面两样，让场景里的身体动作带动设备：
+
+1. 安装 Node.js 20 或更新版本。不需要 `npm install`。
+2. 进入 `companion/`，执行 `npm start`。浏览器打开 <http://127.0.0.1:8787/>，填设备 IP，端口一般是 `8000`，点「应用地址」。探测通过才会保存。
+3. 把 `skills/sr6-improv` 单独装成和 wenai 并列的技能。有设备时两个一起启用。文字、生图、档案仍只走 wenai。
+
+串口和蓝牙不用。设备没开 Wi-Fi，或电脑和设备不在同一网络时，不要装。服务怎么用见 [companion/README.md](companion/README.md)。
 
 ---
 

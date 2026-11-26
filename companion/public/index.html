@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>设备配置</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #1c1915;
+      --muted: #5c564c;
+      --line: #e3d9c8;
+      --paper: #f6f1e8;
+      --card: #fffdf8;
+      --accent: #9a3412;
+      --accent-soft: #f3d6c4;
+      --danger: #9f1239;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font: 16px/1.45 ui-sans-serif, "Segoe UI", sans-serif;
+    }
+
+    main {
+      width: min(40rem, calc(100% - 2rem));
+      margin: 0 auto;
+      padding: 2rem 0 3rem;
+    }
+
+    h1 {
+      margin: 0 0 0.35rem;
+      font-size: 1.7rem;
+      letter-spacing: -0.03em;
+    }
+
+    h2 {
+      margin: 0 0 0.75rem;
+      font-size: 1.05rem;
+    }
+
+    p { margin: 0; }
+
+    .lead, .hint { color: var(--muted); }
+
+    .lead { margin-bottom: 0.75rem; }
+
+    #status {
+      min-height: 1.45em;
+      margin: 0.75rem 0 0;
+      font-variant-numeric: tabular-nums;
+    }
+
+    #status.failed { color: var(--danger); }
+
+    section {
+      margin-top: 1rem;
+      padding: 1rem 1.1rem 1.15rem;
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+    }
+
+    .address {
+      display: grid;
+      grid-template-columns: 1fr 8rem auto;
+      gap: 0.75rem;
+      align-items: end;
+      margin-top: 0.9rem;
+    }
+
+    label {
+      display: grid;
+      gap: 0.3rem;
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    input[type="text"],
+    input[type="number"] {
+      width: 100%;
+      padding: 0.55rem 0.65rem;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+      color: var(--ink);
+      font: inherit;
+    }
+
+    input:focus {
+      outline: 2px solid var(--accent-soft);
+      border-color: var(--accent);
+    }
+
+    button {
+      height: 2.55rem;
+      padding: 0 0.9rem;
+      border: 0;
+      border-radius: 8px;
+      background: var(--accent);
+      color: #fffdf8;
+      font: inherit;
+      cursor: pointer;
+    }
+
+    button:hover { filter: brightness(1.08); }
+
+    .speed-head, .axis-name {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 0.75rem;
+    }
+
+    .check {
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+      margin: 0.2rem 0 0.8rem;
+      color: var(--ink);
+      font-size: 1rem;
+    }
+
+    .speed-row, .axis {
+      display: grid;
+      grid-template-columns: 5.5rem 1fr 8.5rem;
+      gap: 0.75rem;
+      align-items: center;
+    }
+
+    .axis + .axis { margin-top: 0.95rem; }
+
+    .code {
+      color: var(--muted);
+      font-variant-numeric: tabular-nums;
+      font-size: 0.85rem;
+    }
+
+    input[type="range"] {
+      width: 100%;
+      accent-color: var(--accent);
+    }
+
+    .span {
+      position: relative;
+      height: 1.75rem;
+    }
+
+    .span .track,
+    .span .fill {
+      position: absolute;
+      top: 50%;
+      height: 4px;
+      transform: translateY(-50%);
+      border-radius: 999px;
+    }
+
+    .span .track {
+      left: 0;
+      right: 0;
+      background: var(--line);
+    }
+
+    .span .fill { background: var(--accent); }
+
+    .span input[type="range"] {
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: 1.75rem;
+      margin: 0;
+      background: none;
+      pointer-events: none;
+      appearance: none;
+    }
+
+    .span input[type="range"]::-webkit-slider-runnable-track {
+      height: 4px;
+      background: transparent;
+    }
+
+    .span input[type="range"]::-webkit-slider-thumb {
+      pointer-events: auto;
+      appearance: none;
+      width: 18px;
+      height: 18px;
+      margin-top: -7px;
+      border: 2px solid #fffdf8;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 0 1px var(--accent);
+    }
+
+    .span input[type="range"]::-moz-range-track {
+      height: 4px;
+      background: transparent;
+      border: none;
+    }
+
+    .span input[type="range"]::-moz-range-thumb {
+      pointer-events: auto;
+      width: 18px;
+      height: 18px;
+      border: 2px solid #fffdf8;
+      border-radius: 50%;
+      background: var(--accent);
+    }
+
+    .hint { margin-top: 0.7rem; font-size: 0.85rem; }
+
+    @media (max-width: 640px) {
+      .address, .speed-row, .axis {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <h1>设备配置</h1>
+      <p class="lead">这个页面和运动服务在同一个端口。拖动滑块后会写入配置，并立刻作用到正在运行的输出。</p>
+      <p id="status" role="status">正在读取…</p>
+    </header>
+
+    <section>
+      <h2>设备地址</h2>
+      <div class="address">
+        <label>主机
+          <input id="device-host" type="text" name="host" placeholder="tcode.local" autocomplete="off" spellcheck="false">
+        </label>
+        <label>UDP 端口
+          <input id="device-port" type="number" name="port" placeholder="8000" min="1" max="65535" inputmode="numeric">
+        </label>
+        <button id="apply-device" type="button">应用地址</button>
+      </div>
+      <p class="hint">留空后应用，主机保存为 tcode.local，端口保存为 8000。应用前会探测这个 UDP 端口，没有开放就不会保存。</p>
+    </section>
+
+    <section>
+      <div class="speed-head">
+        <h2>最大限速</h2>
+        <span class="code">天花板 <span id="speed-ceiling">10</span></span>
+      </div>
+      <label class="check">
+        <input id="speed-enabled" type="checkbox">
+        启用限速
+      </label>
+      <div class="speed-row">
+        <span>满量程/秒</span>
+        <input id="speed-slider" type="range" min="0.1" max="10" step="0.1" aria-label="最大限速">
+        <input id="speed-value" type="number" min="0.1" max="10" step="0.1" aria-label="最大限速数值">
+      </div>
+      <p class="hint">1 表示从轴的一端走到另一端需要 1 秒。限速默认开着，数值是 5。这里不能关掉，要关掉只能发 speed_limit 指令。</p>
+    </section>
+
+    <section>
+      <h2>行程限制</h2>
+      <div id="axes"></div>
+      <p class="hint">0 和 1 是这一轴的两端。下限和上限不能相同。</p>
+    </section>
+  </main>
+  <noscript><p>需要启用 JavaScript 才能调整配置。</p></noscript>
+  <script>
+    const AXES = [
+      ['stroke', 'L0', '行程'],
+      ['surge', 'L1', '前后'],
+      ['sway', 'L2', '左右'],
+      ['twist', 'R0', '扭转'],
+      ['roll', 'R1', '滚转'],
+      ['pitch', 'R2', '俯仰'],
+    ];
+
+    const statusEl = document.querySelector('#status');
+    const hostInput = document.querySelector('#device-host');
+    const portInput = document.querySelector('#device-port');
+    const applyButton = document.querySelector('#apply-device');
+    const speedEnabled = document.querySelector('#speed-enabled');
+    const speedSlider = document.querySelector('#speed-slider');
+    const speedValue = document.querySelector('#speed-value');
+    const speedCeiling = document.querySelector('#speed-ceiling');
+    const axesRoot = document.querySelector('#axes');
+    const axisEls = new Map();
+
+    function round1(value) {
+      return Math.round(value * 10) / 10;
+    }
+
+    function round2(value) {
+      return Math.round(value * 100) / 100;
+    }
+
+    function setStatus(text, failed) {
+      statusEl.textContent = text;
+      statusEl.classList.toggle('failed', Boolean(failed));
+    }
+
+    function explain(message) {
+      if (/ENOTFOUND|EAI_AGAIN|Cannot resolve/.test(message)) {
+        return '找不到这个主机。留空会使用 tcode.local；设备不在网上时，改填它的 IP。';
+      }
+      if (/is not open|ECONNREFUSED/.test(message)) {
+        return '这个地址的 UDP 端口没有开放，配置没有保存。';
+      }
+      if (/unreachable|EHOSTUNREACH|ENETUNREACH/.test(message)) {
+        return '设备网络不可达，配置没有保存。';
+      }
+      if (/speed_limit command turns it off/.test(message)) {
+        return '限速只能由控制指令关闭，配置没有改。';
+      }
+      return message;
+    }
+
+    for (const [key, code, label] of AXES) {
+      const row = document.createElement('div');
+      row.className = 'axis';
+      row.innerHTML = [
+        `<div class="axis-name"><span>${label}</span><span class="code">${code}</span></div>`,
+        '<div class="span">',
+        '<div class="track"></div>',
+        `<div class="fill" data-fill="${key}"></div>`,
+        `<input id="travel-${key}-min" type="range" min="0" max="1" step="0.01" aria-label="${label}下限">`,
+        `<input id="travel-${key}-max" type="range" min="0" max="1" step="0.01" aria-label="${label}上限">`,
+        '</div>',
+        `<label>下限到上限<input id="travel-${key}-text" type="text" inputmode="decimal" aria-label="${label}数值"></label>`,
+      ].join('');
+      axesRoot.append(row);
+      axisEls.set(key, {
+        min: row.querySelector(`#travel-${key}-min`),
+        max: row.querySelector(`#travel-${key}-max`),
+        text: row.querySelector(`#travel-${key}-text`),
+        fill: row.querySelector(`[data-fill="${key}"]`),
+      });
+    }
+
+    function ordered(pair) {
+      const [left, right] = pair;
+      return left <= right ? [left, right] : [right, left];
+    }
+
+    function placeFill(key) {
+      const els = axisEls.get(key);
+      const min = Number(els.min.value);
+      const max = Number(els.max.value);
+      els.fill.style.left = `${min * 100}%`;
+      els.fill.style.right = `${(1 - max) * 100}%`;
+      els.text.value = `${min.toFixed(2)} – ${max.toFixed(2)}`;
+    }
+
+    function separate(key, edited) {
+      const els = axisEls.get(key);
+      let min = round2(Number(els.min.value));
+      let max = round2(Number(els.max.value));
+      if (!(max > min)) {
+        if (edited === 'min') min = round2(Math.max(0, max - 0.01));
+        else max = round2(Math.min(1, min + 0.01));
+      }
+      if (!(max > min)) {
+        min = 0;
+        max = 0.01;
+      }
+      els.min.value = String(min);
+      els.max.value = String(max);
+      placeFill(key);
+      return [min, max];
+    }
+
+    function paint(view, force) {
+      const active = document.activeElement;
+      if (force || active !== hostInput) hostInput.value = view.udp.host ?? '';
+      if (force || active !== portInput) portInput.value = view.udp.port == null ? '' : String(view.udp.port);
+      const ceiling = Number(view.speedCap.ceiling);
+      const speedMin = ceiling < 0.1 ? ceiling : 0.1;
+      speedSlider.min = String(speedMin);
+      speedSlider.max = String(ceiling);
+      speedValue.min = String(speedMin);
+      speedValue.max = String(ceiling);
+      speedCeiling.textContent = String(ceiling);
+      speedEnabled.disabled = Boolean(view.speedCap.enabled);
+      if (force || active !== speedEnabled) {
+        speedEnabled.checked = Boolean(view.speedCap.enabled);
+      }
+      if (force || (active !== speedSlider && active !== speedValue)) {
+        const speed = view.speedCap.maxUnitsPerSecond;
+        speedSlider.value = String(speed);
+        speedValue.value = String(speed);
+      }
+      for (const [key, els] of axisEls) {
+        const pair = view.travel?.[key];
+        if (!pair) continue;
+        const [min, max] = ordered(pair);
+        const editing = active === els.min || active === els.max || active === els.text;
+        if (force || !editing) {
+          els.min.value = String(min);
+          els.max.value = String(max);
+          placeFill(key);
+        }
+      }
+    }
+
+    let queued = null;
+    let sending = false;
+    let timer = 0;
+
+    function mergeBody(current, next) {
+      if (!current) return next;
+      const merged = { ...current, ...next };
+      if (current.speedCap || next.speedCap) merged.speedCap = { ...current.speedCap, ...next.speedCap };
+      if (current.travel || next.travel) merged.travel = { ...current.travel, ...next.travel };
+      if (current.udp || next.udp) merged.udp = { ...current.udp, ...next.udp };
+      return merged;
+    }
+
+    async function load(force) {
+      const response = await fetch('/api/config', { cache: 'no-store' });
+      const payload = await response.json();
+      if (!response.ok) throw new Error(payload.error || '读取失败');
+      paint(payload, force);
+      return payload;
+    }
+
+    async function flush() {
+      if (sending || !queued) return;
+      sending = true;
+      try {
+        while (queued) {
+          const body = queued;
+          queued = null;
+          try {
+            const response = await fetch('/api/config', {
+              method: 'POST',
+              headers: { 'content-type': 'application/json' },
+              body: JSON.stringify(body),
+              cache: 'no-store',
+            });
+            const payload = await response.json();
+            if (!response.ok) throw new Error(explain(payload.error || '保存失败'));
+            paint(payload, false);
+            setStatus('已保存');
+          } catch (error) {
+            queued = null;
+            setStatus(error instanceof Error ? explain(error.message) : '保存失败', true);
+            try {
+              await load(true);
+            } catch {
+              // The save error is already on the page.
+            }
+          }
+        }
+      } finally {
+        sending = false;
+        applyButton.disabled = false;
+      }
+    }
+
+    function enqueue(body, immediate) {
+      queued = mergeBody(queued, body);
+      window.clearTimeout(timer);
+      timer = 0;
+      if (immediate) {
+        flush();
+        return;
+      }
+      if (!sending) timer = window.setTimeout(flush, 160);
+    }
+
+    function speedBody() {
+      const ceiling = Number(speedSlider.max);
+      const floor = Number(speedSlider.min);
+      let value = round1(Number(speedValue.value));
+      if (!Number.isFinite(value)) value = floor;
+      value = Math.min(ceiling, Math.max(floor, value));
+      speedSlider.value = String(value);
+      speedValue.value = String(value);
+      return {
+        speedCap: {
+          maxUnitsPerSecond: value,
+        },
+      };
+    }
+
+    speedSlider.addEventListener('input', () => {
+      speedValue.value = speedSlider.value;
+      enqueue(speedBody(), false);
+    });
+
+    speedValue.addEventListener('change', () => {
+      enqueue(speedBody(), true);
+    });
+
+    speedEnabled.addEventListener('change', () => {
+      if (!speedEnabled.checked) {
+        speedEnabled.checked = true;
+        speedEnabled.disabled = true;
+        setStatus('限速只能由控制指令关闭，配置没有改。', true);
+        return;
+      }
+      const value = round1(Number(speedValue.value));
+      enqueue({ speedCap: { enabled: true, maxUnitsPerSecond: value } }, true);
+    });
+
+    for (const [key, els] of axisEls) {
+      const send = (edited, immediate) => {
+        const [min, max] = separate(key, edited);
+        enqueue({ travel: { [key]: [min, max] } }, immediate);
+      };
+      els.min.addEventListener('input', () => send('min', false));
+      els.max.addEventListener('input', () => send('max', false));
+      els.text.addEventListener('change', () => {
+        const match = els.text.value.match(/(\d+(?:\.\d+)?)\D+(\d+(?:\.\d+)?)/);
+        if (!match) {
+          placeFill(key);
+          setStatus('行程写成 0.10 – 0.90 这样的两个数', true);
+          return;
+        }
+        els.min.value = String(round2(Number(match[1])));
+        els.max.value = String(round2(Number(match[2])));
+        send('max', true);
+      });
+    }
+
+    applyButton.addEventListener('click', () => {
+      const host = hostInput.value.trim();
+      const portText = portInput.value.trim();
+      const udp = { host };
+      if (portText === '') udp.port = '';
+      else {
+        const port = Number(portText);
+        if (!Number.isInteger(port) || port < 1 || port > 65535) {
+          setStatus('端口要是 1 到 65535 的整数', true);
+          return;
+        }
+        udp.port = port;
+      }
+      applyButton.disabled = true;
+      setStatus('正在检查 UDP 端口…');
+      enqueue({ udp }, true);
+    });
+
+    load(true).then(() => {
+      setStatus('已读取当前配置');
+    }).catch((error) => {
+      setStatus(error instanceof Error ? error.message : '读取失败', true);
+    });
+  </script>
+</body>
+</html>
